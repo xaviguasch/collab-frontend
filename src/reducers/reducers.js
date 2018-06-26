@@ -7,8 +7,15 @@ const user = [];
 
 //reducers
 const userLogged = (state = user, action) => {
-  console.log(state);
-};
+switch (action.type) {
+  case 'GET_USER':
+    return {
+      user.push(action.data)
+    }
+    break;
+  default:
+
+}};
 
 //export reducers
 export const reducers = (state, action) => {

@@ -26,7 +26,7 @@ class LogIn extends Component {
       headers: {
         "Content-Type": "application/json"
       }
-    });
+    }).then(data => this.props.userLogged(data));
   };
 
   render() {
@@ -51,8 +51,12 @@ class LogIn extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  userLogged: state.userLogged
+});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  userLogged: data => dispatch(userLogged(data))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

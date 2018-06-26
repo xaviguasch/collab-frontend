@@ -10,14 +10,14 @@ class MainScreen extends Component {
         <div className="first-mainscreen-component">
           {/* <p id="title">mainscreen</p> */}
           {/* <LogInInputs user={{ ...this.props }} /> */}
-          <iframe
+          {/* <iframe
             className="videoContainer__video"
             width="100%"
             height="100%"
             src="https://www.youtube.com/embed/fw3rAQeGFkI?showinfo=0&disablekb=1&wmode=opaque&autoplay=1&controls=0&loop=1&playlist=fw3rAQeGFkI"
             frameBorder="0"
             allow="autoplay; encrypted-media"
-          />
+          /> */}
         </div>
         <div className="second-mainscreen-component" />
       </div>
