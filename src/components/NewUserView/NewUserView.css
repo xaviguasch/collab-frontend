@@ -1,0 +1,18 @@
+.inputfield:focus {
+  width: 50%;
+  box-sizing: border-box;
+  background-color: #66a3ff;
+  color: white;
+  border: 
+}
+
+.formfield {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+}
+
+form {
+  flex: auto;
+}

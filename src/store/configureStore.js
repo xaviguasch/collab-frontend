@@ -1,7 +1,6 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { reducers } from "../reducers/reducers";
 import logger from "redux-logger";
-import { applyMiddleware } from "redux";
 
 import { loadState, saveState } from "./localStorageHelper";
 
