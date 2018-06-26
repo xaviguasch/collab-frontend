@@ -18,6 +18,14 @@ class MainScreen extends Component {
             frameBorder="0"
             allow="autoplay; encrypted-media"
           /> */}
+          <iframe
+            src="//gifs.com/embed/cny-companies-landing-page-video-7LmzJw"
+            frameborder="0"
+            scrolling="no"
+            width="100%"
+            height="100%"
+            style="-webkit-backface-visibility: hidden;-webkit-transform: scale(1);"
+          />
         </div>
         <div className="second-mainscreen-component" />
       </div>
