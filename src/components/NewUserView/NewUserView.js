@@ -27,7 +27,6 @@ class NewUserView extends React.Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault()
     if (this.state.password !== this.state.confirmedpassword) throw Error;
     let data = {
       'username': this.state.username,
@@ -35,16 +34,6 @@ class NewUserView extends React.Component {
       'password': this.state.password,
       'email': this.state.email
     }
-    fetch("http://private-eb9653-collab5.apiary-mock.com/register", {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
 
 
   }
@@ -52,9 +41,11 @@ class NewUserView extends React.Component {
 
   render() {
     return (
-            <form className="form" onSubmit={this.handleSubmit}>
+
+          <div className="form">
+            <form onSubmit={this.handleSubmit}>
               <label className="formfield" id="username">
-                <p className="form-name">Username</p>
+                Username<br></br>
                 <input
                   className="inputfield"
                   placeholder="choose a username..."
@@ -62,9 +53,9 @@ class NewUserView extends React.Component {
                   type="text"
                   name="username"
                   id="username-input"/>
-              </label>
+              </label><br></br>
               <label className="formfield" id="pubkey">
-                <p className="form-name">Public Key</p>
+                Public Key<br></br>
                 <input
                   className="inputfield"
                   placeholder="enter your public key..."
@@ -72,9 +63,9 @@ class NewUserView extends React.Component {
                   type="text"
                   name= "pubkey"
                   id="pubkey-input"/>
-              </label>
+              </label><br></br>
               <label className="formfield" id="password">
-              <p className="form-name">Password</p>
+                Password<br></br>
                 <input
                   className="inputfield"
                   placeholder="choose your password..."
@@ -82,9 +73,9 @@ class NewUserView extends React.Component {
                   type="password"
                   name= "password"
                   id="password-input"/>
-              </label>
+              </label><br></br>
               <label className="formfield" id="confirmpassword">
-                <p className="form-name">Confirm Password</p>
+                Confirm Password<br></br>
                 <input
                   className="inputfield"
                   placeholder="confirm your password..."
@@ -92,9 +83,9 @@ class NewUserView extends React.Component {
                   type="password"
                   name="confirmedpassword"
                   id="confirmpassword-input"/>
-              </label>
+              </label><br></br>
               <label className="formfield" id="email">
-                <p className="form-name">e-mail</p>
+                e-mail<br></br>
                 <input
                   className="inputfield"
                   placeholder="enter your e-mail..."
@@ -102,9 +93,10 @@ class NewUserView extends React.Component {
                   type="email"
                   name="email"
                   id="email-input"/>
-              </label>
+              </label><br></br>
               <input className="submitbutton" type="submit" value="Submit" />
             </form>
+          </div>
     );
   }
 }
