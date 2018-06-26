@@ -52,7 +52,7 @@ class LogIn extends Component {
 }
 
 const mapStateToProps = state => ({
-  userLogged: state.userLogged
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
