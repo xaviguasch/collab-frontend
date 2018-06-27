@@ -1,11 +1,16 @@
 //imports
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-//main screen, import component add title
+//user logged component, small div on right side of the navbar that onclick redirects you user profile
 class UserLogged extends Component {
   render() {
-    return <div className="userlogged-component">{this.props.UserLogged}</div>;
+    return (
+      <Link to="/user" className="userlogged-component">
+        {this.props.userLogged.username}
+      </Link>
+    );
   }
 }
 

@@ -1,4 +1,4 @@
-export const getUsers = data => ({
-  type: "GET_USER",
+export const userLogged = data => ({
+  type: "USER_LOGGED",
   data
 });

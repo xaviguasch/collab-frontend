@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { Provider } from 'react-redux'
-import NewUserView from './components/NewUserView/NewUserView.js'
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+// import { reducers } from "./reducers/reducers";
+import store from './store/configureStore';
 
 ReactDOM.render(
-<Provider>
-  <App />
-</Provider>
-  , document.getElementById('root'));
+  <div style={{ height: '100vh' }}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </div>,
+
+  document.getElementById('root')
+);
 registerServiceWorker();
