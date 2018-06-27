@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import './NewUserView.css'
-const jwt = require('jsonwebtoken')
+import ApiClient from '../../lib/ApiClient.js'
+
 
 
 class NewUserView extends React.Component {
@@ -12,6 +10,8 @@ class NewUserView extends React.Component {
     super(props);
     this.state = {
       username: "",
+      firstname: "",
+      lastname: "",
       pubkey: "",
       password: "",
       confirmedpassword: "",
@@ -26,26 +26,46 @@ class NewUserView extends React.Component {
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
+    event.preventDefault()
     if (this.state.password !== this.state.confirmedpassword) throw Error;
     let data = {
       'username': this.state.username,
-      'pubkey': this.state.pubkey,
+      'firstname': this.state.firstname,
+      'lastname': this.state.lastname,
+      'public_key': this.state.pubkey,
       'password': this.state.password,
       'email': this.state.email
     }
-
-
+    ApiClient.createUser(data)
   }
 
 
   render() {
     return (
-
-          <div className="form">
-            <form onSubmit={this.handleSubmit}>
+            <form className="form" onSubmit={this.handleSubmit}>
+              <label className="formfield" id="firstname">
+                <p className="form-name">First Name</p>
+                <input
+                  className="inputfield"
+                  placeholder="enter your name..."
+                  onChange={this.handleChange}
+                  type="text"
+                  name="firstname"
+                  id="firstname-input"/>
+                </label>
+              <label className="formfield" id="lastname">
+                <p className="form-name">Last Name</p>
+                <input
+                  className="inputfield"
+                  placeholder="enter your lastname..."
+                  onChange={this.handleChange}
+                  type="text"
+                  name="lastname"
+                  id="lastname-input"/>
+              </label>
               <label className="formfield" id="username">
-                Username<br></br>
+                <p className="form-name">Username</p>
                 <input
                   className="inputfield"
                   placeholder="choose a username..."
@@ -53,9 +73,9 @@ class NewUserView extends React.Component {
                   type="text"
                   name="username"
                   id="username-input"/>
-              </label><br></br>
+              </label>
               <label className="formfield" id="pubkey">
-                Public Key<br></br>
+                <p className="form-name">Public Key</p>
                 <input
                   className="inputfield"
                   placeholder="enter your public key..."
@@ -63,9 +83,9 @@ class NewUserView extends React.Component {
                   type="text"
                   name= "pubkey"
                   id="pubkey-input"/>
-              </label><br></br>
+              </label>
               <label className="formfield" id="password">
-                Password<br></br>
+              <p className="form-name">Password</p>
                 <input
                   className="inputfield"
                   placeholder="choose your password..."
@@ -73,9 +93,9 @@ class NewUserView extends React.Component {
                   type="password"
                   name= "password"
                   id="password-input"/>
-              </label><br></br>
+              </label>
               <label className="formfield" id="confirmpassword">
-                Confirm Password<br></br>
+                <p className="form-name">Confirm Password</p>
                 <input
                   className="inputfield"
                   placeholder="confirm your password..."
@@ -83,9 +103,9 @@ class NewUserView extends React.Component {
                   type="password"
                   name="confirmedpassword"
                   id="confirmpassword-input"/>
-              </label><br></br>
+              </label>
               <label className="formfield" id="email">
-                e-mail<br></br>
+                <p className="form-name">e-mail</p>
                 <input
                   className="inputfield"
                   placeholder="enter your e-mail..."
@@ -93,10 +113,9 @@ class NewUserView extends React.Component {
                   type="email"
                   name="email"
                   id="email-input"/>
-              </label><br></br>
+              </label>
               <input className="submitbutton" type="submit" value="Submit" />
             </form>
-          </div>
     );
   }
 }

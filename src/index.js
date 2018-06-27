@@ -8,7 +8,7 @@ import NewUserView from './components/NewUserView/NewUserView.js'
 
 ReactDOM.render(
 <Provider>
-  <NewUserView />
+  <App />
 </Provider>
   , document.getElementById('root'));
 registerServiceWorker();
