@@ -13,9 +13,8 @@ const apiFetch = (path, originalOptions = {}, ...rest) => {
   }
   return fetch(url, options, ...rest)
     .then(res => {
-      // token = res.headers.get('x-token');
-      console.log(res)
-      token = res.response
+      token = res.headers.get('x-token');
+      // token = res.response
       localStorage.setItem('token', token)
       return res
     })
@@ -23,7 +22,26 @@ const apiFetch = (path, originalOptions = {}, ...rest) => {
 }
 
 const createUser = (data) => {;
-  return apiFetch('/register', {
+  return apiFetch('/register/', {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+}
+
+const getUnvotedOperations = () => {
+  return apiFetch('/vote/')
+}
+
+const getOperation = (operation) => {
+  return apiFetch('/operations/' + operation)
+}
+
+const voteOperation = (data) => {;
+  return apiFetch('/vote/', {
     method: "POST",
     headers: {
       'Accept': 'application/json',
@@ -34,6 +52,11 @@ const createUser = (data) => {;
 }
 
 
+
+
 export default {
   createUser,
+  getUnvotedOperations,
+  voteOperation,
+  getOperation,
 }
