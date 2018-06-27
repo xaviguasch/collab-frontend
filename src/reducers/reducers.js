@@ -1,23 +1,24 @@
 //imports
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
 //initial states
-
-const user = [];
+let userLoggedIn = {};
 
 //reducers
-const userLogged = (state = user, action) => {
+const userLogged = (state = userLoggedIn, action) => {
   switch (action.type) {
-    case "GET_USER":
-      return {
-        user: user.push(action.data)
-      };
-      break;
+    case 'USER_LOGGED':
+      userLoggedIn = action.data;
+      console.log(action.data);
+      return userLoggedIn;
+    case 'USER_LOGOUT':
+      return {};
     default:
+      return state;
   }
 };
 
 //export reducers
 export const reducers = combineReducers({
-  user: userLogged
+  userLogged
 });
