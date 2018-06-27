@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { reducers } from "./reducers/reducers";
-import store from "./store/configureStore";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+// import { reducers } from "./reducers/reducers";
+import store from './store/configureStore';
 
 ReactDOM.render(
-  <div style={{ height: "100vh" }}>
+  <div style={{ height: '100vh' }}>
     <Provider store={store}>
       <BrowserRouter>
         <App />
@@ -17,6 +17,6 @@ ReactDOM.render(
     </Provider>
   </div>,
 
-  document.getElementById("root")
+  document.getElementById('root')
 );
 registerServiceWorker();

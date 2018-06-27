@@ -80,16 +80,24 @@ iframe {
   margin-right: 40px;
 }
 
-#logo {
+.navbar-title {
   margin-left: 10%;
   color: white;
   text-decoration: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-title p {
+  font-weight: 2000;
+  margin-left: 20px;
+  margin-top: 25px;
 }
 
 /*LOGIN*/
 
 .login-component {
-  z-index: 2;
+  z-index: 1;
   height: 18;
   width: auto;
   padding-bottom: 10px;
@@ -98,4 +106,32 @@ iframe {
 .login-component-item {
   border-radius: 15px 15px 15px 15px;
   margin-right: 8px;
+}
+
+/*USERPROFILE*/
+
+.userprofile-father {
+  height: 100%;
+  width: 100%;
+  background-color: grey;
+}
+.userprofile-child-one {
+  top: 120px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: coral;
+}
+
+.userprofile-background-image {
+  height: 50%;
+  width: 100%;
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-create-wallet {
+  padding: 16px 80px;
 }

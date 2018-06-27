@@ -1,9 +1,9 @@
-import { createStore } from "redux";
-import { reducers } from "../reducers/reducers";
-import logger from "redux-logger";
-import { applyMiddleware } from "redux";
+import { createStore } from 'redux';
+import { reducers } from '../reducers/reducers';
+// import logger from "redux-logger";
+// import { applyMiddleware } from 'redux';
 
-import { loadState, saveState } from "./localStorageHelper";
+import { loadState, saveState } from './localStorageHelper';
 
 const store = createStore(
   reducers,
