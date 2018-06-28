@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import './UserVote.css'
+import React, { Component } from 'react';
+import './UserVote.css';
 
 
-class UserVote extends React.Component {
+class UserVote extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
 
-    }
+    };
 
   }
 
@@ -24,4 +24,4 @@ class UserVote extends React.Component {
 
 
 
-export default UserVote
+export default UserVote;

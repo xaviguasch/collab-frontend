@@ -1,0 +1,43 @@
+.selectedWallet-father {
+  display:flex;
+  flex-direction: column;
+  background-color: grey;
+  height:100%;
+  width:100%;
+
+}
+
+.selectedWallet-top {
+  position:relative;
+  height:20%;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 60px;
+  margin-top: 120px;
+  background-color: lightgreen;
+}
+
+.selectedWallet-bottom {
+  height: 80%;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.selectedWallet-transaction {
+  background-color: pink;
+  height: 80%;
+  width:60%;
+
+}
+
+.selectedWallet-collaborators {
+    background-color:coral;
+    height: 80%;
+    width:25%;
+}

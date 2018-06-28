@@ -1,0 +1,11 @@
+.login-component {
+  z-index: 1;
+  height: 18;
+  width: auto;
+  padding-bottom: 10px;
+}
+
+.login-component-item {
+  border-radius: 15px 15px 15px 15px;
+  margin-right: 8px;
+}

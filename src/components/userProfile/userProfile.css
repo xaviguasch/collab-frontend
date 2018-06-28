@@ -1,0 +1,63 @@
+.userprofile-father {
+  height: 100%;
+  width: 100%;
+  background-color: grey;
+}
+.userprofile-child-one {
+  top: 120px;
+  padding-bottom:120px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: coral;
+
+}
+
+.userprofile-child-two {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  padding-top: 20%;
+  justify-content: space-around;
+  overflow-y: scroll;
+}
+
+.userprofile-background-image {
+  height: 60%;
+  width: 100%;
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-create-wallet {
+  padding: 16px 80px;
+  border-radius: 15px;
+  background-color: skyblue;
+  font-family: monospace;
+  color: white;
+  font-size: 1.25em;
+}
+
+.button-create-wallet:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.walletItem-users{
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.walletitem-userName {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}

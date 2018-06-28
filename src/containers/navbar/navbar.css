@@ -1,0 +1,38 @@
+.navbar-container {
+  position: absolute;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.nav-bar-links {
+  margin-right: 10%;
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-bar-links-items {
+  color: white;
+  text-decoration: none;
+  margin-right: 40px;
+}
+
+.navbar-title {
+  margin-left: 10%;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-title p {
+  font-weight: 2000;
+  margin-left: 20px;
+  margin-top: 25px;
+}
