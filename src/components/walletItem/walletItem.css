@@ -1,0 +1,64 @@
+.walletItem-father {
+  min-height:180px;
+  width:90%;
+  border-radius: 20px;
+  display:flex;
+  flex-direction: column;
+  background-color: lime;
+  margin-top:3%;
+}
+
+.walletItem-father:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.walletItem-child-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: pink;
+  height:90px;
+  weight:100%;
+  margin: 6px 10px;
+}
+
+.walletItem-child-top p {
+  margin-left: 20px;
+}
+
+
+.walletItem-child-bottom {
+  background-color: white;
+  height:90px;
+  weight:100%;
+  margin: 10px 10px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.walletItem-child-top p {
+  text-decoration: none !important;
+  font-size: 2em;
+  font-family:monospace;
+  color:white;
+
+}
+
+.walletItem-userName {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.walletItem-amount {
+  margin-right: 20px;
+}
+
+.walletItem-userName p {
+  text-decoration: none;
+}

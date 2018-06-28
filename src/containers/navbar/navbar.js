@@ -1,10 +1,13 @@
 //imports
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'; // ES6
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import LogIn from './login';
-import UserLogged from './userLogged';
-import icon from '../assets/users-group.png';
+import LogIn from '../login';
+import UserLogged from '../userLogged';
+import icon from '../../assets/users-group.png';
+import './navbar.css';
+
 // import { isEmpty } from 'lodash';
 //navbar component, add links (routes) and append component of login
 class NavBar extends Component {
@@ -20,11 +23,12 @@ class NavBar extends Component {
     this.setState({
       isHiddenLogIn: !this.state.isHiddenLogIn
     });
-  };
+  }
 
   getLogInComponent = () => {
     return <LogIn />;
-  };
+  }
+
 
   render() {
     return (
@@ -58,10 +62,15 @@ class NavBar extends Component {
 }
 
 //manage state to props and dispatch all actions needed in navbar
+
+NavBar.propTypes = {
+  userLogged: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = state => ({
   userLogged: state.userLogged
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({})
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
