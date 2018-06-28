@@ -39,6 +39,8 @@
 
 .form {
   display: flex;
+  padding-top: 120px;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;

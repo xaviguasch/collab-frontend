@@ -13,13 +13,22 @@ class UserVotePage extends React.Component {
     this.props.fetchPendingOperations()
   }
 
+  handleVoteOperation = (operation_id, publicKey, vote) => {
+    const data = {
+      operation_id,
+      publicKey,
+      vote
+    }
+    this.props.fetchVoteOperation(data)
+  }
+
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
         <div className="vote">
-        { this.props.pendingOperations.length
-          ? this.props.pendingOperations.map((el, i) =>
-          <UserVoteCard key={Math.random()} operation={el} />)
+        { this.props.pendingOperations.length > 1
+          ? this.props.pendingOperations.map((el, i) => {
+          return <UserVoteCard key={el.operation_id} operation={el} handleVoteOperation={this.handleVoteOperation} />}) // marke sure to fix Math.random
           : <h4>loading...</h4>
         }
       </div>
@@ -34,8 +43,16 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPendingOperations: () => dispatch ({
     type: 'FETCH_PENDING_OPERATIONS',
     [API]: {
-      path: '/vote/',
+      path: '/vote',
       method: 'GET'
+    }
+  }),
+  fetchVoteOperation: (data) => dispatch ({
+    type: 'FETCH_VOTE_OPERATION',
+    [API]: {
+      path: '/vote',
+      method: 'POST',
+      body: data
     }
   })
 })
