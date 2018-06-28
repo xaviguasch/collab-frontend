@@ -1,8 +1,11 @@
 //imports
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './login.css';
+import PropTypes from 'prop-types'; // ES6
+
 // import { reducers } from '../reducers/reducers';
-import { userLogged } from '../actions';
+import { userLogged } from '../../actions';
 
 //login component, add two text-areas one for username and another for password
 //get method to check validation, if response is positive append user component on navbar
@@ -19,21 +22,22 @@ class LogIn extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-  };
+  }
 
   getUser = event => {
     event.preventDefault();
     event.target.reset();
-    fetch(' http://private-d75f9-collab5.apiary-mock.com/login', {
+    fetch(' http://192.168.1.241:3030/login', {
       method: 'POST',
-      body: JSON.stringify(this.state),
+      // body: JSON.stringify(this.state),
       headers: {
+        'Authorization':'Basic '+ btoa(this.state.username+':'+this.state.password),
         'Content-Type': 'application/json'
       }
     })
       .then(res => res.json())
       .then(data => this.props.userLogged(data));
-  };
+  }
 
   render() {
     return (
@@ -60,8 +64,13 @@ class LogIn extends Component {
   }
 }
 
+LogIn.propTypes = {
+  userLogged: PropTypes.object.isRequired,
+};
+
+
 const mapStateToProps = state => ({
-  userLogged: state.user
+  userLogged: state.userLogged
 });
 
 const mapDispatchToProps = dispatch => ({
