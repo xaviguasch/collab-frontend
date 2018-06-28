@@ -2,14 +2,14 @@ export const API = Symbol('API') //ask what this
 
 export default baseURL => store => next => action => {
   let token = localStorage.getItem('token');
-  console.log('we here')
   if (action[API] ){
     const options = {
       headers:{
         'Content-Type': 'application/json',
         'Authorization': token && `Bearer ${token}`,
       },
-      'method': action[API].method
+      'method': action[API].method,
+      'body': JSON.stringify(action[API].body)
     }
     fetch(`${baseURL}${action[API].path}`, options)
       .then(res => {
