@@ -7,9 +7,9 @@ import { Route, Switch } from 'react-router-dom';
 import MainScreen from './components/mainscreen/mainscreen';
 import NavBar from './containers/navbar/navbar';
 import NewUserView from './components/NewUserView';
-import UserVote from './components/UserVote';
 import UserProfile from './components/userProfile/userProfile';
 import SelectedWallet from './containers/selectedWallet/selectedWallet';
+import UserVotePage from './containers/UserVotePage';
 
 //app component: append navbar component and router to all routes
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route path="/register" component={NewUserView} />
-          <Route path="/vote" component={UserVote} />
+          <Route path="/vote" component={UserVotePage} />
           <Route exact path="/" component={MainScreen} />
           <Route path="/user" component={UserProfile} />
           <Route path="/selectedWallet/:walletId" component={SelectedWallet} />
