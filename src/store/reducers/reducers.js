@@ -8,23 +8,25 @@ let userWallets = {};
 //reducers
 const userLogged = (state = userLoggedIn, action) => {
   switch (action.type) {
-    case 'USER_LOGGED':
-      userLoggedIn = action.data;
-      console.log(action.data);
-      return userLoggedIn;
-    case 'USER_LOGOUT':
-      return {};
-    default:
-      return state;
+  case 'USER_LOGGED':
+    userLoggedIn = action.data;
+    return userLoggedIn;
+  case 'USER_LOGOUT':
+    return {};
+  default:
+    return state;
   }
 };
 
 const getWallets = (state = userWallets, action) => {
   switch (action.type) {
   case 'GET_WALLETS':
-    console.log(action.data, 'XXXX')
     userWallets = action.data;
     return userWallets;
+  case 'FETCH_CREATE_WALLET':
+    return userWallets;
+  case 'FETCH_CREATE_WALLET_SUCCESS':
+    return {...state, ...action.data};
   default:
     return state;
 
