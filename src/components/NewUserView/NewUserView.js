@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './NewUserView.css';
-import ApiClient from '../../lib/ApiClient.js';
+
+import { connect } from 'react-redux';
+import {API} from '../../store/middlewares/apiService';
 
 class NewUserView extends Component {
   constructor(props) {
@@ -33,7 +35,7 @@ class NewUserView extends Component {
       password: this.state.password,
       email: this.state.email
     };
-    ApiClient.createUser(data);
+    this.props.fetchCreateUser(data);
   }
 
   render() {
@@ -122,4 +124,15 @@ class NewUserView extends Component {
   }
 }
 
-export default NewUserView;
+const mapDispatchToProps = dispatch => ({
+  fetchCreateUser: (data) => dispatch ({
+    type: 'FETCH_CREATE_USER',
+    [API]: {
+      path: '/register/',
+      method: 'POST',
+      body: data
+    }
+  })
+});
+
+export default connect(null, mapDispatchToProps)(NewUserView);

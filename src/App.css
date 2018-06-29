@@ -8,8 +8,14 @@
 .father {
   height: 100%;
   width: 100%;
+  background-color: rgb(3,21,41);
+  
 }
 
 .App {
   height: 100%;
+}
+
+* {
+  text-decoration: none;
 }
