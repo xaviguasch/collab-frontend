@@ -50,7 +50,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchVoteOperation: (data) => dispatch ({
     type: 'FETCH_VOTE_OPERATION',
     [API]: {
-      path: '/vote',
+      path: '/vote/',
       method: 'POST',
       body: data
     }

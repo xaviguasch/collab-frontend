@@ -4,32 +4,72 @@ import PropTypes from 'prop-types'; // ES6
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LogIn from '../login';
-import UserLogged from '../userLogged';
 import icon from '../../assets/users-group.png';
 import './navbar.css';
-
+import NewUserView from '../../components/NewUserView';
 // import { isEmpty } from 'lodash';
 //navbar component, add links (routes) and append component of login
 class NavBar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isHiddenLogIn: true
-      // isHiddenSubmit: true
+      signUpDrawer: false,
+      logInDrawer: false
     };
   }
 
-  toggleHidden = () => {
+  handleClickSignup = () => {
     this.setState({
-      isHiddenLogIn: !this.state.isHiddenLogIn
+      signUpDrawer: !this.state.signUpDrawer,
+      logInDrawer: false
+    });
+  }
+  handleClickLogin = () => {
+    this.setState({
+      logInDrawer: !this.state.logInDrawer,
+      signUpDrawer: false
     });
   }
 
-  getLogInComponent = () => {
-    return <LogIn />;
+  hideAll = () => {
+    this.setState({
+      logInDrawer: false,
+      signUpDrawer: false
+    });
   }
 
-
+  renderLogin = () => {
+    if (this.props.userLogged.username) return (
+      <div>
+        <Link to='/user'>
+          My wallets
+        </Link>
+        <button onClick={this.props.logout}>Log out</button>
+      </div>
+    );
+    return (<div className="nav-bar-links">
+      <button
+        style={{
+          backgroundColor: 'transparent',
+          'borderStyle': 'none',
+        }}
+        onClick={() => this.handleClickSignup()}
+        className="userenter"
+        value="signup">
+        SIGN UP
+      </button>
+      <button
+        style={{
+          'backgroundColor': 'transparent',
+          'borderStyle': 'none'
+        }}
+        onClick={() => this.handleClickLogin()}
+        className="userenter"
+        value="login">
+        LOG IN
+      </button>
+    </div>);
+  }
   render() {
     return (
       <div className="navbar-container">
@@ -39,38 +79,45 @@ class NavBar extends Component {
             COLLAB
           </p>
         </Link>
-        <div className="nav-bar-links">
-          <Link className="nav-bar-links-items" to="/about">
-            ABOUT US
-          </Link>
-          <Link className="nav-bar-links-items" to="/register">
-            SIGN UP
-          </Link>
-          {this.state.isHiddenLogIn &&
-            !this.props.userLogged.username && (
-              <a onClick={this.toggleHidden}>LOG IN</a>
-            )}
+        {this.renderLogin()}
 
-          {!this.state.isHiddenLogIn &&
-            !this.props.userLogged.username && <LogIn />}
+        <div
+          className="signup"
+          style={
+            this.state.signUpDrawer
+              ? {left: '80%'}
+              : {left: '100vw'}
+          }>
+          <NewUserView hideAll={this.hideAll}/>
+        </div>
 
-          {this.props.userLogged.username && <UserLogged />}
+        <div
+          className="login"
+          style={
+            this.state.logInDrawer
+              ? {left: '80%'}
+              : {left: '100vw'}
+          }>
+          <LogIn hideAll={this.hideAll}/>
         </div>
       </div>
     );
   }
 }
 
-//manage state to props and dispatch all actions needed in navbar
-
 NavBar.propTypes = {
-  userLogged: PropTypes.object.isRequired,
+  userLogged: PropTypes.object,
+  logout: PropTypes.func
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   userLogged: state.userLogged
 });
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch ({
+    type: 'USER_LOGOUT'
+  })
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

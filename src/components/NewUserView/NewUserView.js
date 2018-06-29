@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import './NewUserView.css';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import {API} from '../../store/middlewares/apiService';
+import { Redirect } from 'react-router';
+
 
 class NewUserView extends Component {
   constructor(props) {
@@ -14,7 +17,8 @@ class NewUserView extends Component {
       pubkey: '',
       password: '',
       confirmedpassword: '',
-      email: ''
+      email: '',
+      redirectToUserView: false
     };
   }
 
@@ -36,13 +40,16 @@ class NewUserView extends Component {
       email: this.state.email
     };
     this.props.fetchCreateUser(data);
+    this.props.hideAll();
+    this.setState({redirectToUserView:true});
   }
 
   render() {
+    if (this.state.redirectToUserView) return <Redirect to='/user' />;
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         <label className="formfield" id="firstname">
-          <p className="form-name">First Name</p>
+          <p className="form-name">FIRST NAME</p>
           <input
             className="inputfield"
             placeholder="enter your name..."
@@ -50,10 +57,11 @@ class NewUserView extends Component {
             type="text"
             name="firstname"
             id="firstname-input"
+            required
           />
         </label>
         <label className="formfield" id="lastname">
-          <p className="form-name">Last Name</p>
+          <p className="form-name">LAST NAME</p>
           <input
             className="inputfield"
             placeholder="enter your lastname..."
@@ -61,10 +69,11 @@ class NewUserView extends Component {
             type="text"
             name="lastname"
             id="lastname-input"
+            required
           />
         </label>
         <label className="formfield" id="username">
-          <p className="form-name">Username</p>
+          <p className="form-name">USERNAME</p>
           <input
             className="inputfield"
             placeholder="choose a username..."
@@ -72,10 +81,11 @@ class NewUserView extends Component {
             type="text"
             name="username"
             id="username-input"
+            required
           />
         </label>
         <label className="formfield" id="pubkey">
-          <p className="form-name">Public Key</p>
+          <p className="form-name">PUBLIC KEY</p>
           <input
             className="inputfield"
             placeholder="enter your public key..."
@@ -83,10 +93,11 @@ class NewUserView extends Component {
             type="text"
             name="pubkey"
             id="pubkey-input"
+            required
           />
         </label>
         <label className="formfield" id="password">
-          <p className="form-name">Password</p>
+          <p className="form-name">PASSWORD</p>
           <input
             className="inputfield"
             placeholder="choose your password..."
@@ -94,10 +105,11 @@ class NewUserView extends Component {
             type="password"
             name="password"
             id="password-input"
+            required
           />
         </label>
         <label className="formfield" id="confirmpassword">
-          <p className="form-name">Confirm Password</p>
+          <p className="form-name">CONFIRM PASSWORD</p>
           <input
             className="inputfield"
             placeholder="confirm your password..."
@@ -105,10 +117,11 @@ class NewUserView extends Component {
             type="password"
             name="confirmedpassword"
             id="confirmpassword-input"
+            required
           />
         </label>
         <label className="formfield" id="email">
-          <p className="form-name">e-mail</p>
+          <p className="form-name">E-MAIL</p>
           <input
             className="inputfield"
             placeholder="enter your e-mail..."
@@ -116,6 +129,7 @@ class NewUserView extends Component {
             type="email"
             name="email"
             id="email-input"
+            required
           />
         </label>
         <input className="submitbutton" type="submit" value="Submit" />
@@ -123,6 +137,11 @@ class NewUserView extends Component {
     );
   }
 }
+
+NewUserView.propTypes = {
+  fetchCreateUser: PropTypes.func.isRequired,
+  hideAll: PropTypes.func.isRequired
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchCreateUser: (data) => dispatch ({

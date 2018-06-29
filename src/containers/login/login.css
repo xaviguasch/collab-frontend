@@ -2,9 +2,52 @@
   height: 18;
   width: auto;
   padding-bottom: 10px;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  float: center;
+
 }
 
 .login-component-item {
-  border-radius: 15px 15px 15px 15px;
-  margin-right: 8px;
+  width: 70%;
+  background-color: rgb(255,255,255,0.75);
+  display: block;
+  border: none;
+  padding: 8px 16px;
+  margin: 10px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-button {
+  width: 50%;
+  background-color: rgb(0, 23, 138, 0.6);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 30px;
+  cursor: pointer;
+  font-size: 16px
+
+}
+
+.form {
+
+}
+
+.formfield {
+  display: block;
+  width: 100%;
+  justify-content: center;
 }
