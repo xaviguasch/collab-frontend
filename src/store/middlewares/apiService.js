@@ -7,6 +7,7 @@ export default baseURL => store => next => action => {
       headers:{
         'Content-Type': 'application/json',
         'Authorization': token && `Bearer ${token}`,
+        ...action[API].headers
       },
       'method': action[API].method,
       'body': JSON.stringify(action[API].body)

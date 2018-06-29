@@ -5,7 +5,8 @@ import './login.css';
 import PropTypes from 'prop-types'; // ES6
 
 // import { reducers } from '../reducers/reducers';
-import { userLogged } from '../../actions';
+// import { userLogged } from '../../actions';
+import API from '../../store/middlewares/apiService';
 
 //login component, add two text-areas one for username and another for password
 //get method to check validation, if response is positive append user component on navbar
@@ -27,16 +28,18 @@ class LogIn extends Component {
   getUser = event => {
     event.preventDefault();
     event.target.reset();
-    fetch(' http://192.168.1.241:3030/login', {
-      method: 'POST',
-      // body: JSON.stringify(this.state),
-      headers: {
-        'Authorization':'Basic '+ btoa(this.state.username+':'+this.state.password),
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(data => this.props.userLogged(data));
+    // fetch(' http://192.168.1.241:3030/login', {
+    //   method: 'POST',
+    //   // body: JSON.stringify(this.state),
+    //   headers: {
+    //     'Authorization':'Basic '+ btoa(this.state.username+':'+this.state.password),
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+    //   .then(res => res.json())
+    //   .then(res => console.log(res))
+    //   .then(data => this.props.userLogged(data));
+    this.props.fetchLogin(this.state.username, this.state.password);
   }
 
   render() {
@@ -49,6 +52,7 @@ class LogIn extends Component {
           placeholder="Username..."
           size="20"
           onChange={this.captureInput}
+          required
         />
         <input
           name="password"
@@ -57,6 +61,7 @@ class LogIn extends Component {
           placeholder="Password..."
           size="20"
           onChange={this.captureInput}
+          required
         />
         <input type="submit" value="Submit" className='login-button'/>
       </form>
@@ -66,6 +71,7 @@ class LogIn extends Component {
 
 LogIn.propTypes = {
   userLogged: PropTypes.object.isRequired,
+  fetchLogin: PropTypes.func.isRequired,
 };
 
 
@@ -74,7 +80,15 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  userLogged: data => dispatch(userLogged(data))
+  fetchLogin: (user, password) => dispatch({
+    type: 'FETCH_LOGIN',
+    [API]: {
+      method: 'POST',
+      headers: {
+        'Authorization':'Basic '+ btoa(`${user}:${password}`)
+      }
+    }
+  })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
