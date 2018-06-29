@@ -58,7 +58,7 @@ class LogIn extends Component {
           size="20"
           onChange={this.captureInput}
         />
-        <input type="submit" value="Submit" style={{ display: 'none' }} />
+        <input type="submit" value="Submit" className='login-button'/>
       </form>
     );
   }
