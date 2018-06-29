@@ -4,25 +4,24 @@ import operations from './operations';
 //initial states
 let userLoggedIn = {};
 let userWallets = {};
+let userTransaction = [];
 
 //reducers
 const userLogged = (state = userLoggedIn, action) => {
   switch (action.type) {
-    case 'USER_LOGGED':
-      userLoggedIn = action.data;
-      console.log(action.data);
-      return userLoggedIn;
-    case 'USER_LOGOUT':
-      return {};
-    default:
-      return state;
+  case 'USER_LOGGED':
+    userLoggedIn = action.data;
+    return userLoggedIn;
+  case 'USER_LOGOUT':
+    return {};
+  default:
+    return state;
   }
 };
 
 const getWallets = (state = userWallets, action) => {
   switch (action.type) {
   case 'GET_WALLETS':
-    console.log(action.data, 'XXXX')
     userWallets = action.data;
     return userWallets;
   default:
@@ -30,9 +29,24 @@ const getWallets = (state = userWallets, action) => {
 
   }
 };
+
+const getTransactions = (state = userTransaction, action) => {
+  switch (action.type) {
+  case 'GET_TRANSACTIONS':
+    userTransaction = action.data;
+    console.log(userTransaction);
+    return userTransaction;
+
+  default:
+    return state;
+
+  }
+};
+
 //export reducers
 export const reducers = combineReducers({
   userLogged,
   operations,
-  getWallets
+  getWallets,
+  getTransactions
 });
