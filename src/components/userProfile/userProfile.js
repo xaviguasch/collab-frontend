@@ -32,15 +32,16 @@ class UserProfile extends Component {
   }
 
   renderWallets = () => {
-    let id = -1;
-    return this.props.renderWallets.wallets.map(e => {
-      id++;
-      return <WalletItem key={Math.random()} wallet = {e} id = {id}/>;
-    });
+    if(this.props.renderWallets.wallets && this.props.renderWallets.wallets.length) {
+      let id = -1;
+      return this.props.renderWallets.wallets.map(e => {
+        id++;
+        return <WalletItem key={Math.random()} wallet = {e} id = {id}/>;
+      });
+    }
   }
 
   render() {
-    console.log(this.props.userLogged);
     return (
       <div className="userprofile-father">
         <div className="userprofile-child-one">
@@ -73,6 +74,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+
   getWallets: data => dispatch(getWallets(data)),
 
 });
