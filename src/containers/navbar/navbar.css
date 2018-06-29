@@ -38,8 +38,11 @@
 }
 
 .signup {
+  margin-top: 420px;
+  min-height: 900px;
+  display: inline;
   position: fixed;
   width: 20%;
-  background-color:rgba(0, 0, 0, 0.5);
-  transition: all ease 5s;
+  background-color:rgba(255, 255, 255, 0.5);
+  transition: all ease 1.5s;
 }

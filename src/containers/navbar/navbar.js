@@ -60,13 +60,12 @@ class NavBar extends Component {
       {/* <div className="login">
         <LogIn />
       </div> */}
-
       <div
         className="signup"
         style={
           this.state.drawer
-          ? {right: "0%"}
-          : {right: "100vw"}
+          ? {left: "80%"}
+          : {left: "100vw"}
         }>
         <NewUserView />
       </div>
