@@ -6,6 +6,10 @@ import './selectedWallet.css';
 import PropTypes from 'prop-types'; // ES6
 import icon from '../../assets/user_icon.jpg';
 import {getTransactions} from '../../actions';
+import { Layout, Menu } from 'antd';
+
+const { Header, Content, Footer, Sider } = Layout;
+
 
 
 
@@ -14,10 +18,10 @@ import {getTransactions} from '../../actions';
 class SelectedWallet extends Component {
   constructor (props) {
     super(props);
+    this.getTransactions();
     this.state = {
-      wallet: this.props.renderWallets.wallets[this.props.match.params.walletId]
-    }
-    this.getTransactions()
+      showPK:false
+    };
   }
 
   getTransactions = () =>{
@@ -33,21 +37,39 @@ class SelectedWallet extends Component {
       .then(data => this.props.getTransactions(data));
   }
 
-  renderUsers = () => {
-    return this.state.wallet.users.map( e => {
-      if (this.state.wallet.users.length<10){
-        return (
-          <div className='walletItem-userName'>
-            <img src={icon} height='30' width='30' />
-            <p>{e.username}</p>
-          </div>
-        );
-      }
-      else {
-        return <p>{this.state.wallet.users.length} other collaborators</p>;
-      }
-    });
+  //FUNCTIONALITIES
+  showPublicKey = () =>{
+    if (!this.state.showPK){
+      // this.setState({showPK:true})
+      return <button className='selectedWallet-header-button'>Show Public Key</button>
+    }
+    return (
+      <div className='selectedWallet-header-publickey'>
+        <p>{this.props.wallet.publickey}</p>
+        <button className='selectedWallet-header-button' onClick={this.setState({
+          showPK:false
+        })}>X</button>
+      </div>
+    )
   }
+
+  //RENDER USERS AND TRANSACTIONS
+
+  // renderUsers = () => {
+  //   return this.state.wallet.users.map( e => {
+  //     if (this.state.wallet.users.length<10){
+  //       return (
+  //         <div className='walletItem-userName'>
+  //           <img src={icon} height='30' width='30' />
+  //           <p>{e.username}</p>
+  //         </div>
+  //       );
+  //     }
+  //     else {
+  //       return <p>{this.state.wallet.users.length} other collaborators</p>;
+  //     }
+  //   });
+  // }
 
   // renderTransactions = () => {
   //   if(this.props.renderTransactions && this.props.renderTransactions.length){
@@ -59,37 +81,21 @@ class SelectedWallet extends Component {
 
 
   render() {
-    console.log(this.state.wallet);
     return (
-      <div className='selectedWallet-father'>
-        <div className='selectedWallet-top'>
-          <h3>{this.state.wallet.alias}</h3>
-          <p>Available Balance: {this.state.wallet.balance}</p>
-          <button>Withdrawal Request</button>
-          <p>Public Key: {this.state.wallet.publickey}</p>
-        </div>
+      <div className='selectedWallet-father' >
+        <header className='selectedWallet-header'>
+          <div className='selectedWallet-header-alias'>
+            {this.props.wallet.alias}
+          </div>
+          <div className='selectedWallet-header-publickey-button'>
+            {this.showPublicKey()}
+          </div>
+        </header>
 
-        <div className = 'selectedWallet-bottom'>
-              <div className= 'selectedWallet-transaction'>
-            <div className= 'selectedWallet-transaction-title'>
-              <h3>Transactions</h3>
-            </div>
-            <div className= 'selectedWallet-transaction-history'>
-              {/* {this.renderTransactions()} */}
-            </div>
-          </div>
-          <div className='selectedWallet-collaborators'>
-            <div className='selectedWallet-collaborators-title'>
-            <h3>Collaborators</h3>
-            </div>
-            <div className='selectedWallet-collaborators-list'>
-            {this.renderUsers()}
-            </div>
-          </div>
-        </div>
 
 
       </div>
+
     );
   }
 }
