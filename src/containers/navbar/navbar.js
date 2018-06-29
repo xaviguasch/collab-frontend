@@ -7,17 +7,20 @@ import LogIn from '../login';
 import UserLogged from '../userLogged';
 import icon from '../../assets/users-group.png';
 import './navbar.css';
-
+import NewUserView from '../../components/NewUserView'
 // import { isEmpty } from 'lodash';
 //navbar component, add links (routes) and append component of login
 class NavBar extends Component {
   constructor() {
     super();
     this.state = {
-      isHiddenLogIn: true
+      isHiddenLogIn: true,
+      signUpDrawer: false,
+      logInDrawer: false,
+      }
       // isHiddenSubmit: true
     };
-  }
+
 
   toggleHidden = () => {
     this.setState({
@@ -40,23 +43,59 @@ class NavBar extends Component {
           </p>
         </Link>
         <div className="nav-bar-links">
-          <Link className="nav-bar-links-items" to="/about">
-            ABOUT US
-          </Link>
-          <Link className="nav-bar-links-items" to="/register">
+          <button
+            style={{
+              'background-color': 'transparent',
+              'border-style': 'none'
+            },
+              this.state.signUpDrawer
+              ? {'font-weight': 'normal'}
+              : {'font-weight': 'lighter'}
+            }
+            onClick={() => this.setState({signUpDrawer: !this.state.signUpDrawer})}
+            className="userenter"
+            value="signup">
             SIGN UP
-          </Link>
-          {this.state.isHiddenLogIn &&
-            !this.props.userLogged.username && (
-              <a onClick={this.toggleHidden}>LOG IN</a>
-            )}
+          </button>
+          <button
+            style={{
+              'background-color': 'transparent',
+              'border-style': 'none'
+            },
+              this.state.logInDrawer
+              ? {'font-weight': 'normal'}
+              : {'font-weight': 'lighter'}
+            }
+            onClick={() => this.setState({logInDrawer: !this.state.logInDrawer})}
+            className="userenter"
+            value="login">
+            LOG IN
+          </button>
 
-          {!this.state.isHiddenLogIn &&
-            !this.props.userLogged.username && <LogIn />}
-
-          {this.props.userLogged.username && <UserLogged />}
-        </div>
       </div>
+
+      <div
+        className="signup"
+        style={
+          this.state.signupDrawer
+          ? {left: "80%"}
+          : {left: "100vw"}
+        }>
+        <NewUserView />
+      </div>
+
+      <div
+        className="login"
+        style={
+          this.state.logInDrawer
+          ? {left: "80%"}
+          : {left: "100vw"}
+        }>
+        <LogIn />
+      </div>
+
+
+    </div>
     );
   }
 }
