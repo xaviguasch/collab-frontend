@@ -38,11 +38,32 @@
 }
 
 .signup {
-  margin-top: 420px;
-  min-height: 900px;
+  padding-top: 1000px;
+  margin-bottom: 100px;
+  padding-bottom: 200px;
   display: inline;
   position: fixed;
   width: 20%;
-  background-color:rgba(255, 255, 255, 0.5);
+  background-color:rgba(255, 255, 255, 0.4);
   transition: all ease 1.5s;
+}
+.login {
+  padding-top: 1000px;
+  margin-bottom: 100px;
+  padding-bottom: 200px;
+  display: inline;
+  position: fixed;
+  width: 20%;
+  background-color:rgba(255, 255, 255, 0.4);
+  transition: all ease 1.5s;
+}
+
+.userenter {
+  font-size: 20px;
+  background-color: transparent;
+  outline: none;
+  border-style: none;
+  color: rgb(255, 255, 255, 1);
+  margin-left: 10px;
+  margin-right: 10px;
 }

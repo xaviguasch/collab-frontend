@@ -15,7 +15,8 @@ class NavBar extends Component {
     super();
     this.state = {
       isHiddenLogIn: true,
-      drawer: false
+      signUpDrawer: false,
+      logInDrawer: false,
       }
       // isHiddenSubmit: true
     };
@@ -46,29 +47,53 @@ class NavBar extends Component {
             style={{
               'background-color': 'transparent',
               'border-style': 'none'
-            }}
-            onClick={() => this.setState({drawer: !this.state.drawer})}
+            },
+              this.state.signUpDrawer
+              ? {'font-weight': 'normal'}
+              : {'font-weight': 'lighter'}
+            }
+            onClick={() => this.setState({signUpDrawer: !this.state.signUpDrawer})}
+            className="userenter"
             value="signup">
             SIGN UP
           </button>
           <button
-            onClick={() => this.getLogInComponent}
+            style={{
+              'background-color': 'transparent',
+              'border-style': 'none'
+            },
+              this.state.logInDrawer
+              ? {'font-weight': 'normal'}
+              : {'font-weight': 'lighter'}
+            }
+            onClick={() => this.setState({logInDrawer: !this.state.logInDrawer})}
+            className="userenter"
             value="login">
             LOG IN
           </button>
+
       </div>
-      {/* <div className="login">
-        <LogIn />
-      </div> */}
+
       <div
         className="signup"
         style={
-          this.state.drawer
+          this.state.signupDrawer
           ? {left: "80%"}
           : {left: "100vw"}
         }>
         <NewUserView />
       </div>
+
+      <div
+        className="login"
+        style={
+          this.state.logInDrawer
+          ? {left: "80%"}
+          : {left: "100vw"}
+        }>
+        <LogIn />
+      </div>
+
 
     </div>
     );
