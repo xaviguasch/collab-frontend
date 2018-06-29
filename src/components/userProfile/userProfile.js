@@ -4,9 +4,14 @@ import './userProfile.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {getWallets} from '../../actions';
+<<<<<<< HEAD
 import { Layout, Menu } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
+=======
+import WalletItem from '../walletItem/walletItem';
+import CreateWallet from '../createWallet';
+>>>>>>> development
 
 //users profile component, create a link to a creation of new wallet and its redirect, append all existing wallets of user
 class UserProfile extends Component {

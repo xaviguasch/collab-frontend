@@ -24,6 +24,10 @@ const getWallets = (state = userWallets, action) => {
   case 'GET_WALLETS':
     userWallets = action.data;
     return userWallets;
+  case 'FETCH_CREATE_WALLET':
+    return userWallets;
+  case 'FETCH_CREATE_WALLET_SUCCESS':
+    return {...state, ...action.data};
   default:
     return state;
 
