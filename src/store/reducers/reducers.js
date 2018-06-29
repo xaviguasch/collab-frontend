@@ -4,6 +4,7 @@ import operations from './operations';
 //initial states
 let userLoggedIn = {};
 let userWallets = {};
+let userTransaction = [];
 
 //reducers
 const userLogged = (state = userLoggedIn, action) => {
@@ -32,9 +33,24 @@ const getWallets = (state = userWallets, action) => {
 
   }
 };
+
+const getTransactions = (state = userTransaction, action) => {
+  switch (action.type) {
+  case 'GET_TRANSACTIONS':
+    userTransaction = action.data;
+    console.log(userTransaction);
+    return userTransaction;
+
+  default:
+    return state;
+
+  }
+};
+
 //export reducers
 export const reducers = combineReducers({
   userLogged,
   operations,
-  getWallets
+  getWallets,
+  getTransactions
 });

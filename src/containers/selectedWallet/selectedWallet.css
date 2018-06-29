@@ -17,7 +17,9 @@
   align-items: center;
   margin-right: 60px;
   margin-top: 120px;
-  background-color: lightgreen;
+  background-color: white;
+  border-top: solid black;
+  border-bottom: solid black;
 }
 
 .selectedWallet-bottom {
@@ -28,16 +30,48 @@
   justify-content: space-around;
   align-items: center;
 }
+.selectedWallet-bottom h3 {
+  align-self: center;
+}
 
 .selectedWallet-transaction {
-  background-color: pink;
+  background-color: white;
   height: 80%;
   width:60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 20px;
+  border:solid black;
+}
 
+.selectedWallet-transaction-title {
+  align-self: center;
+}
+.selectedWallet-transaction-history {
 }
 
 .selectedWallet-collaborators {
-    background-color:coral;
+    background-color:white;
     height: 80%;
     width:25%;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 20px;
+    border:solid black;
+
+}
+.selectedWallet-collaborators-title {
+  align-self: center;
+}
+.selectedWallet-collaborators-title h3 {
+
+  align-self: center;
+}
+
+.selectedWallet-collaborators-list {
+
 }
