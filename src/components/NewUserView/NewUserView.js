@@ -40,7 +40,7 @@ class NewUserView extends Component {
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         <label className="formfield" id="firstname">
-          <p className="form-name">First Name</p>
+          <p className="form-name">FIRST NAME</p>
           <input
             className="inputfield"
             placeholder="enter your name..."
@@ -51,7 +51,7 @@ class NewUserView extends Component {
           />
         </label>
         <label className="formfield" id="lastname">
-          <p className="form-name">Last Name</p>
+          <p className="form-name">LAST NAME</p>
           <input
             className="inputfield"
             placeholder="enter your lastname..."
@@ -62,7 +62,7 @@ class NewUserView extends Component {
           />
         </label>
         <label className="formfield" id="username">
-          <p className="form-name">Username</p>
+          <p className="form-name">USERNAME</p>
           <input
             className="inputfield"
             placeholder="choose a username..."
@@ -73,7 +73,7 @@ class NewUserView extends Component {
           />
         </label>
         <label className="formfield" id="pubkey">
-          <p className="form-name">Public Key</p>
+          <p className="form-name">PUBLIC KEY</p>
           <input
             className="inputfield"
             placeholder="enter your public key..."
@@ -84,7 +84,7 @@ class NewUserView extends Component {
           />
         </label>
         <label className="formfield" id="password">
-          <p className="form-name">Password</p>
+          <p className="form-name">PASSWORD</p>
           <input
             className="inputfield"
             placeholder="choose your password..."
@@ -95,7 +95,7 @@ class NewUserView extends Component {
           />
         </label>
         <label className="formfield" id="confirmpassword">
-          <p className="form-name">Confirm Password</p>
+          <p className="form-name">CONFIRM PASSWORD</p>
           <input
             className="inputfield"
             placeholder="confirm your password..."
@@ -106,7 +106,7 @@ class NewUserView extends Component {
           />
         </label>
         <label className="formfield" id="email">
-          <p className="form-name">e-mail</p>
+          <p className="form-name">E-MAIL</p>
           <input
             className="inputfield"
             placeholder="enter your e-mail..."
