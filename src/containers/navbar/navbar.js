@@ -34,9 +34,9 @@ class NavBar extends Component {
     return (
       <div className="navbar-container">
         <Link className="navbar-title" to="/">
-          <img src={icon} />
-          <p>
-            <b>COLLAB</b>
+          <img src={icon} className="logo" />
+          <p className='title'>
+            COLLAB
           </p>
         </Link>
         <div className="nav-bar-links">

@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 2;
 }
 
 .nav-bar-links {
@@ -23,16 +23,57 @@
   margin-right: 40px;
 }
 
+.logo {
+  padding-top: 10px;
+}
 .navbar-title {
   margin-left: 10%;
   color: white;
   text-decoration: none;
   display: flex;
   flex-direction: row;
+  height: 70px;
 }
 
 .navbar-title p {
-  font-weight: 2000;
+  /* font-weight: 2000; */
   margin-left: 20px;
   margin-top: 25px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: lighter;
+  font-stretch: condensed;
+}
+
+.signup {
+  padding-top: 1000px;
+  margin-bottom: 100px;
+  padding-bottom: 200px;
+  display: inline;
+  position: fixed;
+  width: 20%;
+  background-color:rgba(255, 255, 255, 0.4);
+  transition: all ease 1.5s;
+}
+.login {
+  padding-top: 1000px;
+  margin-bottom: 100px;
+  padding-bottom: 200px;
+  display: inline;
+  position: fixed;
+  width: 20%;
+  background-color:rgba(255, 255, 255, 0.4);
+  transition: all ease 1.5s;
+}
+
+.userenter {
+  font-size: 20px;
+  background-color: transparent;
+  outline: none;
+  border-style: none;
+  color: rgb(255, 255, 255, 1);
+  margin-left: 10px;
+  margin-right: 10px;
 }
