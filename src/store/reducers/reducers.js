@@ -14,6 +14,10 @@ const userLogged = (state = userLoggedIn, action) => {
     return userLoggedIn;
   case 'USER_LOGOUT':
     return {};
+  case 'FETCH_CREATE_USER':
+    return state;
+  case 'FETCH_CREATE_USER_SUCCESS':
+    return action.data;
   default:
     return state;
   }
