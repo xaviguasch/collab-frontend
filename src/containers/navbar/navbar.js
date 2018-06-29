@@ -7,17 +7,19 @@ import LogIn from '../login';
 import UserLogged from '../userLogged';
 import icon from '../../assets/users-group.png';
 import './navbar.css';
-
+import NewUserView from '../../components/NewUserView'
 // import { isEmpty } from 'lodash';
 //navbar component, add links (routes) and append component of login
 class NavBar extends Component {
   constructor() {
     super();
     this.state = {
-      isHiddenLogIn: true
+      isHiddenLogIn: true,
+      drawer: false
+      }
       // isHiddenSubmit: true
     };
-  }
+
 
   toggleHidden = () => {
     this.setState({
@@ -40,23 +42,36 @@ class NavBar extends Component {
           </p>
         </Link>
         <div className="nav-bar-links">
-          <Link className="nav-bar-links-items" to="/about">
-            ABOUT US
-          </Link>
-          <Link className="nav-bar-links-items" to="/register">
+          <button
+            style={{
+              'background-color': 'transparent',
+              'border-style': 'none'
+            }}
+            onClick={() => this.setState({drawer: !this.state.drawer})}
+            value="signup">
             SIGN UP
-          </Link>
-          {this.state.isHiddenLogIn &&
-            !this.props.userLogged.username && (
-              <a onClick={this.toggleHidden}>LOG IN</a>
-            )}
-
-          {!this.state.isHiddenLogIn &&
-            !this.props.userLogged.username && <LogIn />}
-
-          {this.props.userLogged.username && <UserLogged />}
-        </div>
+          </button>
+          <button
+            onClick={() => this.getLogInComponent}
+            value="login">
+            LOG IN
+          </button>
       </div>
+      {/* <div className="login">
+        <LogIn />
+      </div> */}
+
+      <div
+        className="signup"
+        style={
+          this.state.drawer
+          ? {right: "0%"}
+          : {right: "100vw"}
+        }>
+        <NewUserView />
+      </div>
+
+    </div>
     );
   }
 }

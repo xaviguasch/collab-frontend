@@ -36,3 +36,10 @@
   margin-left: 20px;
   margin-top: 25px;
 }
+
+.signup {
+  position: fixed;
+  width: 20%;
+  background-color:rgba(0, 0, 0, 0.5);
+  transition: all ease 5s;
+}
