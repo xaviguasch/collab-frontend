@@ -1,11 +1,11 @@
 //imports
 import { combineReducers } from 'redux';
 import operations from './operations';
+import transactions from './transactions';
 //initial states
 
 let userLoggedIn = {};
 let userWallets = {};
-let userTransaction = [];
 
 //reducers
 const jwt = (state = '', action) => {
@@ -52,24 +52,11 @@ const getWallets = (state = userWallets, action) => {
   }
 };
 
-const getTransactions = (state = userTransaction, action) => {
-  switch (action.type) {
-  case 'GET_TRANSACTIONS':
-    userTransaction = action.data;
-    console.log(userTransaction);
-    return userTransaction;
-
-  default:
-    return state;
-
-  }
-};
-
 //export reducers
 export const reducers = combineReducers({
   jwt,
   userLogged,
   operations,
   getWallets,
-  getTransactions
+  transactions
 });
