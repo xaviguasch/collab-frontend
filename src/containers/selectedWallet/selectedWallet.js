@@ -7,6 +7,7 @@ import icon from '../../assets/user_icon.jpg';
 import {getTransactions} from '../../actions';
 import { Layout, Menu } from 'antd';
 import Chart from 'chart.js';
+import UsersList from '../../components/usersList/usersList';
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -29,7 +30,6 @@ class SelectedWallet extends Component {
     fetch('http://192.168.1.241:3030/operations/history',
       {
         headers:{
-
           'Authorization':'Bearer '+this.props.userLogged.jwt
         }
       }
@@ -75,7 +75,7 @@ class SelectedWallet extends Component {
       <div className='selectedWallet-father' >
         <header className='selectedWallet-header'>
           <div className='selectedWallet-header-alias'>
-            {this.props.wallet.alias}
+            {this.props.wallet.users}
           </div>
           <div className='selectedWallet-header-publickey-button'>
             {!this.state.showPK && <button className='selectedWallet-header-button' onClick={this.showPublicKey}>Show Public Key</button>}
@@ -87,15 +87,24 @@ class SelectedWallet extends Component {
             }
           </div>
         </header>
-        <div className='selectedWallet-body'>
+        {/* <div className='selectedWallet-body'>
           <div className='selectedWallet-graph-usersList'>
+<<<<<<< Updated upstream
+            <div className='selectedWallet-graph'>
+            </div>
+            <div className='selectedWallet-usersList'>
 
+            </div>
+=======
+            <UsersList users ={this.props.wallet.users}></UsersList>
+>>>>>>> Stashed changes
           </div>
 
         </div>
 
 
 
+        */}
       </div>
 
     );

@@ -43,7 +43,6 @@ const getTransactions = (state = userTransaction, action) => {
   switch (action.type) {
   case 'GET_TRANSACTIONS':
     userTransaction = action.data;
-    console.log(userTransaction);
     return userTransaction;
 
   default:

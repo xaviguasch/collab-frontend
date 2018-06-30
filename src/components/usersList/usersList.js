@@ -5,7 +5,7 @@ import './usersList.css';
 class UsersList extends Component {
   getUsers = () => {
     return this.props.users.map( e =>{
-      return <li>{e.username}</li>
+      return <li className='usersList-user'>{e.username}</li>
     })
   }
 
@@ -13,7 +13,7 @@ class UsersList extends Component {
     return (
       <div className='usersList-father'>
         <button className='addUser-button'></button>
-        <ul>
+        <ul className='usersList-list'>
 
         </ul>
       </div>
@@ -22,4 +22,4 @@ class UsersList extends Component {
 }
 
 //exports
-export default MainScreen;
+export default UsersList;
