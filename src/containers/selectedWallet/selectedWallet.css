@@ -36,11 +36,36 @@
 
 .selectedWallet-header-publickey-button {
   margin-right: 50px;
-  border-radius: 15px;
+  
+
+}
+
+.selectedWallet-header-publickey {
+  color:rgb(211,211,211);
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
 }
 
 .selectedWallet-header-button {
+  color:black;
   margin-right: 50px;
   border-radius: 15px;
   background-color: rgb(211,211,211);
 }
+
+.x {
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    transition: transform .25s ease-in-out;
+    color:black;
+    border-radius: 1000px;
+  }
+  .x:hover {
+    transform: rotate(180deg);
+  }
