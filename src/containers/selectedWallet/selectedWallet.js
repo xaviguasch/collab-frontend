@@ -1,12 +1,13 @@
 //imports
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import './selectedWallet.css';
 import PropTypes from 'prop-types'; // ES6
 import icon from '../../assets/user_icon.jpg';
 import {getTransactions} from '../../actions';
 import { Layout, Menu } from 'antd';
+import Chart from 'chart.js';
+
 
 const { Header, Content, Footer, Sider } = Layout;
 

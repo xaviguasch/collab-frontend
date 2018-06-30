@@ -1,10 +1,15 @@
 .userprofile-father {
-  /*height: 100%;*/
   width: 100%;
-  background: linear-gradient(black,grey);
   top:120px;
   background-color: grey;
   position: relative;
+  border-top: 2px solid #2a3843;
+}
+.ant-layout-sider-children {
+  border-right: 2px solid #2a3843;
+}
+.ant-layout-sider-ant.layout-sider-dark{
+
 }
 
 .userprofile-menuitem {
