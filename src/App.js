@@ -9,6 +9,7 @@ import NavBar from './containers/navbar/navbar';
 import UserProfile from './components/userProfile/userProfile';
 import UserVotePage from './containers/UserVotePage';
 
+
 //app component: append navbar component and router to all routes
 class App extends Component {
   render() {

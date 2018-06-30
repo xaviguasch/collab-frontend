@@ -1,13 +1,22 @@
 //imports
 import { combineReducers } from 'redux';
 import operations from './operations';
+import transactions from './transactions';
 //initial states
 
 let userLoggedIn = {};
 let userWallets = {};
-let userTransaction = [];
 
 //reducers
+const jwt = (state = '', action) => {
+  switch (action.type) {
+  case 'SET_TOKEN':
+    return action.data;
+  default:
+    return state;
+  }
+};
+
 const userLogged = (state = userLoggedIn, action) => {
   switch (action.type) {
   case 'USER_LOGGED':
@@ -15,6 +24,10 @@ const userLogged = (state = userLoggedIn, action) => {
     return userLoggedIn;
   case 'USER_LOGOUT':
     return {};
+  case 'FETCH_LOGIN':
+    return state;
+  case 'FETCH_LOGIN_SUCCESS':
+    return action.data;
   case 'FETCH_CREATE_USER':
     return state;
   case 'FETCH_CREATE_USER_SUCCESS':
@@ -26,11 +39,12 @@ const userLogged = (state = userLoggedIn, action) => {
 
 const getWallets = (state = userWallets, action) => {
   switch (action.type) {
-  case 'GET_WALLETS':
-    userWallets = action.data;
-    return userWallets;
+  case 'FETCH_GET_WALLETS':
+    return state;
+  case 'FETCH_GET_WALLETS_SUCCESS':
+    return action.data;
   case 'FETCH_CREATE_WALLET':
-    return userWallets;
+    return state;
   case 'FETCH_CREATE_WALLET_SUCCESS':
     return {...state, ...action.data};
   default:
@@ -53,8 +67,9 @@ const getTransactions = (state = userTransaction, action) => {
 
 //export reducers
 export const reducers = combineReducers({
+  jwt,
   userLogged,
   operations,
   getWallets,
-  getTransactions
+  transactions
 });
