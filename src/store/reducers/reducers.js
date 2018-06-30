@@ -2,6 +2,7 @@
 import { combineReducers } from 'redux';
 import operations from './operations';
 //initial states
+
 let userLoggedIn = {};
 let userWallets = {};
 let userTransaction = [];
