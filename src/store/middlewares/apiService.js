@@ -1,7 +1,7 @@
 export const API = Symbol('API'); //ask what this
 
 export default baseURL => store => next => action => {
-  let token = store.getState().userLogged.jwt;
+  let token = store.getState().jwt;
   if (action[API] ){
     const options = {
       headers:{
@@ -13,12 +13,14 @@ export default baseURL => store => next => action => {
       'body': JSON.stringify(action[API].body)
     };
     fetch(`${baseURL}${action[API].path}`, options)
+      .then(res => res.json())
       .then(res => {
-        token = res.headers.get('x-token');
-        localStorage.setItem('token', token);
+        // Grab the token from the body and sotre it in the store
+        token = res.jwt;
+        store.dispatch({type: 'SET_TOKEN', data: token});
+        delete res.jwt;
         return res;
       })
-      .then(res => res.json())
       .then(data => {
         const newAction = {
           ...action,
