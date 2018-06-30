@@ -40,18 +40,7 @@ class SelectedWallet extends Component {
 
   //FUNCTIONALITIES
   showPublicKey = () =>{
-    if (!this.state.showPK){
-      // this.setState({showPK:true})
-      return <button className='selectedWallet-header-button'>Show Public Key</button>
-    }
-    return (
-      <div className='selectedWallet-header-publickey'>
-        <p>{this.props.wallet.publickey}</p>
-        <button className='selectedWallet-header-button' onClick={this.setState({
-          showPK:false
-        })}>X</button>
-      </div>
-    )
+    this.setState({showPK:!this.state.showPK});
   }
 
   //RENDER USERS AND TRANSACTIONS
@@ -89,9 +78,21 @@ class SelectedWallet extends Component {
             {this.props.wallet.alias}
           </div>
           <div className='selectedWallet-header-publickey-button'>
-            {this.showPublicKey()}
+            {!this.state.showPK && <button className='selectedWallet-header-button' onClick={this.showPublicKey}>Show Public Key</button>}
+            {this.state.showPK &&
+               <div className='selectedWallet-header-publickey'>
+                 <p>{this.props.wallet.publickey}</p>
+                 <button className='x' onClick={this.showPublicKey} ><p>X</p></button>
+               </div>
+            }
           </div>
         </header>
+        <div className='selectedWallet-body'>
+          <div className='selectedWallet-graph-usersList'>
+
+          </div>
+
+        </div>
 
 
 
