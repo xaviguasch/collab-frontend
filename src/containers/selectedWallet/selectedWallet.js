@@ -1,12 +1,13 @@
 //imports
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import './selectedWallet.css';
 import PropTypes from 'prop-types'; // ES6
 import icon from '../../assets/user_icon.jpg';
-import {getTransactions} from '../../actions';
 import { Layout, Menu } from 'antd';
+import Chart from 'chart.js';
+import {API} from '../../store/middlewares/apiService';
+
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -18,39 +19,15 @@ const { Header, Content, Footer, Sider } = Layout;
 class SelectedWallet extends Component {
   constructor (props) {
     super(props);
-    this.getTransactions();
+    this.props.fetchGetTransactions(this.props.wallet.publickey);
     this.state = {
       showPK:false
     };
   }
 
-  getTransactions = () =>{
-    fetch('http://192.168.1.241:3030/operations/history',
-      {
-        headers:{
-
-          'Authorization':'Bearer '+this.props.userLogged.jwt
-        }
-      }
-    )
-      .then(data => data.json())
-      .then(data => this.props.getTransactions(data));
-  }
-
   //FUNCTIONALITIES
   showPublicKey = () =>{
-    if (!this.state.showPK){
-      // this.setState({showPK:true})
-      return <button className='selectedWallet-header-button'>Show Public Key</button>
-    }
-    return (
-      <div className='selectedWallet-header-publickey'>
-        <p>{this.props.wallet.publickey}</p>
-        <button className='selectedWallet-header-button' onClick={this.setState({
-          showPK:false
-        })}>X</button>
-      </div>
-    )
+    this.setState({showPK:!this.state.showPK});
   }
 
   //RENDER USERS AND TRANSACTIONS
@@ -88,9 +65,21 @@ class SelectedWallet extends Component {
             {this.props.wallet.alias}
           </div>
           <div className='selectedWallet-header-publickey-button'>
-            {this.showPublicKey()}
+            {!this.state.showPK && <button className='selectedWallet-header-button' onClick={this.showPublicKey}>Show Public Key</button>}
+            {this.state.showPK &&
+               <div className='selectedWallet-header-publickey'>
+                 <p>{this.props.wallet.publickey}</p>
+                 <button className='x' onClick={this.showPublicKey} ><p>X</p></button>
+               </div>
+            }
           </div>
         </header>
+        <div className='selectedWallet-body'>
+          <div className='selectedWallet-graph-usersList'>
+
+          </div>
+
+        </div>
 
 
 
@@ -103,19 +92,24 @@ class SelectedWallet extends Component {
 
 SelectedWallet.propTypes = {
   userLogged: PropTypes.object.isRequired,
-  renderTransactions: PropTypes.array.isRequired
+  renderTransactions: PropTypes.array.isRequired,
+  fetchGetTransactions: PropTypes.func.isRequired
 };
 
 //exports
 const mapStateToProps = state => ({
   userLogged: state.userLogged,
   renderWallets: state.getWallets,
-  renderTransactions:state.userTransaction
-
+  transactions:state.transactions
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getTransactions: data => dispatch(getTransactions(data))
+  fetchGetTransactions: (publickey) => dispatch ({
+    type: 'FETCH_GET_TRANSACTIONS',
+    [API]: {
+      path: `/transactions/${publickey}`
+    }
+  })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SelectedWallet);

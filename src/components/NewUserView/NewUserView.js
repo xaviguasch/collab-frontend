@@ -18,7 +18,7 @@ class NewUserView extends Component {
       password: '',
       confirmedpassword: '',
       email: '',
-      redirectToUserView: false
+      // redirectToUserView: false
     };
   }
 
@@ -41,7 +41,7 @@ class NewUserView extends Component {
     };
     this.props.fetchCreateUser(data);
     this.props.hideAll();
-    this.setState({redirectToUserView:true});
+    // this.setState({redirectToUserView:true});
   }
 
   render() {
