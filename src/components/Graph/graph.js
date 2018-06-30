@@ -4,53 +4,104 @@ import './graph.css'
 import Chart from 'chart.js'
 
 class Graph extends Component {
+  constructor(props) {
+    super(props);
+    // this.state {
+    //
+    // }
+  }
 
-  showGraph = () => {
+  showGraph = (props) => {
 
-    let data1 = {
 
+    const calculateGraph = () => {
+      let date = new Date
+      let month = date.getMonth() + 1
+      let day = date.getDate()
+      let year = date.getYear()
+      let arr = []
+      for (let i = 0; i < 4; i++) {
+      if (day - 7 > 0) {
+        day = day - 7
+        arr.push((day).toString() + '/' + month.toString())
+      } else {
+        if (month == 5 | 7 | 10 | 12 ) {
+          day = day + 24
+          month = month - 1
+          arr.push(day.toString() + '/' + month.toString())
+        } else if (month == 3) {
+          if (year % 4 == 0) {
+            day = day + 23
+            month = month - 1
+            arr.push(day.toString() + '/' + month.toString())
+          } else {
+            day = day + 22
+            month = month - 1
+            arr.push(day.toString() + '/' + month.toString())
+          }
+        } else {
+          day = day + 25
+          month = month - 1
+          arr.push(day.toString() + '/' + month.toString())
+        }
+      }
+    }
+    return arr
+    }
+
+    let months = calculateGraph()
+
+    let data = {
       labels: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
+        months[3],
+        months[2],
+        months[1],
+        months[0]
       ],
       datasets: [
         {
-          fillColor: "rgba(56,175,91,.1)",
-          strokeColor: "rgba(56,175,91,1)",
-          pointColor: "rgba(56,175,91,1)",
-          pointStrokeColor: "rgba(0,0,0,0.6)",
-          data: [1000, 1200, 935, 990, 1050, 1030, 1040]
+          // label: `Balance in`, // +`${this.props.alias}`, // 1 mBTC ~ 0.15 $
+          data: [
+            20,
+            17,
+            22,
+            // {this.props.balance},
+            15],
+          // xAxisID: 'mBTC',
+          showLabel: false,
+          backgroundColor: "rgba(255, 0, 178, 0.2)",
+          borderColor: "rgb(255, 0, 178)",
+          borderWidth: 2,
+          pointBackgroundColor: "rgb(255, 0, 178)",
+          pointRadius: 3
         },
       ]
-    };
-
-    let options1 = {
-      scaleFontColor: "rgba(255,255,255,0.7)",
-      scaleLineColor: "rgba(0,0,0,0)",
-      scaleGridLineColor: "rgba(255,255,255,0.1)",
-      scaleFontFamily: "Open Sans",
-      scaleFontSize: 14,
-      bezierCurve: true,
-      scaleShowLabels: true,
-      pointDotRadius: 6,
-      animation: true,
-      scaleShowGridLines: true,
-      datasetFill: true,
-      responsive: true
-    };
+    }
 
     let ctx = document.getElementById("c1")
     let chart1 = new Chart(ctx, {
       type: 'line',
-      data1,
-      options1
+      data,
+      options: {
+        legend: {
+          display: false
+        },
+        responsive: true,
+        title: {
+          display: true,
+          text: `Balance`,
+          fontStyle: 'lighter',
+          fontSize: 30,
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero:true
+            }
+          }],
+        }
+       }
     })
-
     return chart1
   }
 
@@ -59,216 +110,13 @@ class Graph extends Component {
   }
 
 
-    // var data1 = {
-    //   labels: [
-    //     "Monday",
-    //     "Tuesday",
-    //     "Wednesday",
-    //     "Thursday",
-    //     "Friday",
-    //     "Saturday",
-    //     "Sunday"
-    //   ],
-    //   datasets: [
-    //     {
-    //       fillColor: "rgba(56,175,91,.1)",
-    //       strokeColor: "rgba(56,175,91,1)",
-    //       pointColor: "rgba(56,175,91,1)",
-    //       pointStrokeColor: "rgba(0,0,0,0.6)",
-    //       data: [1000, 1200, 935, 990, 1050, 1030, 1040]
-    //     },
-    //     {
-    //       fillColor: "rgba(234,142,57,.1)",
-    //       strokeColor: "rgba(234,142,57,1)",
-    //       pointColor: "rgba(234,142,57,1)",
-    //       pointStrokeColor: "rgba(0,0,0,0.6)",
-    //       data: [1300, 1200, 1000, 1200, 1100, 1150, 1180]
-    //     },
-    //     {
-    //       fillColor: "rgba(236,72,127,.1)",
-    //       strokeColor: "rgba(236,72,127,1)",
-    //       pointColor: "rgba(236,72,127,1)",
-    //       pointStrokeColor: "rgba(0,0,0,0.6)",
-    //       data: [1400, 1350, 1250, 1250, 1350, 1500, 1550]
-    //     }
-    //   ]
-    // };
-
-    // var options1 = {
-    //   scaleFontColor: "rgba(255,255,255,0.7)",
-    //   scaleLineColor: "rgba(0,0,0,0)",
-    //   scaleGridLineColor: "rgba(255,255,255,0.1)",
-    //   scaleFontFamily: "Open Sans",
-    //   scaleFontSize: 14,
-    //   bezierCurve: true,
-    //   scaleShowLabels: true,
-    //   pointDotRadius: 6,
-    //   animation: true,
-    //   scaleShowGridLines: true,
-    //   datasetFill: true,
-    //   responsive: true
-    // };
-    //
-    // new Chart(c1.getContext("2d")).Line(data1, options1);
-    //
-    // var data2 = [
-    //   {
-    //     value: 80,
-    //     color: "rgba(236,72,127,1)",
-    //     label: ""
-    //   },
-    //   {
-    //     value: 20,
-    //     color: "#3c4449",
-    //     label: ""
-    //   }
-    // ];
-    //
-    // var options2 = {
-    //   animation: false,
-    //   responsive: true,
-    //   segmentShowStroke: false,
-    //   percentageInnerCutout: 90
-    // };
-    //
-    // new Chart(
-    //   $("#c2")
-    //   .get(0)
-    //   .getContext("2d")
-    // ).Doughnut(data2, options2);
-    //
-    // var data2 = [
-    //   {
-    //     value: 64,
-    //     color: "rgba(234,142,57,1)",
-    //     label: ""
-    //   },
-    //   {
-    //     value: 36,
-    //     color: "#3c4449",
-    //     label: ""
-    //   }
-    // ];
-    //
-    // var options2 = {
-    //   animation: false,
-    //   responsive: true,
-    //   segmentShowStroke: false,
-    //   percentageInnerCutout: 90
-    // };
-    //
-    // new Chart(
-    //   $("#c3")
-    //   .get(0)
-    //   .getContext("2d")
-    // ).Doughnut(data2, options2);
-    //
-    // var data2 = [
-    //   {
-    //     value: 34,
-    //     color: "rgba(56,175,91,1)",
-    //     label: ""
-    //   },
-    //   {
-    //     value: 66,
-    //     color: "#3c4449",
-    //     label: ""
-    //   }
-    // ];
-    //
-    // var options2 = {
-    //   animation: false,
-    //   responsive: true,
-    //   segmentShowStroke: false,
-    //   percentageInnerCutout: 90
-    // };
-    //
-    // new Chart(
-    //   $("#c4")
-    //   .get(0)
-    //   .getContext("2d")
-    // ).Doughnut(data2, options2);
-
-
-
   render() {
   return (
 
-    //
-    // <article>
-    // <header>
-    //   <div class="title">Dashboard</div>
-    //   <div class="user"></div>
-    //   <div class="interval">
-    //     <ul>
-    //       <li>Weekly</li>
-    //       <li class="active">Monthly</li>
-    //     </ul>
-    //   </div>
-    // </header>
-    // <section>
       <div className="chart">
         <canvas id="c1" width="900" height="200"></canvas>
       </div>
-    // </section>
-    // <section>
-    //   <header>Total Sales</header>
-    //   <div class="inlineChart">
-    //     <canvas id="c2" width="100" height="100"></canvas>
-    //     <div class="info">
-    //       <div class="value">$36,146</div>
-    //       <div class="title">Credit sales</div>
-    //     </div>
-    //   </div>
-    //   <div class="inlineChart">
-    //     <canvas id="c3" width="100" height="100"></canvas>
-    //     <div class="info">
-    //       <div class="value">$24,734</div>
-    //       <div class="title">Channel Sales</div>
-    //     </div>
-    //   </div>
-    //   <div class="inlineChart">
-    //     <canvas id="c4" width="100" height="100"></canvas>
-    //     <div class="info">
-    //       <div class="value">$15,650</div>
-    //       <div class="title">Direct Sales</div>
-    //     </div>
-    //   </div>
-    // </section>
-    // <section>
-    //   <table>
-    //     <thead>
-    //       <tr>
-    //         <th>November Sales</th>
-    //         <th>Quantity</th>
-    //         <th>Total</th>
-    //       </tr>
-    //     </thead>
-    //     <tbody>
-    //       <tr>
-    //         <td>Dallas Oak Dining Chair</td>
-    //         <td>20</td>
-    //         <td>$1,342</td>
-    //       </tr>
-    //       <tr>
-    //         <td>Benmore Glass Coffee Table</td>
-    //         <td>18</td>
-    //         <td>$1,550</td>
-    //       </tr>
-    //       <tr>
-    //         <td>Aoraki Leather Sofa</td>
-    //         <td>15</td>
-    //         <td>$4,170</td>
-    //       </tr>
-    //       <tr>
-    //         <td>Bali Outdoor Wicker Chair</td>
-    //         <td>25</td>
-    //         <td>$2,974</td>
-    //       </tr>
-    //     </tbody>
-    //   </table>
-    // </section>
-    // </article>
+
     );
   }
 }
