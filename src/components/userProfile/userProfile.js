@@ -24,7 +24,6 @@ class UserProfile extends Component {
   }
 
   handleOnClick = (e) => {
-    console.log(this.state);
     this.setState({
       view:e
     });
