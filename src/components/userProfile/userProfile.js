@@ -32,6 +32,12 @@ class UserProfile extends Component {
 
   }
 
+  handleOnClick = (e) => {
+    this.setState({
+      view:e
+    })
+  }
+
   renderWallets = () => {
     if(this.props.renderWallets.wallets && this.props.renderWallets.wallets.length) {
       return this.props.renderWallets.wallets.map(e => {
@@ -50,8 +56,8 @@ class UserProfile extends Component {
   }
 
   selectedWallet = () => {
-    console.log('CLICKED');
-      // <SelectedWallet></SelectedWallet>
+    if(this.state.view===null) return;//createWallet Component
+    return <SelectedWallet wallet = {this.state.view} ></SelectedWallet>;
   }
 
   render() {
