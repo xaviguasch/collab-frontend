@@ -1,14 +1,26 @@
 .mainscreen-component {
   height: 100%;
   width: 100%;
-  background-color: black;
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+  /* background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)); */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .first-mainscreen-component {
   height: 100%;
   width: 100%;
-  background-color: grey;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.second-mainscreen-component {
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 3;
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
 .videoContainer {
@@ -22,7 +34,40 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  opacity: 0.5;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  z-index: 0;
+}
+
+.title-mainscreen {
+  font-size: 50px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 2);
+  justify-content: center;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+  display: block;
+  z-index: 7;
+}
+
+.about {
+  min-width: 100%;
+  min-height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.scroll {
+  height: auto;
+  width: 150px;
+  justify-content: center;
+  align-self: baseline center;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 7;
 }

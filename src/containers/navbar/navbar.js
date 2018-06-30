@@ -4,112 +4,120 @@ import PropTypes from 'prop-types'; // ES6
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LogIn from '../login';
-import UserLogged from '../userLogged';
 import icon from '../../assets/users-group.png';
 import './navbar.css';
-import NewUserView from '../../components/NewUserView'
+import NewUserView from '../../components/NewUserView';
 // import { isEmpty } from 'lodash';
 //navbar component, add links (routes) and append component of login
 class NavBar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isHiddenLogIn: true,
       signUpDrawer: false,
-      logInDrawer: false,
-      }
-      // isHiddenSubmit: true
+      logInDrawer: false
     };
+  }
 
-
-  toggleHidden = () => {
+  handleClickSignup = () => {
     this.setState({
-      isHiddenLogIn: !this.state.isHiddenLogIn
+      signUpDrawer: !this.state.signUpDrawer,
+      logInDrawer: false
+    });
+  }
+  handleClickLogin = () => {
+    this.setState({
+      logInDrawer: !this.state.logInDrawer,
+      signUpDrawer: false
     });
   }
 
-  getLogInComponent = () => {
-    return <LogIn />;
+  hideAll = () => {
+    this.setState({
+      logInDrawer: false,
+      signUpDrawer: false
+    });
   }
 
-
+  renderLogin = () => {
+    if (this.props.userLogged.username) return (
+      <div>
+        <Link to='/user'>
+          My wallets
+        </Link>
+        <button onClick={this.props.logout}>Log out</button>
+      </div>
+    );
+    return (<div className="nav-bar-links">
+      <button
+        style={{
+          backgroundColor: 'transparent',
+          'borderStyle': 'none',
+        }}
+        onClick={() => this.handleClickSignup()}
+        className="userenter"
+        value="signup">
+        SIGN UP
+      </button>
+      <button
+        style={{
+          'backgroundColor': 'transparent',
+          'borderStyle': 'none'
+        }}
+        onClick={() => this.handleClickLogin()}
+        className="userenter"
+        value="login">
+        LOG IN
+      </button>
+    </div>);
+  }
   render() {
     return (
       <div className="navbar-container">
         <Link className="navbar-title" to="/">
-          <img src={icon} />
-          <p>
-            <b>COLLAB</b>
+          <img src={icon} className="logo" />
+          <p className='title'>
+            COLLAB
           </p>
         </Link>
-        <div className="nav-bar-links">
-          <button
-            style={{
-              'background-color': 'transparent',
-              'border-style': 'none'
-            },
-              this.state.signUpDrawer
-              ? {'font-weight': 'normal'}
-              : {'font-weight': 'lighter'}
-            }
-            onClick={() => this.setState({signUpDrawer: !this.state.signUpDrawer})}
-            className="userenter"
-            value="signup">
-            SIGN UP
-          </button>
-          <button
-            style={{
-              'background-color': 'transparent',
-              'border-style': 'none'
-            },
-              this.state.logInDrawer
-              ? {'font-weight': 'normal'}
-              : {'font-weight': 'lighter'}
-            }
-            onClick={() => this.setState({logInDrawer: !this.state.logInDrawer})}
-            className="userenter"
-            value="login">
-            LOG IN
-          </button>
+        {this.renderLogin()}
 
+        <div
+          className="signup"
+          style={
+            this.state.signUpDrawer
+              ? {left: '80%'}
+              : {left: '100vw'}
+          }>
+          <NewUserView hideAll={this.hideAll}/>
+        </div>
+
+        <div
+          className="login"
+          style={
+            this.state.logInDrawer
+              ? {left: '80%'}
+              : {left: '100vw'}
+          }>
+          <LogIn hideAll={this.hideAll}/>
+        </div>
       </div>
-
-      <div
-        className="signup"
-        style={
-          this.state.signupDrawer
-          ? {left: "80%"}
-          : {left: "100vw"}
-        }>
-        <NewUserView />
-      </div>
-
-      <div
-        className="login"
-        style={
-          this.state.logInDrawer
-          ? {left: "80%"}
-          : {left: "100vw"}
-        }>
-        <LogIn />
-      </div>
-
-
-    </div>
     );
   }
 }
 
-//manage state to props and dispatch all actions needed in navbar
-
 NavBar.propTypes = {
-  userLogged: PropTypes.object.isRequired,
+  userLogged: PropTypes.object,
+  logout: PropTypes.func
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   userLogged: state.userLogged
 });
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch ({
+    type: 'USER_LOGOUT'
+  })
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
