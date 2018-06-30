@@ -15,7 +15,7 @@ export default baseURL => store => next => action => {
     fetch(`${baseURL}${action[API].path}`, options)
       .then(res => res.json())
       .then(res => {
-        //Grab the token from the body and store it);
+        // Grab the token from the body and sotre it in the store
         token = res.jwt;
         store.dispatch({type: 'SET_TOKEN', data: token});
         delete res.jwt;
