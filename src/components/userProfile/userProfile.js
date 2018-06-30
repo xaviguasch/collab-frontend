@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import './userProfile.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {getWallets} from '../../actions';
+import {API} from '../../store/middlewares/apiService';
 
+import SelectedWallet from '../../containers/selectedWallet';
 import { Layout, Menu } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -12,30 +13,19 @@ const { Header, Content, Footer, Sider } = Layout;
 
 //users profile component, create a link to a creation of new wallet and its redirect, append all existing wallets of user
 class UserProfile extends Component {
-
   constructor (props) {
     super(props);
     this.getWallets();
   }
 
   getWallets = () => {
-    fetch('http://192.168.1.241:3030/wallet',
-      {
-        headers:{
-
-          'Authorization':'Bearer '+this.props.userLogged.jwt
-        }
-      }
-    )
-      .then(data => data.json())
-      .then(data => this.props.getWallets(data));
-
+    this.props.fetchGetWallets();
   }
 
   handleOnClick = (e) => {
     this.setState({
       view:e
-    })
+    });
   }
 
   renderWallets = () => {
@@ -137,6 +127,7 @@ UserProfile.propTypes = {
   userLogged: PropTypes.object.isRequired,
   renderWallets: PropTypes.object.isRequired,
   getWallets: PropTypes.object.isRequired,
+  fetchGetWallets: PropTypes.func.isRequired,
 };
 
 
@@ -147,8 +138,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
-  getWallets: data => dispatch(getWallets(data)),
+  fetchGetWallets: () => dispatch({
+    type: 'FETCH_GET_WALLETS',
+    [API]: {
+      path: '/wallet'
+    }
+  })
 
 });
 
