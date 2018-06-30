@@ -36,7 +36,7 @@ class UserProfile extends Component {
           <Menu.Item key={e.publickey} >
             <a onClick={() => this.handleOnClick(e)}>
               <div className='userprofile-menuitem'>
-                <p>{e.alias}</p>
+                <p >{e.alias}</p>
                 <p>{e.balance/1000000000}</p>
               </div>
             </a>
