@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {API} from '../../store/middlewares/apiService';
 import PropTypes from 'prop-types';
 
+
 class CreateWallet extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
@@ -27,6 +28,10 @@ class CreateWallet extends Component {
             placeholder="Name of the wallet to create"
             size="30"
             onChange={this.captureInput}
+          />
+          <input
+            type='submit'
+            value='Create Wallet'
           />
         </form>
       </div>
