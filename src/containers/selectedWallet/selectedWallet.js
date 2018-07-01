@@ -8,6 +8,9 @@ import { Layout, Menu } from 'antd';
 import Chart from 'chart.js';
 import UsersList from '../../components/usersList/usersList';
 import {API} from '../../store/middlewares/apiService';
+import ProposeOperation from '../../components/ProposeOperation';
+import Graph from '../../components/Graph/graph.js'
+
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -20,7 +23,6 @@ const { Header, Content, Footer, Sider } = Layout;
 class SelectedWallet extends Component {
   constructor (props) {
     super(props);
-    this.props.fetchGetTransactions(this.props.wallet.publickey);
     this.state = {
       showPK:false
     };
@@ -30,17 +32,11 @@ class SelectedWallet extends Component {
     this.props.fetchAddUser(data)
   }
 
-  getTransactions = () =>{
-    fetch('http://192.168.1.241:3030/operations/history',
-      {
-        headers:{
-          'Authorization':'Bearer '+this.props.userLogged.jwt
-        }
-      }
-    )
-      .then(data => data.json())
-      .then(data => this.props.getTransactions(data));
+  proposeOperation = (data) => {
+    this.props.fetchProposeOperation(data);
   }
+
+
 
 
   //FUNCTIONALITIES
@@ -74,6 +70,7 @@ class SelectedWallet extends Component {
               <UsersList addUser={this.addUser} users={this.props.wallet.users}
                 publickey={this.props.wallet.publickey} alias={this.props.wallet.alias}></UsersList>
             </div>
+            {/* <ProposeOperation wallet={this.props.wallet} proposeOperation={this.proposeOperation}/> */}
           </div>
         </div>
       </div>
@@ -87,21 +84,25 @@ SelectedWallet.propTypes = {
   userLogged: PropTypes.object.isRequired,
   renderTransactions: PropTypes.array.isRequired,
   fetchGetTransactions: PropTypes.func.isRequired,
-  fetchAddUser: PropTypes.func.isRequired
+  fetchAddUser: PropTypes.func.isRequired,
+  fetchProposeOperation: PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
+
 };
 
 //exports
 const mapStateToProps = state => ({
   userLogged: state.userLogged,
-  renderWallets: state.getWallets,
-  transactions:state.transactions
+  renderWallets: state.getWallets
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchGetTransactions: (publickey) => dispatch ({
-    type: 'FETCH_GET_TRANSACTIONS',
+  fetchProposeOperation: (data) => dispatch ({
+    type: 'FETCH_PROPOSE_OPERATION',
     [API]: {
-      path: `/transactions/${publickey}`
+      path: '/operations',
+      method: 'POST',
+      data
     }
   }),
   fetchAddUser: (data) => dispatch({

@@ -4,6 +4,7 @@
   background-color: grey;
   position: relative;
   border-top: 2px solid #2a3843;
+
 }
 .ant-layout-sider-children {
   border-right: 2px solid #2a3843;
@@ -18,4 +19,20 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+}
+
+.addwallet {
+  margin-right: 50%;
+  margin-left: 2.7vw;
+  text-align: center;
+  width: 120px;
+  justify-content: center;
+  background-color: rgb(0, 94, 255);
+  border: none;
+  color: white;
+  font-size: 15px;
+  /* padding-top: 10px; */
+  padding: 20px;
+  border-radius: 7px;
+
 }
