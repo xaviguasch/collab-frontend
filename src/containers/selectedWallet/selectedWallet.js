@@ -19,7 +19,6 @@ const { Header, Content, Footer, Sider } = Layout;
 class SelectedWallet extends Component {
   constructor (props) {
     super(props);
-    this.props.fetchGetTransactions(this.props.wallet.publickey);
     this.state = {
       showPK:false
     };
@@ -28,6 +27,16 @@ class SelectedWallet extends Component {
   //FUNCTIONALITIES
   showPublicKey = () =>{
     this.setState({showPK:!this.state.showPK});
+  }
+
+  proposeOperation = (info) => {
+    const data = {
+      publicKey : info.publicKey,
+      message: info.message,
+      amount: info.amount,
+      target_publicAdress: info.target_publicAdress
+    };
+    this.props.fetchProposeOperation(data);
   }
 
   //RENDER USERS AND TRANSACTIONS
@@ -99,15 +108,16 @@ SelectedWallet.propTypes = {
 //exports
 const mapStateToProps = state => ({
   userLogged: state.userLogged,
-  renderWallets: state.getWallets,
-  transactions:state.transactions
+  renderWallets: state.getWallets
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchGetTransactions: (publickey) => dispatch ({
-    type: 'FETCH_GET_TRANSACTIONS',
+  fetchProposeOperation: (data) => dispatch ({
+    type: 'FETCH_PROPOSE_OPERATION',
     [API]: {
-      path: `/transactions/${publickey}`
+      path: '/operations',
+      method: 'POST',
+      data
     }
   })
 });
