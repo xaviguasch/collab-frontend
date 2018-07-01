@@ -102,7 +102,7 @@ class SelectedWallet extends Component {
 SelectedWallet.propTypes = {
   userLogged: PropTypes.object.isRequired,
   renderTransactions: PropTypes.array.isRequired,
-  fetchGetTransactions: PropTypes.func.isRequired
+  fetchProposeOperation: PropTypes.func.isRequired
 };
 
 //exports
