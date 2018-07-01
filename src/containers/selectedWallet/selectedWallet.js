@@ -7,6 +7,7 @@ import icon from '../../assets/user_icon.jpg';
 import { Layout, Menu } from 'antd';
 import Chart from 'chart.js';
 import {API} from '../../store/middlewares/apiService';
+import ProposeOperation from '../../components/ProposeOperation';
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -29,13 +30,7 @@ class SelectedWallet extends Component {
     this.setState({showPK:!this.state.showPK});
   }
 
-  proposeOperation = (info) => {
-    const data = {
-      publicKey : info.publicKey,
-      message: info.message,
-      amount: info.amount,
-      target_publicAdress: info.target_publicAdress
-    };
+  proposeOperation = (data) => {
     this.props.fetchProposeOperation(data);
   }
 
@@ -85,7 +80,7 @@ class SelectedWallet extends Component {
         </header>
         <div className='selectedWallet-body'>
           <div className='selectedWallet-graph-usersList'>
-
+            <ProposeOperation wallet={this.props.wallet} proposeOperation={this.proposeOperation}/>
           </div>
 
         </div>
