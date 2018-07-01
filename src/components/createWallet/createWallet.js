@@ -28,6 +28,10 @@ class CreateWallet extends Component {
             size="30"
             onChange={this.captureInput}
           />
+          <input
+            type='submit'
+            value='Create Wallet'
+          />
         </form>
       </div>
     );
