@@ -7,6 +7,7 @@ import SelectedWallet from '../../containers/selectedWallet';
 import { Layout, Menu } from 'antd';
 import {API} from '../../store/middlewares/apiService';
 import CreateWallet from '../createWallet'
+import { rateBTCtoEUR } from '../../lib/btcPriceFetchAPI'
 
 const { Sider } = Layout;
 
@@ -17,7 +18,8 @@ class UserProfile extends Component {
     this.getWallets();
     this.state = {
       view: null,
-      form: false
+      form: false,
+      rate: 0
     };
   }
 
@@ -46,6 +48,7 @@ class UserProfile extends Component {
               <div className='userprofile-menuitem'>
                 <p >{e.alias}</p>
                 <p>{e.balance/1000000000}</p>
+                <p>{(e.balance/1000000000) * this.state.rate}</p>
               </div>
             </a>
           </Menu.Item>
@@ -60,8 +63,18 @@ class UserProfile extends Component {
   }
 
   renderCreateWallet = () => {
-    if(this.state.form===false) return;//createWallet Component
+    if(this.state.form===false) return;
     return <CreateWallet/>;
+  }
+
+  componentDidMount() {
+    rateBTCtoEUR()
+      .then(res => {
+        this.setState({rate: res})
+        console.log(this.state.rate)
+      })
+
+
   }
 
   render() {

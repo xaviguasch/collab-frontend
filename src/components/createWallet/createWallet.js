@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {API} from '../../store/middlewares/apiService';
 import PropTypes from 'prop-types';
 
+
 class CreateWallet extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
