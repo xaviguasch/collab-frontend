@@ -9,6 +9,7 @@ import {API} from '../../store/middlewares/apiService';
 
 const { Sider } = Layout;
 
+
 //users profile component, create a link to a creation of new wallet and its redirect, append all existing wallets of user
 class UserProfile extends Component {
   constructor (props) {

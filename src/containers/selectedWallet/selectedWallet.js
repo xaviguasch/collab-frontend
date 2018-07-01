@@ -6,11 +6,8 @@ import PropTypes from 'prop-types'; // ES6
 import icon from '../../assets/user_icon.jpg';
 import { Layout, Menu } from 'antd';
 import Chart from 'chart.js';
-<<<<<<< HEAD
 import UsersList from '../../components/usersList/usersList';
-=======
 import {API} from '../../store/middlewares/apiService';
->>>>>>> development
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -29,7 +26,10 @@ class SelectedWallet extends Component {
     };
   }
 
-<<<<<<< HEAD
+  addUser = (data) => {
+    this.props.fetchAddUser(data)
+  }
+
   getTransactions = () =>{
     fetch('http://192.168.1.241:3030/operations/history',
       {
@@ -42,46 +42,18 @@ class SelectedWallet extends Component {
       .then(data => this.props.getTransactions(data));
   }
 
-=======
->>>>>>> development
+
   //FUNCTIONALITIES
   showPublicKey = () =>{
     this.setState({showPK:!this.state.showPK});
   }
-
-  //RENDER USERS AND TRANSACTIONS
-
-  // renderUsers = () => {
-  //   return this.state.wallet.users.map( e => {
-  //     if (this.state.wallet.users.length<10){
-  //       return (
-  //         <div className='walletItem-userName'>
-  //           <img src={icon} height='30' width='30' />
-  //           <p>{e.username}</p>
-  //         </div>
-  //       );
-  //     }
-  //     else {
-  //       return <p>{this.state.wallet.users.length} other collaborators</p>;
-  //     }
-  //   });
-  // }
-
-  // renderTransactions = () => {
-  //   if(this.props.renderTransactions && this.props.renderTransactions.length){
-  //     console.log(this.props.renderTransactions, 'XXXXXX');
-  //   }
-  //
-  // }
-
-
 
   render() {
     return (
       <div className='selectedWallet-father' >
         <header className='selectedWallet-header'>
           <div className='selectedWallet-header-alias'>
-            {this.props.wallet.users}
+            {this.props.wallet.alias}
           </div>
           <div className='selectedWallet-header-publickey-button'>
             {!this.state.showPK && <button className='selectedWallet-header-button' onClick={this.showPublicKey}>Show Public Key</button>}
@@ -93,24 +65,17 @@ class SelectedWallet extends Component {
             }
           </div>
         </header>
-        {/* <div className='selectedWallet-body'>
+        <div className='selectedWallet-body'>
           <div className='selectedWallet-graph-usersList'>
-<<<<<<< Updated upstream
             <div className='selectedWallet-graph'>
+
             </div>
             <div className='selectedWallet-usersList'>
-
+              <UsersList addUser={this.addUser} users={this.props.wallet.users}
+                publickey={this.props.wallet.publickey} alias={this.props.wallet.alias}></UsersList>
             </div>
-=======
-            <UsersList users ={this.props.wallet.users}></UsersList>
->>>>>>> Stashed changes
           </div>
-
         </div>
-
-
-
-        */}
       </div>
 
     );
@@ -121,7 +86,8 @@ class SelectedWallet extends Component {
 SelectedWallet.propTypes = {
   userLogged: PropTypes.object.isRequired,
   renderTransactions: PropTypes.array.isRequired,
-  fetchGetTransactions: PropTypes.func.isRequired
+  fetchGetTransactions: PropTypes.func.isRequired,
+  fetchAddUser: PropTypes.func.isRequired
 };
 
 //exports
@@ -136,6 +102,14 @@ const mapDispatchToProps = (dispatch) => ({
     type: 'FETCH_GET_TRANSACTIONS',
     [API]: {
       path: `/transactions/${publickey}`
+    }
+  }),
+  fetchAddUser: (data) => dispatch({
+    type: 'FETCH_ADD_USER',
+    [API] : {
+      method: 'POST',
+      path: '/wallet/add_user',
+      data
     }
   })
 });

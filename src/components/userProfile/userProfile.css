@@ -8,8 +8,8 @@
 .ant-layout-sider-children {
   border-right: 2px solid #2a3843;
 }
-.ant-layout-sider-ant.layout-sider-dark{
-
+.ant-layout.ant-layout-has-sider{
+  background-color: rgb(5,21,41);
 }
 
 .userprofile-menuitem {

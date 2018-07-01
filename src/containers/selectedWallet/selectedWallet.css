@@ -36,7 +36,7 @@
 
 .selectedWallet-header-publickey-button {
   margin-right: 50px;
-  
+
 
 }
 
@@ -55,17 +55,32 @@
   background-color: rgb(211,211,211);
 }
 
+
 .x {
     margin-left: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
+    width: 22px;
     height: 32px;
     transition: transform .25s ease-in-out;
     color:black;
     border-radius: 1000px;
   }
-  .x:hover {
-    transform: rotate(180deg);
-  }
+
+.selectedWallet-graph-usersList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:1200px;
+  margin: 2% 3% 3% 3%;
+
+}
+
+
+.selectedWallet-usersList {
+  width:30%;
+  height:40%;
+  background-color: rgb(5,21,41);
+
+}

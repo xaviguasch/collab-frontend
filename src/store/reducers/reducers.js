@@ -39,10 +39,15 @@ const userLogged = (state = userLoggedIn, action) => {
 
 const getWallets = (state = userWallets, action) => {
   switch (action.type) {
+
   case 'FETCH_GET_WALLETS':
     return state;
   case 'FETCH_GET_WALLETS_SUCCESS':
     return action.data;
+  case 'FETCH_ADD_USER':
+    return state;
+  case 'FETCH_ADD_USER_SUCCESS':
+    return state;
   case 'FETCH_CREATE_WALLET':
     return state;
   case 'FETCH_CREATE_WALLET_SUCCESS':
@@ -53,17 +58,7 @@ const getWallets = (state = userWallets, action) => {
   }
 };
 
-const getTransactions = (state = userTransaction, action) => {
-  switch (action.type) {
-  case 'GET_TRANSACTIONS':
-    userTransaction = action.data;
-    return userTransaction;
 
-  default:
-    return state;
-
-  }
-};
 
 //export reducers
 export const reducers = combineReducers({
