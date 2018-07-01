@@ -8,6 +8,8 @@ import { Layout, Menu } from 'antd';
 import Chart from 'chart.js';
 import {API} from '../../store/middlewares/apiService';
 import ProposeOperation from '../../components/ProposeOperation';
+import Graph from '../../components/Graph/graph.js'
+
 
 
 const { Header, Content, Footer, Sider } = Layout;

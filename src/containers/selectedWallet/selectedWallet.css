@@ -2,10 +2,10 @@
 .selectedWallet-father {
   display:flex;
   flex-direction: column;
-  background-color: grey;
+  /* background-color: grey; */
   height:100%;
   width:100%;
-  background-color: rgb(5,21,41);
+  /* background-color: rgb(5,21,41); */
 
 
 }
@@ -36,7 +36,7 @@
 
 .selectedWallet-header-publickey-button {
   margin-right: 50px;
-  
+
 
 }
 
