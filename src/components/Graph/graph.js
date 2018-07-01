@@ -13,6 +13,7 @@ class Graph extends Component {
 
   showGraph = (props) => {
 
+    console.log(this.props)
 
     const calculateGraph = () => {
       let date = new Date
@@ -50,7 +51,8 @@ class Graph extends Component {
     }
 
     let months = calculateGraph()
-
+    let currentBalance = this.props.wallet.balance
+    currentBalance = currentBalance / 100000 // convert Satoshis to mBTC
     let data = {
       labels: [
         months[3],
@@ -65,8 +67,8 @@ class Graph extends Component {
             20,
             17,
             22,
-            // {this.props.balance},
-            15],
+            currentBalance
+            ],
           // xAxisID: 'mBTC',
           showLabel: false,
           backgroundColor: "rgba(255, 0, 178, 0.2)",
@@ -115,6 +117,7 @@ class Graph extends Component {
 
       <div className="chart">
         <canvas id="c1" width="900" height="200"></canvas>
+        {/* <p>{this.props.wallet}</p> */}
       </div>
 
     );
