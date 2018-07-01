@@ -77,7 +77,7 @@ class SelectedWallet extends Component {
         </header>
         <div className='selectedWallet-body'>
           <div className='selectedWallet-graph-usersList'>
-            <Graph wallet={this.props.wallet} />
+            {/* <Graph wallet={this.props.wallet} /> */}
           </div>
 
         </div>

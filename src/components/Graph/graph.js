@@ -4,16 +4,9 @@ import './graph.css'
 import Chart from 'chart.js'
 
 class Graph extends Component {
-  constructor(props) {
-    super(props);
-    // this.state {
-    //
-    // }
-  }
 
-  showGraph = (props) => {
 
-    console.log(this.props)
+  showGraph = (balance) => {
 
     const calculateGraph = () => {
       let date = new Date
@@ -51,7 +44,8 @@ class Graph extends Component {
     }
 
     let months = calculateGraph()
-    let currentBalance = this.props.wallet.balance
+    let currentBalance = balance
+    console.log('CURRENT BALANCE:     ', currentBalance)
     currentBalance = currentBalance / 100000 // convert Satoshis to mBTC
     let data = {
       labels: [
@@ -108,18 +102,21 @@ class Graph extends Component {
   }
 
   componentDidMount() {
-    {this.showGraph()}
+    this.showGraph()
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.showGraph(this.props.wallet.balance)
+    console.log('INSIDE-----: ', this.props)
   }
 
 
   render() {
+    console.log('HELLO=======', this.props)
   return (
-
       <div className="chart">
         <canvas id="c1" width="900" height="200"></canvas>
-        {/* <p>{this.props.wallet}</p> */}
       </div>
-
     );
   }
 }
