@@ -7,6 +7,7 @@ import icon from '../../assets/user_icon.jpg';
 import { Layout, Menu } from 'antd';
 import Chart from 'chart.js';
 import {API} from '../../store/middlewares/apiService';
+import Graph from '../../components/Graph/graph.js'
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -76,7 +77,7 @@ class SelectedWallet extends Component {
         </header>
         <div className='selectedWallet-body'>
           <div className='selectedWallet-graph-usersList'>
-
+            {/* <Graph wallet={this.props.wallet} /> */}
           </div>
 
         </div>
