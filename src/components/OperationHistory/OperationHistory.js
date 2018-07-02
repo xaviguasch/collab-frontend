@@ -3,7 +3,18 @@ import PropTypes from 'prop-types';
 
 class OperationHistory extends Component {
 
-  renderOperationResultIcon = (result) => result === 'Approved' ? '✅' : '❌'
+  renderOperationResultIcon = (result) => {
+    switch (result) {
+    case 'Approved':
+      return '✅';
+    case 'Rejected':
+      return '❌';
+    case 'pending':
+      return '⌛️';
+    default:
+      return '⌛️';
+    }
+  }
 
   render () {
     if (this.props.operations.length < 1) return <h3>No operations yet</h3>;
@@ -16,7 +27,7 @@ class OperationHistory extends Component {
             <h3>{`Type: ${operation.type || 'Transaction'}`}</h3>
             <p>{`Amount: ${operation.amount / 1000000000}BTC`}</p>
             <p>{`Description: '${operation.message}'`}</p>
-            <p>{`Date: ${operation.closed_at.slice(0,10)}`}</p>
+            {operation.closed_at && <p>{`Date: ${operation.closed_at.slice(0,10)}`}</p>}
             <span>{this.renderOperationResultIcon(operation.result)}</span>
             <p>{`${operation.numberOfVotes} votes:
               ${operation.numberOfAccepted} yes |
