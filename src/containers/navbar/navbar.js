@@ -7,7 +7,7 @@ import LogIn from '../login';
 import icon from '../../assets/users-group.png';
 import './navbar.css';
 import NewUserView from '../../components/NewUserView';
-import BTCTicker from '../../components/btcTicker'
+import BTCTicker from '../../components/btcTicker';
 // import { isEmpty } from 'lodash';
 //navbar component, add links (routes) and append component of login
 class NavBar extends Component {
@@ -32,18 +32,9 @@ class NavBar extends Component {
     });
   }
 
-  hideAll = () => {
-    this.setState({
-      logInDrawer: false,
-      signUpDrawer: false
-    });
-  }
-
   handleLogout = () => {
     this.props.logout();
   }
-
-
 
   renderLogin = () => {
     if (this.props.userLogged.username) return (
@@ -75,6 +66,24 @@ class NavBar extends Component {
         value="login">
         LOG IN
       </button>
+      <div
+        className="signup"
+        style={
+          this.state.signUpDrawer
+            ? {left: '80%'}
+            : {left: '100vw'}
+        }>
+        <NewUserView />
+      </div>
+      <div
+        className="login"
+        style={
+          this.state.logInDrawer
+            ? {left: '80%'}
+            : {left: '100vw'}
+        }>
+        <LogIn />
+      </div>
     </div>);
   }
   render() {
@@ -90,34 +99,14 @@ class NavBar extends Component {
           <BTCTicker/>
         </div>
         {this.renderLogin()}
-
-        <div
-          className="signup"
-          style={
-            this.state.signUpDrawer
-              ? {left: '80%'}
-              : {left: '100vw'}
-          }>
-          <NewUserView hideAll={this.hideAll}/>
-        </div>
-
-        <div
-          className="login"
-          style={
-            this.state.logInDrawer
-              ? {left: '80%'}
-              : {left: '100vw'}
-          }>
-          <LogIn hideAll={this.hideAll}/>
-        </div>
       </div>
     );
   }
 }
 
 NavBar.propTypes = {
-  userLogged: PropTypes.object,
-  logout: PropTypes.func
+  userLogged: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({

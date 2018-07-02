@@ -1,7 +1,6 @@
 //imports
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
 import './login.css';
 import PropTypes from 'prop-types'; // ES6
 import {API} from '../../store/middlewares/apiService';
@@ -13,8 +12,7 @@ class LogIn extends Component {
     super(props);
     this.state = {
       username: '',
-      password: '',
-      redirectToUserView: false
+      password: ''
     };
   }
 
@@ -28,11 +26,9 @@ class LogIn extends Component {
     event.preventDefault();
     event.target.reset();
     this.props.fetchLogin(this.state.username, this.state.password);
-    this.props.hideAll()
   }
 
   render() {
-    if (this.state.redirectToUserView) return <Redirect to='/user' />;
     return (
       <form className="login-component" onSubmit={this.getUser}>
         <input
@@ -46,7 +42,7 @@ class LogIn extends Component {
         />
         <input
           name="password"
-          type="text"
+          type="password"
           className="login-component-item"
           placeholder="Password..."
           size="20"
@@ -60,14 +56,8 @@ class LogIn extends Component {
 }
 
 LogIn.propTypes = {
-  userLogged: PropTypes.object.isRequired,
-  fetchLogin: PropTypes.func.isRequired,
+  fetchLogin: PropTypes.func.isRequired
 };
-
-
-const mapStateToProps = state => ({
-  userLogged: state.userLogged
-});
 
 const mapDispatchToProps = dispatch => ({
   fetchLogin: (user,password) => dispatch ({
@@ -82,4 +72,4 @@ const mapDispatchToProps = dispatch => ({
   })
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
+export default connect(null, mapDispatchToProps)(LogIn);

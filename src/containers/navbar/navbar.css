@@ -50,7 +50,6 @@
 }
 
 .signup {
-  padding-top: 1000px;
   margin-bottom: 100px;
   padding-bottom: 200px;
   display: inline;
@@ -60,7 +59,6 @@
   transition: all ease 1.5s;
 }
 .login {
-  padding-top: 1000px;
   margin-bottom: 100px;
   padding-bottom: 200px;
   display: inline;
