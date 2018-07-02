@@ -47,11 +47,11 @@ class NavBar extends Component {
 
   renderLogin = () => {
     if (this.props.userLogged.username) return (
-      <div cLassName= 'loggedIn' >
-        <Link to='/user'>
+      <div cLassName= 'loggedIn-container' >
+        <Link className='loggedIn' to='/user'>
           MY WALLETS
         </Link>
-        <button onClick={() => this.handleLogout()}>LOG OUT</button>
+        <button className='logOut' onClick={() => this.handleLogout()}>LOG OUT</button>
       </div>
     );
     return (<div className="nav-bar-links">
