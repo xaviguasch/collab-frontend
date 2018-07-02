@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import video from '../../assets/main-page-video.mp4';
 import './mainscreen.css';
 import scroll from '../../assets/scroll.png';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
+import PropTypes from 'prop-types';
 
 
 
@@ -20,6 +23,7 @@ class MainScreen extends Component {
   }
 
   render() {
+    if (this.props.userLogged.username) return <Redirect to='/user' />;
     return (
       <div className="mainscreen-component">
         <div className="first-mainscreen-component">
@@ -79,6 +83,14 @@ class MainScreen extends Component {
   }
 }
 
+MainScreen.propTypes = {
+  userLogged: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  userLogged: state.userLogged
+});
+
 //exports
-export default MainScreen;
+export default connect(mapStateToProps, null)(MainScreen);
 // fw3rAQeGFkI;

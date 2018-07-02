@@ -8,6 +8,7 @@ import { Layout, Menu } from 'antd';
 import {API} from '../../store/middlewares/apiService';
 import CreateWallet from '../createWallet';
 import CreateWalletView from '../CreateWalletView';
+import { Redirect } from 'react-router';
 
 const { Sider } = Layout;
 
@@ -73,6 +74,7 @@ class UserProfile extends Component {
 
 
   render() {
+    if (!this.props.userLogged.username) return <Redirect to='/' />;
     return (
       <div className ='userprofile-father'>
         <Layout>
