@@ -3,13 +3,16 @@ import React, { Component } from 'react';
 import video from '../../assets/main-page-video.mp4';
 import './mainscreen.css';
 import scroll from '../../assets/scroll.png';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
+import PropTypes from 'prop-types';
 
 
 
 
 //main screen, import component add title
 class MainScreen extends Component {
-  
+
 
   scrollWscroll() {
 
@@ -20,6 +23,7 @@ class MainScreen extends Component {
   }
 
   render() {
+    if (this.props.userLogged.username) return <Redirect to='/user' />;
     return (
       <div className="mainscreen-component">
         <div className="first-mainscreen-component">
@@ -45,7 +49,7 @@ class MainScreen extends Component {
               <p>Putting together your neighborhood BBQ?</p>
               <p>Organizing the next holiday trip with your friends?</p>
               <p>Collab gives you the ability to easily create and manage a shared account</p>
-            </div>   
+            </div>
             <div className="padding-space"></div>
             <p className="first-title">Who is it for?</p>
             <div className="inner-text">
@@ -60,25 +64,33 @@ class MainScreen extends Component {
               <p>Send notifications to your wallet partners with every new vote proposal</p>
               <p>Ability to veto, avoid getting blindsided if there's no consensus</p>
               <p>If the vote gets approved, the transaction will automatically get sent</p>
-            </div>   
+            </div>
             <div className="padding-space"></div>
             <p className="first-title">Track all the movements</p>
             <div className="inner-text">
               <p>Consult every past operation</p>
               <p>Check the current balance and its evolution through time </p>
-            </div>       
+            </div>
           </div>
         </div>
 
 
-        
+
 
       </div>
-    
+
     );
   }
 }
 
+MainScreen.propTypes = {
+  userLogged: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  userLogged: state.userLogged
+});
+
 //exports
-export default MainScreen;
+export default connect(mapStateToProps, null)(MainScreen);
 // fw3rAQeGFkI;
