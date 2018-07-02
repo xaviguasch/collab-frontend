@@ -61,7 +61,7 @@ class SelectedWallet extends Component {
   //     console.log(this.props.renderTransactions, 'XXXXXX');
   //   }
   //
-  // }
+  // }()
 
 
 
