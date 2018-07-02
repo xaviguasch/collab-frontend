@@ -9,6 +9,14 @@ import {API} from '../../store/middlewares/apiService'
 
 class UserVotePage extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      operations: []
+    }
+  }
+
+
   componentDidMount() {
     this.props.fetchPendingOperations()
   }
@@ -39,6 +47,7 @@ class UserVotePage extends React.Component {
 const mapStateToProps = (state) => ({
   pendingOperations: state.operations
 })
+
 const mapDispatchToProps = (dispatch) => ({
   fetchPendingOperations: () => dispatch ({
     type: 'FETCH_PENDING_OPERATIONS',
