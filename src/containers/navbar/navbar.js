@@ -7,7 +7,7 @@ import LogIn from '../login';
 import icon from '../../assets/users-group.png';
 import './navbar.css';
 import NewUserView from '../../components/NewUserView';
-import BTCTicker from '../../components/btcTicker'
+import BTCTicker from '../../components/btcTicker';
 // import { isEmpty } from 'lodash';
 //navbar component, add links (routes) and append component of login
 class NavBar extends Component {
@@ -32,26 +32,17 @@ class NavBar extends Component {
     });
   }
 
-  hideAll = () => {
-    this.setState({
-      logInDrawer: false,
-      signUpDrawer: false
-    });
-  }
-
   handleLogout = () => {
     this.props.logout();
   }
 
-
-
   renderLogin = () => {
     if (this.props.userLogged.username) return (
-      <div>
-        <Link to='/user'>
-          My wallets
+      <div cLassName= 'loggedIn-container' >
+        <Link className='loggedIn' to='/user'>
+          MY WALLETS
         </Link>
-        <button onClick={() => this.handleLogout()}>Log out</button>
+        <button className='logOut' onClick={() => this.handleLogout()}>LOG OUT</button>
       </div>
     );
     return (<div className="nav-bar-links">
@@ -60,6 +51,11 @@ class NavBar extends Component {
           backgroundColor: 'transparent',
           'borderStyle': 'none',
         }}
+        style={
+          this.state.signUpDrawer
+            ? {'color': 'rgba(0, 94, 255, 0.4)'}
+            : {'color': 'rgba(255, 255, 255, 0.4)'}
+        }
         onClick={() => this.handleClickSignup()}
         className="userenter"
         value="signup">
@@ -68,13 +64,38 @@ class NavBar extends Component {
       <button
         style={{
           'backgroundColor': 'transparent',
-          'borderStyle': 'none'
+          'borderStyle': 'none',
         }}
+        style={
+          this.state.logInDrawer
+            ? {'color': 'rgba(0, 94, 255, 0.4)'}
+            : {'color': 'rgba(255, 255, 255, 0.4)'}
+        }
         onClick={() => this.handleClickLogin()}
         className="userenter"
         value="login">
         LOG IN
       </button>
+      <div
+        className="signup"
+        style={
+          this.state.signUpDrawer
+            ? {left: '80%'}
+            : {left: '100vw'}
+        }>
+        <NewUserView />
+      </div>
+      <div
+        className="login"
+        style={
+          this.state.logInDrawer
+            ? {
+              left: '80%',
+              }
+            : {left: '100vw'}
+        }>
+        <LogIn />
+      </div>
     </div>);
   }
   render() {
@@ -86,36 +107,18 @@ class NavBar extends Component {
             COLLAB
           </p>
         </Link>
-        <BTCTicker/>
-        {this.renderLogin()}
-
-        <div
-          className="signup"
-          style={
-            this.state.signUpDrawer
-              ? {left: '80%'}
-              : {left: '100vw'}
-          }>
-          <NewUserView hideAll={this.hideAll}/>
+        <div className='ticker'>
+          <BTCTicker/>
         </div>
-
-        <div
-          className="login"
-          style={
-            this.state.logInDrawer
-              ? {left: '80%'}
-              : {left: '100vw'}
-          }>
-          <LogIn hideAll={this.hideAll}/>
-        </div>
+          {this.renderLogin()}
       </div>
     );
   }
 }
 
 NavBar.propTypes = {
-  userLogged: PropTypes.object,
-  logout: PropTypes.func
+  userLogged: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({

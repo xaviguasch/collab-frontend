@@ -10,6 +10,7 @@ import { Layout, Menu } from 'antd';
 import UsersList from '../../components/usersList/usersList';
 import {API} from '../../store/middlewares/apiService';
 import ProposeOperation from '../../components/ProposeOperation';
+import UserVotePage from '../../containers/UserVotePage';
 import Graph from '../../components/Graph/graph.js';
 import TransactionList from '../../components/TransactionList';
 import OperationHistory from '../../components/OperationHistory';
@@ -60,6 +61,7 @@ class SelectedWallet extends Component {
           </div>
         </header>
         <div className='selectedWallet-body'>
+          <UserVotePage operations={this.props.operations}/>
           <div className='selectedWallet-graph-usersList'>
             <div className='selectedWallet-graph'>
               <Graph wallet={this.props.wallet}></Graph>
