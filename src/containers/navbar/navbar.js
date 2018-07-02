@@ -7,7 +7,7 @@ import LogIn from '../login';
 import icon from '../../assets/users-group.png';
 import './navbar.css';
 import NewUserView from '../../components/NewUserView';
-import BTCTicker from '../../components/btcTicker/btcticker'
+import BTCTicker from '../../components/btcTicker'
 // import { isEmpty } from 'lodash';
 //navbar component, add links (routes) and append component of login
 class NavBar extends Component {
@@ -39,13 +39,19 @@ class NavBar extends Component {
     });
   }
 
+  handleLogout = () => {
+    this.props.logout();
+  }
+
+
+
   renderLogin = () => {
     if (this.props.userLogged.username) return (
       <div>
         <Link to='/user'>
           My wallets
         </Link>
-        <button onClick={this.props.logout}>Log out</button>
+        <button onClick={() => this.handleLogout()}>Log out</button>
       </div>
     );
     return (<div className="nav-bar-links">

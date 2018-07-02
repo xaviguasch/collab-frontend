@@ -1,12 +1,10 @@
 //imports
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import './login.css';
 import PropTypes from 'prop-types'; // ES6
-
-// import { reducers } from '../reducers/reducers';
-// import { userLogged } from '../../actions';
-import API from '../../store/middlewares/apiService';
+import {API} from '../../store/middlewares/apiService';
 
 //login component, add two text-areas one for username and another for password
 //get method to check validation, if response is positive append user component on navbar
@@ -15,7 +13,8 @@ class LogIn extends Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      redirectToUserView: false
     };
   }
 
@@ -25,24 +24,15 @@ class LogIn extends Component {
     });
   }
 
-  getUser = event => {
+  getUser = async event => {
     event.preventDefault();
     event.target.reset();
-    // fetch(' http://192.168.1.241:3030/login', {
-    //   method: 'POST',
-    //   // body: JSON.stringify(this.state),
-    //   headers: {
-    //     'Authorization':'Basic '+ btoa(this.state.username+':'+this.state.password),
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
-    //   .then(res => res.json())
-    //   .then(res => console.log(res))
-    //   .then(data => this.props.userLogged(data));
     this.props.fetchLogin(this.state.username, this.state.password);
+    this.props.hideAll()
   }
 
   render() {
+    if (this.state.redirectToUserView) return <Redirect to='/user' />;
     return (
       <form className="login-component" onSubmit={this.getUser}>
         <input
@@ -80,9 +70,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchLogin: (user, password) => dispatch({
+  fetchLogin: (user,password) => dispatch ({
     type: 'FETCH_LOGIN',
     [API]: {
+      path: '/login',
       method: 'POST',
       headers: {
         'Authorization':'Basic '+ btoa(`${user}:${password}`)

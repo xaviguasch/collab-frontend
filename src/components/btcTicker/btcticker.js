@@ -23,7 +23,9 @@ class BTCTicker extends Component {
       price = price.data.quotes["EUR"].price.toFixed(2)
       // if (movement > 0) {this.setState({arrow: ↑})}
       // if (movement < 0) {this.setState({arrow: ↓})}
+      console.log(movement)
       this.setState({rate: price})
+      console.log('STATE', this.state.rate)
     }, 1000)
 
   }
