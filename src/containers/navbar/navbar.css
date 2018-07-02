@@ -1,11 +1,12 @@
 .navbar-container {
-  position: absolute;
+  position: fixed;
   height: 120px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 2;
+  background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0) ) 
 }
 
 .nav-bar-links {
@@ -22,6 +23,7 @@
   text-decoration: none;
   margin-right: 40px;
 }
+
 
 .logo {
   padding-top: 10px;
@@ -71,7 +73,12 @@
   background-color: transparent;
   outline: none;
   border-style: none;
-  color: rgb(255, 255, 255, 1);
+  color: rgb(211, 211, 211, 1);
   margin-left: 10px;
   margin-right: 10px;
+}
+.ticker {
+  color:rgb(211,211,211);
+  margin-left:-40%;
+  margin-top:1.6%;
 }

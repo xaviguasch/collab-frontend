@@ -95,7 +95,9 @@ class NavBar extends Component {
             COLLAB
           </p>
         </Link>
-        <BTCTicker/>
+        <div className='ticker'>
+          <BTCTicker/>
+        </div>
         {this.renderLogin()}
       </div>
     );

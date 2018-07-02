@@ -12,6 +12,7 @@ import { Redirect } from 'react-router';
 
 const { Sider } = Layout;
 
+
 //users profile component, create a link to a creation of new wallet and its redirect, append all existing wallets of user
 class UserProfile extends Component {
   constructor (props) {
@@ -49,6 +50,7 @@ class UserProfile extends Component {
               <div className='userprofile-menuitem'>
                 <p >{e.alias}</p>
                 <p>{e.balance/1000000000}</p>
+                {/* <p>{(e.balance/1000000000) * this.state.rate}</p> */}
               </div>
             </a>
           </Menu.Item>
