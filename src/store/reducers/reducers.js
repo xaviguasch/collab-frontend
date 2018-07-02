@@ -47,6 +47,10 @@ const getWallets = (state = userWallets, action) => {
     return state;
   case 'FETCH_CREATE_WALLET_SUCCESS':
     return {...state, ...action.data};
+  case 'FETCH_PROPOSE_OPERATION':
+    return state;
+  case 'FETCH_PROPOSE_OPERATION_SUCCESS':
+    return state;
   default:
     return state;
   }
