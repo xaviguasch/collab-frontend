@@ -109,12 +109,11 @@ class SelectedWallet extends Component {
             <p>.</p>
             <p>.</p>
           </div>
-<<<<<<< HEAD
-=======
+
           <TransactionList wallet={this.props.wallet}/>
           <OperationHistory operations={this.props.wallet.operations}/>
 
->>>>>>> development
+
         </div>
       </div>
 
@@ -126,16 +125,12 @@ class SelectedWallet extends Component {
 SelectedWallet.propTypes = {
   userLogged: PropTypes.object.isRequired,
   renderTransactions: PropTypes.array.isRequired,
-<<<<<<< HEAD
   fetchGetTransactions: PropTypes.func.isRequired,
   fetchAddUser: PropTypes.func.isRequired,
-  fetchProposeOperation: PropTypes.func.isRequired,
   users: PropTypes.object.isRequired,
-
-=======
   fetchProposeOperation: PropTypes.func.isRequired,
   wallet: PropTypes.object.isRequired,
->>>>>>> development
+
 };
 
 //exports
