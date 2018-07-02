@@ -30,6 +30,11 @@
   z-index: 6;
 }
 
+.loggedIn {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
 
 .logo {
   padding-top: 10px;
@@ -52,11 +57,12 @@
 .logOut {
   border: none;
   background-color: transparent;
-  color: white;
+  color: rgba(255, 255, 255, 0.4);
   font-size: 16px;
   margin-right: 30px;
   margin-left: 20px;
   font-weight: lighter;
+  outline: none;
 }
 
 .title {
@@ -102,7 +108,7 @@
 }
 
 .ticker {
-  color:rgb(211,211,211);
+  color: rgba(211,211,211, 0.4);
   margin-left:-33%;
   margin-top:1.6%;
 }

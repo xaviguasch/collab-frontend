@@ -6,12 +6,12 @@
 }
 
 .price {
-  color:rgb(211,211,211);
+  color:rgba(255, 255, 255, 0.4);
 }
 
 .movement {
   padding-left: 1vw;
-  color:rgb(211,211,211);
+  color:rgba(255, 255, 255, 0.4);
 }
 
 .arrow {
