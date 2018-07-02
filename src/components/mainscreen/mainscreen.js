@@ -9,7 +9,7 @@ import scroll from '../../assets/scroll.png';
 
 //main screen, import component add title
 class MainScreen extends Component {
-  
+
 
   scrollWscroll() {
 
@@ -45,7 +45,7 @@ class MainScreen extends Component {
               <p>Putting together your neighborhood BBQ?</p>
               <p>Organizing the next holiday trip with your friends?</p>
               <p>Collab gives you the ability to easily create and manage a shared account</p>
-            </div>   
+            </div>
             <div className="padding-space"></div>
             <p className="first-title">Who is it for?</p>
             <div className="inner-text">
@@ -60,21 +60,21 @@ class MainScreen extends Component {
               <p>Send notifications to your wallet partners with every new vote proposal</p>
               <p>Ability to veto, avoid getting blindsided if there's no consensus</p>
               <p>If the vote gets approved, the transaction will automatically get sent</p>
-            </div>   
+            </div>
             <div className="padding-space"></div>
             <p className="first-title">Track all the movements</p>
             <div className="inner-text">
               <p>Consult every past operation</p>
               <p>Check the current balance and its evolution through time </p>
-            </div>       
+            </div>
           </div>
         </div>
 
 
-        
+
 
       </div>
-    
+
     );
   }
 }
