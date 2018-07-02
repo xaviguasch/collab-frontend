@@ -3,14 +3,14 @@ import './TransactionList.css';
 import PropTypes from 'prop-types'; // ES6
 
 class TransactionList extends Component {
-
   render() {
+    if (this.props.wallet.transactions.length < 1) return <h3>No transactions yet</h3>;
     return (
       <div className='TransactionList'>
         <h1>Transaction list</h1>
-        {this.props.transactions.map(transaction => {
+        {this.props.wallet.transactions.map(transaction => {
           return (
-            <div className='transaction' key={transaction.transaction_str}>
+            <div className='transaction' key={transaction.transaction_str+Math.random()}> {/*change this*/}
               <h1>transaction</h1>
               <p>
                 <span>{transaction.amount/1000000000} BTC</span>
@@ -28,7 +28,7 @@ class TransactionList extends Component {
 }
 
 TransactionList.propTypes = {
-  transactions: PropTypes.array.isRequired
+  wallet: PropTypes.object.isRequired,
 };
 
 export default TransactionList;
