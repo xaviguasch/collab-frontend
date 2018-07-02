@@ -8,7 +8,8 @@ import { Layout, Menu } from 'antd';
 import Chart from 'chart.js';
 import {API} from '../../store/middlewares/apiService';
 import ProposeOperation from '../../components/ProposeOperation';
-import Graph from '../../components/Graph/graph.js'
+import Graph from '../../components/Graph/graph.js';
+import TransactionList from '../../components/TransactionList';
 
 
 
@@ -84,6 +85,7 @@ class SelectedWallet extends Component {
           <div className='selectedWallet-graph-usersList'>
             <ProposeOperation wallet={this.props.wallet} proposeOperation={this.proposeOperation}/>
           </div>
+          <TransactionList wallet={this.props.wallet}/>
 
         </div>
 
@@ -99,7 +101,8 @@ class SelectedWallet extends Component {
 SelectedWallet.propTypes = {
   userLogged: PropTypes.object.isRequired,
   renderTransactions: PropTypes.array.isRequired,
-  fetchProposeOperation: PropTypes.func.isRequired
+  fetchProposeOperation: PropTypes.func.isRequired,
+  wallet: PropTypes.object.isRequired,
 };
 
 //exports
