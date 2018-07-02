@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class UsersList extends Component {
 
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
       addUser:false,
       userInput: '',
@@ -39,8 +39,9 @@ class UsersList extends Component {
     if(e) e.preventDefault();
     const data = {
       username: this.state.userInput,
-      publickey: this.props.publickey
+      publicKey: this.props.publickey
     };
+    // console.lsog(data);
     this.props.addUser(data);
     this.setState({
       userInput:''
@@ -53,9 +54,9 @@ class UsersList extends Component {
         <div className='usersList-title'>
           <p>{this.props.alias} Collaborators</p>
         </div>
-        {this.getUsers()}
         {this.addUser()}
         <button className='addUser-button' onClick={() => this.setState({addUser:!this.state.addUser})}>Add User</button>
+        {this.getUsers()}
         <ul className='usersList-list'>
           {this.getUsers}
         </ul>
