@@ -26,7 +26,6 @@ class LogIn extends Component {
     event.preventDefault();
     event.target.reset();
     this.props.fetchLogin(this.state.username, this.state.password);
-    this.props.hideAll();
   }
 
   render() {
@@ -43,7 +42,7 @@ class LogIn extends Component {
         />
         <input
           name="password"
-          type="text"
+          type="password"
           className="login-component-item"
           placeholder="Password..."
           size="20"

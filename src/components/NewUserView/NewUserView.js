@@ -17,8 +17,7 @@ class NewUserView extends Component {
       pubkey: '',
       password: '',
       confirmedpassword: '',
-      email: '',
-      // redirectToUserView: false
+      email: ''
     };
   }
 
@@ -40,8 +39,6 @@ class NewUserView extends Component {
       email: this.state.email
     };
     this.props.fetchCreateUser(data);
-    this.props.hideAll();
-    // this.setState({redirectToUserView:true});
   }
 
   render() {
@@ -140,7 +137,6 @@ class NewUserView extends Component {
 
 NewUserView.propTypes = {
   fetchCreateUser: PropTypes.func.isRequired,
-  hideAll: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
