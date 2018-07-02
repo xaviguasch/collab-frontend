@@ -18,7 +18,7 @@ class UserProfile extends Component {
     super(props);
     this.getWallets();
     this.state = {
-      view: null,
+      view: 'addWalletView',
       form: false,
       rate: 0
     };
@@ -36,7 +36,8 @@ class UserProfile extends Component {
 
   handleAddWallet = () => {
     this.setState({
-      form: !this.state.form
+      form: true,
+      view: 'addWalletView'
     });
   }
 
@@ -59,13 +60,10 @@ class UserProfile extends Component {
   }
 
   renderMainWallet = () => {
-    if(this.state.view===null) return <CreateWalletView />;
+    if(this.state.view==='addWalletView') return (
+      <CreateWalletView handleOnClick={this.handleAddWallet}
+        form={this.state.form} />);
     return <SelectedWallet wallet={this.state.view}></SelectedWallet>;
-  }
-
-  renderCreateWallet = () => {
-    if(this.state.form===false) return;
-    return <CreateWallet/>;
   }
 
   componentDidMount() {
@@ -85,12 +83,12 @@ class UserProfile extends Component {
           <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
               {this.renderSideWallets()}
-              <button onClick={() => {this.handleAddWallet();}}primary className='addwallet' theme="dark">Add Wallet</button>
+              <button onClick={() => this.handleAddWallet()} primary
+                className='addwallet' theme="dark">Add Wallet</button>
             </Menu>
           </Sider>
           <Layout style={{ marginLeft: 200 }}>
             {this.renderMainWallet()}
-            {this.renderCreateWallet()}
           </Layout>
         </Layout>
       </div>
