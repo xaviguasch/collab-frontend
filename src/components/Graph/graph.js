@@ -7,38 +7,38 @@ class Graph extends Component {
 
   showGraph = (balance) => {
     const calculateGraph = () => {
-      let date = new Date
-      let month = date.getMonth() + 1
-      let day = date.getDate()
-      let year = date.getYear()
-      let arr = []
+      let date = new Date;
+      let month = date.getMonth() + 1;
+      let day = date.getDate();
+      let year = date.getYear();
+      let arr = [];
       for (let i = 0; i < 4; i++) {
-      if (day - 7 > 0) {
-        day = day - 7
-        arr.push((day).toString() + '/' + month.toString())
-      } else {
-        if (month == 5 | 7 | 10 | 12 ) {
-          day = day + 24
-          month = month - 1
-          arr.push(day.toString() + '/' + month.toString())
-        } else if (month == 3) {
-          if (year % 4 == 0) {
-            day = day + 23
-            month = month - 1
-            arr.push(day.toString() + '/' + month.toString())
-          } else {
-            day = day + 22
-            month = month - 1
-            arr.push(day.toString() + '/' + month.toString())
-          }
+        if (day - 7 > 0) {
+          day = day - 7;
+          arr.push((day).toString() + '/' + month.toString());
         } else {
-          day = day + 25
-          month = month - 1
-          arr.push(day.toString() + '/' + month.toString())
+          if (month == 5 | 7 | 10 | 12 ) {
+            day = day + 24;
+            month = month - 1;
+            arr.push(day.toString() + '/' + month.toString());
+          } else if (month == 3) {
+            if (year % 4 == 0) {
+              day = day + 23;
+              month = month - 1;
+              arr.push(day.toString() + '/' + month.toString());
+            } else {
+              day = day + 22;
+              month = month - 1;
+              arr.push(day.toString() + '/' + month.toString());
+            }
+          } else {
+            day = day + 25;
+            month = month - 1;
+            arr.push(day.toString() + '/' + month.toString());
+          }
         }
       }
-    }
-    return arr
+      return arr;
     }
 
     let months = calculateGraph()
@@ -105,9 +105,9 @@ class Graph extends Component {
   }
 
   render() {
-  return (
+    return (
       <div className="chart">
-        <canvas id="c1" width="900" height="200"></canvas>
+        <canvas id="c1" width="900" height="300"></canvas>
       </div>
     );
   }
