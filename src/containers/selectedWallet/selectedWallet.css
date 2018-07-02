@@ -72,7 +72,6 @@
 .selectedWallet-body {
   display: flex;
   flex-direction: column;
-  /*height:200%;*/
 
 }
 
@@ -82,7 +81,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /*height:40%;*/
+  height:30%;
   margin: 2% 3% 3% 3%;
 
 }
@@ -115,9 +114,6 @@
 }
 
 .selectedWallet-icons-user {
-  /*height:35%;*/
-  /*width:25%;*/
-  /*background-color: rgb(56,175,91);*/
   border-radius: 50%;
   padding:1.1em;
   border:solid rgb(234,142,5);

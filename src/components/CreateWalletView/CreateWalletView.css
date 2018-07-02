@@ -1,0 +1,13 @@
+.CreateWalletView {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+  width:100%;
+  background-color: rgb(5,21,41)
+  /*background: url('../../assets/tex8.jpg')*/
+}
+
+.CreateWalletView > * {
+  margin-bottom: 10%;
+}

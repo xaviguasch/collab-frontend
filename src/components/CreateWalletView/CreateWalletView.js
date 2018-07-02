@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CreateWallet from '../createWallet/createWallet';
 import PropTypes from 'prop-types';
-
+import './CreateWalletView.css';
 
 class CreateWalletView extends Component {
   render () {

@@ -7,18 +7,26 @@ class TransactionList extends Component {
     if (this.props.wallet.transactions.length < 1) return <h3>No transactions yet</h3>;
     return (
       <div className='TransactionList'>
-        <h1>Transaction list</h1>
+        <div className='TransactionList-title'>
+          <p>Transactions</p>
+          <div className='TransactionList-keys'>
+            <p id='amount'>Amount</p>
+            <p id='date'>Date</p>
+            <p id='id'>Destination</p>
+            <p id='type'>Direction</p>
+
+          </div>
+        </div>
         {this.props.wallet.transactions.map(transaction => {
           return (
             <div className='transaction' key={transaction.transaction_str+Math.random()}> {/*change this*/}
-              <h1>transaction</h1>
               <p>
                 <span>{transaction.amount/1000000000} BTC</span>
                 <span>{transaction.date.slice(0,10)}</span>
                 <span>ID: {transaction.transaction_str}</span>
                 <span>{transaction.type}</span>
                 {transaction.counter_party ? <span>{transaction.counter_party}</span> : null}
-                <span>{transaction.message}</span>
+                {/* <span id=''>{transaction.message}</span> */}
               </p>
             </div>
           );})}

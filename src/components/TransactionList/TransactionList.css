@@ -1,0 +1,58 @@
+.TransactionList {
+  margin-top: 5%;
+  color: rgba(211, 211, 211);
+  margin-right: 5%;
+}
+
+.TransactionList-title {
+  /*color:yellow;*/
+  border-bottom: 2px solid #2a3843;
+  margin-left:5%;
+  color:rgb(211,211,211);
+  margin-right:5%;
+}
+
+.TransactionList-title p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.transaction {
+  color:rgb(211,211,211);
+  margin-top: 3vh;
+}
+
+.transaction p {
+
+  display:flex;
+  border-bottom: 2px solid #2a3843;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 4%;
+  padding-bottom: 4vh;
+}
+
+.TransactionList-keys {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+
+
+}
+
+#amount {
+  font-size: 1rem;
+  margin-left: 4vw;
+}
+#date {
+  font-size: 1rem;
+  margin-left: 9vw;
+}
+#id {
+  font-size: 1rem;
+  margin-left:11vw;
+}
+#type {
+  font-size: 1rem;
+  margin-left:30vw;
+}

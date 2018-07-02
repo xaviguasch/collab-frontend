@@ -85,35 +85,8 @@ class SelectedWallet extends Component {
             </div>
             <p>{this.props.wallet.transactions.length} transactions</p>
           </div>
-          <div>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-          </div>
-
           <TransactionList wallet={this.props.wallet}/>
           <OperationHistory operations={this.props.wallet.operations}/>
-
-
         </div>
       </div>
 
