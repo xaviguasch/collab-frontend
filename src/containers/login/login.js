@@ -28,6 +28,7 @@ class LogIn extends Component {
     event.preventDefault();
     event.target.reset();
     this.props.fetchLogin(this.state.username, this.state.password);
+    this.props.hideAll()
   }
 
   render() {

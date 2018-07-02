@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import SelectedWallet from '../../containers/selectedWallet';
 import { Layout, Menu } from 'antd';
 import {API} from '../../store/middlewares/apiService';
-import CreateWallet from '../createWallet'
-import { rateBTCtoEUR } from '../../lib/btcPriceFetchAPI'
+import CreateWallet from '../createWallet';
+import CreateWalletView from '../CreateWalletView';
 
 const { Sider } = Layout;
 
@@ -17,9 +17,8 @@ class UserProfile extends Component {
     super(props);
     this.getWallets();
     this.state = {
-      view: null,
+      view: 'addWalletView',
       form: false,
-      rate: 0
     };
   }
 
@@ -35,8 +34,9 @@ class UserProfile extends Component {
 
   handleAddWallet = () => {
     this.setState({
-      form: !this.state.form
-    })
+      form: true,
+      view: 'addWalletView'
+    });
   }
 
   renderSideWallets = () => {
@@ -48,7 +48,6 @@ class UserProfile extends Component {
               <div className='userprofile-menuitem'>
                 <p >{e.alias}</p>
                 <p>{e.balance/1000000000}</p>
-                <p>{(e.balance/1000000000) * this.state.rate}</p>
               </div>
             </a>
           </Menu.Item>
@@ -58,7 +57,9 @@ class UserProfile extends Component {
   }
 
   renderMainWallet = () => {
-    if(this.state.view===null) return;//createWallet Component
+    if(this.state.view==='addWalletView') return (
+      <CreateWalletView handleOnClick={this.handleAddWallet}
+        form={this.state.form} />);
     return <SelectedWallet wallet={this.state.view}></SelectedWallet>;
   }
 
@@ -67,15 +68,7 @@ class UserProfile extends Component {
     return <CreateWallet/>;
   }
 
-  componentDidMount() {
-    rateBTCtoEUR()
-      .then(res => {
-        this.setState({rate: res})
-        console.log(this.state.rate)
-      })
 
-
-  }
 
   render() {
     return (
@@ -84,12 +77,12 @@ class UserProfile extends Component {
           <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
               {this.renderSideWallets()}
-              <button onClick={() => {this.handleAddWallet()}}primary className='addwallet' theme="dark">Add Wallet</button>
+              <button onClick={() => this.handleAddWallet()} primary
+                className='addwallet' theme="dark">Add Wallet</button>
             </Menu>
           </Sider>
           <Layout style={{ marginLeft: 200 }}>
             {this.renderMainWallet()}
-            {this.renderCreateWallet()}
           </Layout>
         </Layout>
       </div>
