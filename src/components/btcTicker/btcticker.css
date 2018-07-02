@@ -1,0 +1,21 @@
+.ticker {
+  display: flex;
+  align-items: baseline;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.price {
+  color:rgb(211,211,211);
+}
+
+.movement {
+  padding-left: 1vw;
+  color:rgb(211,211,211);
+}
+
+.arrow {
+  margin-left: 0.3vw;
+  height: 1vw;
+  width: 1vw;
+}
