@@ -47,11 +47,11 @@ class NavBar extends Component {
 
   renderLogin = () => {
     if (this.props.userLogged.username) return (
-      <div>
+      <div cLassName= 'loggedIn' >
         <Link to='/user'>
-          My wallets
+          MY WALLETS
         </Link>
-        <button onClick={() => this.handleLogout()}>Log out</button>
+        <button onClick={() => this.handleLogout()}>LOG OUT</button>
       </div>
     );
     return (<div className="nav-bar-links">
@@ -89,7 +89,10 @@ class NavBar extends Component {
         <div className='ticker'>
           <BTCTicker/>
         </div>
-        {this.renderLogin()}
+        {/* <div className='user'> */}
+          {this.renderLogin()}
+
+        {/* </div> */}
 
         <div
           className="signup"

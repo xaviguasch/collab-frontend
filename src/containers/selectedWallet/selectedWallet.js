@@ -61,7 +61,7 @@ class SelectedWallet extends Component {
           </div>
         </header>
         <div className='selectedWallet-body'>
-          <UserVotePage operations={this.props.}/>
+          <UserVotePage operations={this.props.operations}/>
           <div className='selectedWallet-graph-usersList'>
             <div className='selectedWallet-graph'>
               <Graph wallet={this.props.wallet}></Graph>
