@@ -98,28 +98,7 @@ class NavBar extends Component {
         <div className='ticker'>
           <BTCTicker/>
         </div>
-
           {this.renderLogin()}
-          
-        <div
-          className="signup"
-          style={
-            this.state.signUpDrawer
-              ? {left: '80%'}
-              : {left: '100vw'}
-          }>
-          <NewUserView hideAll={this.hideAll}/>
-        </div>
-
-        <div
-          className="login"
-          style={
-            this.state.logInDrawer
-              ? {left: '80%'}
-              : {left: '100vw'}
-          }>
-          <LogIn hideAll={this.hideAll}/>
-        </div>
       </div>
     );
   }
