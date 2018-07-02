@@ -1,7 +1,6 @@
 //imports
 import React, { Component } from 'react';
 import video from '../../assets/main-page-video.mp4';
-import earth from '../../assets/earth.mp4';
 import './mainscreen.css';
 import scroll from '../../assets/scroll.png'
 

@@ -7,6 +7,7 @@ import LogIn from '../login';
 import icon from '../../assets/users-group.png';
 import './navbar.css';
 import NewUserView from '../../components/NewUserView';
+import BTCTicker from '../../components/btcTicker/btcticker'
 // import { isEmpty } from 'lodash';
 //navbar component, add links (routes) and append component of login
 class NavBar extends Component {
@@ -79,6 +80,7 @@ class NavBar extends Component {
             COLLAB
           </p>
         </Link>
+        <BTCTicker/>
         {this.renderLogin()}
 
         <div
