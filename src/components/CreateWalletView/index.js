@@ -1,1 +1,1 @@
-export { default } from './CreateWalletView'
+export { default } from './CreateWalletView';

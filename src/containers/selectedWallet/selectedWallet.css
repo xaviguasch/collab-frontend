@@ -5,7 +5,7 @@
   /* background-color: grey; */
   height:100%;
   width:100%;
-  /* background-color: rgb(5,21,41); */
+  background-color: rgb(5,21,41);
 
 
 }
@@ -16,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
-  font-size: 1.2rem;
+  /*font-size: 1.2rem;*/
   border-bottom: 2px solid #2a3843;
   margin-top:20px;
   margin-bottom:20px;
@@ -29,7 +29,7 @@
 .selectedWallet-header-alias {
   margin-left: 20px;
   color:rgb(211,211,211);
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   font-weight: 600;
   float: left;
 }
@@ -46,6 +46,7 @@
   font-weight: 600;
   display: flex;
   flex-direction: row;
+
 }
 
 .selectedWallet-header-button {
@@ -55,17 +56,98 @@
   background-color: rgb(211,211,211);
 }
 
+
 .x {
     margin-left: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
+    width: 22px;
     height: 32px;
     transition: transform .25s ease-in-out;
     color:black;
     border-radius: 1000px;
   }
-  .x:hover {
-    transform: rotate(180deg);
-  }
+
+.selectedWallet-body {
+  display: flex;
+  flex-direction: column;
+  /*height:200%;*/
+
+}
+
+
+
+.selectedWallet-graph-usersList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /*height:40%;*/
+  margin: 2% 3% 3% 3%;
+
+}
+
+.selectedWallet-graph {
+  width:65%;
+  height:auto;
+}
+
+
+.selectedWallet-usersList {
+  width:30%;
+  height:100%;
+  background-color: rgb(5,21,41);
+  display: flex;
+
+}
+
+/*ICONS*/
+
+.selectedWallet-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width:100%;
+  margin-top:5%;
+  /*margin-right: 5%;*/
+
+}
+
+.selectedWallet-icons-user {
+  /*height:35%;*/
+  /*width:25%;*/
+  /*background-color: rgb(56,175,91);*/
+  border-radius: 50%;
+  padding:1.1em;
+  border:solid rgb(234,142,5);
+}
+
+.selectedWallet-icons-bitcoin {
+  border-radius:50%;
+  border:solid skyblue;
+  padding:1.1em;
+}
+
+.selectedWallet-icons-approved {
+  border: solid rgb(56,175,91);
+  border-radius:50%;
+  padding:1.1em;
+}
+
+.selectedWallet-icons-approved img {
+  margin-left:8px;
+}
+.selectedWallet-icons-user img {
+  margin-bottom:4px;
+  margin-top: -2px;
+}
+
+.selectedWallet-icons p {
+  color:rgb(211,211,211);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-right: 7%;
+  margin-left: -5%;
+  margin-top: 2%;
+}

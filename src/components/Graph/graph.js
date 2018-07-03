@@ -5,47 +5,44 @@ import Chart from 'chart.js'
 
 class Graph extends Component {
 
-
   showGraph = (balance) => {
-
     const calculateGraph = () => {
-      let date = new Date
-      let month = date.getMonth() + 1
-      let day = date.getDate()
-      let year = date.getYear()
-      let arr = []
+      let date = new Date;
+      let month = date.getMonth() + 1;
+      let day = date.getDate();
+      let year = date.getYear();
+      let arr = [];
       for (let i = 0; i < 4; i++) {
-      if (day - 7 > 0) {
-        day = day - 7
-        arr.push((day).toString() + '/' + month.toString())
-      } else {
-        if (month == 5 | 7 | 10 | 12 ) {
-          day = day + 24
-          month = month - 1
-          arr.push(day.toString() + '/' + month.toString())
-        } else if (month == 3) {
-          if (year % 4 == 0) {
-            day = day + 23
-            month = month - 1
-            arr.push(day.toString() + '/' + month.toString())
-          } else {
-            day = day + 22
-            month = month - 1
-            arr.push(day.toString() + '/' + month.toString())
-          }
+        if (day - 7 > 0) {
+          day = day - 7;
+          arr.push((day).toString() + '/' + month.toString());
         } else {
-          day = day + 25
-          month = month - 1
-          arr.push(day.toString() + '/' + month.toString())
+          if (month == 5 | 7 | 10 | 12 ) {
+            day = day + 24;
+            month = month - 1;
+            arr.push(day.toString() + '/' + month.toString());
+          } else if (month == 3) {
+            if (year % 4 == 0) {
+              day = day + 23;
+              month = month - 1;
+              arr.push(day.toString() + '/' + month.toString());
+            } else {
+              day = day + 22;
+              month = month - 1;
+              arr.push(day.toString() + '/' + month.toString());
+            }
+          } else {
+            day = day + 25;
+            month = month - 1;
+            arr.push(day.toString() + '/' + month.toString());
+          }
         }
       }
-    }
-    return arr
+      return arr;
     }
 
     let months = calculateGraph()
     let currentBalance = balance
-    console.log('CURRENT BALANCE:     ', currentBalance)
     currentBalance = currentBalance / 100000 // convert Satoshis to mBTC
     let data = {
       labels: [
@@ -56,14 +53,12 @@ class Graph extends Component {
       ],
       datasets: [
         {
-          // label: `Balance in`, // +`${this.props.alias}`, // 1 mBTC ~ 0.15 $
           data: [
             20,
             17,
             22,
             currentBalance
             ],
-          // xAxisID: 'mBTC',
           showLabel: false,
           backgroundColor: "rgba(255, 0, 178, 0.2)",
           borderColor: "rgb(255, 0, 178)",
@@ -102,20 +97,17 @@ class Graph extends Component {
   }
 
   componentDidMount() {
-    this.showGraph()
+    this.showGraph(this.props.wallet.balance)
   }
 
   componentWillReceiveProps(nextProps) {
-    this.showGraph(this.props.wallet.balance)
-    console.log('INSIDE-----: ', this.props)
+    this.showGraph(nextProps.wallet.balance)
   }
 
-
   render() {
-    console.log('HELLO=======', this.props)
-  return (
+    return (
       <div className="chart">
-        <canvas id="c1" width="900" height="200"></canvas>
+        <canvas id="c1" width="900" height="300"></canvas>
       </div>
     );
   }

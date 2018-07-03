@@ -1,3 +1,6 @@
+
+
+
 .mainscreen-component {
   height: 100%;
   width: 100%;
@@ -47,7 +50,22 @@
   color: rgba(255, 255, 255, 2);
   justify-content: center;
   text-align: center;
-  margin-top: auto;
+  margin-top: 5em;
+  margin-bottom: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+  display: block;
+  z-index: 7;
+}
+
+
+.title-mainscreen-text {
+  font-size: 35px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 2);
+  justify-content: center;
+  text-align: center;
+  margin-top: 2em;
   margin-bottom: auto;
   margin-left: 20%;
   margin-right: 20%;
@@ -58,7 +76,7 @@
 .about {
   min-width: 100%;
   min-height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-image: url('./newpic.png');
 }
 
 .scroll {
@@ -71,3 +89,91 @@
   margin-right: auto;
   z-index: 7;
 }
+
+.container {
+  padding-top: 10vh;
+  padding-bottom: 12vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 100%;
+
+
+}
+
+h1 {
+  color: white;
+  font-size: 3.5rem;
+  letter-spacing: 10px;
+  font-weight: 300;
+
+
+
+}
+
+.header {
+  padding-top: 12vh;
+  padding-bottom: 13vh;
+  text-align: center;
+  background-image: url('./newpic.png');
+}
+
+.big-title {
+  font-size: 50px;
+  font-weight: 150;
+  color: rgba(255, 255, 255, 2);
+  justify-content: center;
+  text-align: center;
+  display: block;
+  z-index: 7;
+}
+
+.first-title {
+  color: grey;
+  font-size: 1.75rem;
+  letter-spacing: 1px;
+  font-weight: 300;
+
+}
+
+
+.inner-text {
+  color: #3e4444;
+  font-size: 1rem;
+  font-weight: 200;
+  text-align: center;
+  line-height: 1.8;
+  letter-spacing: 0.26px;
+  padding-left: 10vh;
+  padding-right: 10vh;
+
+}
+
+
+
+.padding-space {
+  padding-top: 5vh;
+  padding-bottom: 5vh
+}
+
+
+
+
+.center-bit {
+  padding-top: 10vh;
+  padding-bottom: 12vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.center-inner {
+  text-align: center;
+  width: 60%;
+}
+
+
+

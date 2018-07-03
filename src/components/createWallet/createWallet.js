@@ -6,10 +6,29 @@ import './createWallet.css'
 
 
 class CreateWallet extends Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      alias: '',
+      user: null,
+      users: []
+    };
+  }
+
   handleOnSubmit = (event) => {
     event.preventDefault();
     event.target.reset();
-    this.props.fetchCreateWallet(this.state.walletName);
+    const data = {
+      alias: this.state.alias,
+      users: this.state.users
+    };
+    this.props.fetchCreateWallet(data);
+  }
+
+  captureUser = e => {
+    this.setState({
+      user: e.target.value
+    });
   }
 
   captureInput = e => {
@@ -18,17 +37,30 @@ class CreateWallet extends Component {
     });
   }
 
+  pushUser = () => {
+    this.setState({
+      users: [...this.state.users, this.state.user]
+    });
+  }
+
+  deleteUser = (userToDelete) => {
+    this.setState({
+      users: this.state.users.filter(user => user !== userToDelete)
+    });
+  }
+
   render () {
     return (
       <div className="createWallet">
         <form className="createWallet_form" onSubmit={this.handleOnSubmit}>
           <input
-            name="walletName"
+            name="alias"
             type="text"
             className="create_wallet_input"
             placeholder="Name of the wallet to create"
             size="30"
             onChange={this.captureInput}
+            required
           />
           <div className='addUserDiv'>
           <input
@@ -76,9 +108,7 @@ const mapDispatchToProps = (dispatch) => ({
     [API]: {
       path: '/wallet',
       method: 'POST',
-      body: {
-        alias: data
-      }
+      body: data
     }
   })
 });

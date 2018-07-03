@@ -7,7 +7,6 @@ class UserVoteCard extends React.Component {
 
 
   render() {
-    // console.log('HEY ITS ME', this.props.operation[0])
         return this.props.operation
         ? <div className="voteCard" id={this.props.operation}>
           <div className="info">
