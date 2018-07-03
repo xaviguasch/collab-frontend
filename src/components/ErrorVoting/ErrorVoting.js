@@ -19,22 +19,22 @@ class ErrorVoting extends Component {
 
 
     return (
-      <div className="page-container">
+      <div className="error-page-container">
 
-        <div className="inner-page">
-          <div className="message-container">
-            <div className="second-mainscreen-component">
-              <p className="title-validation-component">AN ERROR OCCURRED DURING THE VOTING PROCESS</p>
+        <div className="error-inner-page">
+          <div className="error-message-container">
+            <div className="error-second-mainscreen-component">
+              <p className="error-title-validation-component">AN ERROR OCCURRED DURING THE VOTING PROCESS</p>
             </div>
           </div>
 
-          <div className="message-validation">
-            <h1 className="text-validation">Please try again</h1>
+          <div className="error-message-validation">
+            <h1 className="error-text-validation">Please try again</h1>
           </div>
 
-          <div className="icon-div">
-            <div className="icon-div-image">
-              <img className='icon-one' src={src} />
+          <div className="error-icon-div">
+            <div className="error-icon-div-image">
+              <img className="error-icon-one" src={src} />
             </div>
           </div>
         </div>

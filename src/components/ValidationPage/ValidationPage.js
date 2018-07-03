@@ -19,22 +19,22 @@ class ValidationPage extends Component {
 
 
     return (
-      <div className="page-container">
+      <div className="validation-page-container">
 
-        <div className="inner-page">
-          <div className="message-container">
-            <div className="second-mainscreen-component">
-              <p className="title-validation-component">WELCOME TO COLLAB</p>
+        <div className="validation-inner-page">
+          <div className="validation-message-container">
+            <div className="validation-second-mainscreen-component">
+              <p className="validation-title-validation-component">WELCOME TO COLLAB</p>
             </div>
           </div>
 
-          <div className="message-validation">
-            <h1 className="text-validation">You've successfully validated your email</h1>
+          <div className="validation-message-validation">
+            <h1 className="validation-text-validation">You've successfully validated your email</h1>
           </div>
 
-          <div className="icon-div">
-            <div className="icon-div-image">
-              <img className='icon-one' src={src} />
+          <div className="validation-icon-div">
+            <div className="validation-icon-div-image">
+              <img className='validation-icon-one' src={src} />
             </div>
           </div>
         </div>

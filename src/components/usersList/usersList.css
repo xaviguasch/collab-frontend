@@ -12,14 +12,14 @@
   color:rgb(211,211,211);
 }
 
-.addUser-button {
+.userList-ddUser-button {
   width:40%;
   border-radius:20px;
   margin-top: 4%;
 }
 
 
-ul.usersList-list {
+.usersList-list {
   overflow: scroll;
   height: 80px;
   margin: 5px 0 0 0;

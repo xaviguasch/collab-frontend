@@ -1,4 +1,4 @@
-.navbar-container {
+.nav-bar-container {
   position: fixed;
   height: 120px;
   width: 100%;
@@ -26,20 +26,20 @@
   z-index: 5;
 }
 
-.userenter {
+.nav-bar-userenter {
   z-index: 6;
 }
 
-.loggedIn {
+.nav-bar-loggedIn {
   font-size: 16px;
   font-weight: lighter;
 }
 
 
-.logo {
+.nav-bar-logo {
   padding-top: 10px;
 }
-.navbar-title {
+.nav-bar-title {
   margin-left: 10%;
   color: white;
   text-decoration: none;
@@ -48,13 +48,13 @@
   height: 70px;
 }
 
-.navbar-title p {
+.nav-bar-title p {
   margin-left: 20px;
   margin-top: 25px;
   z-index: 3;
 }
 
-.logOut {
+.nav-bar-logOut {
   border: none;
   background-color: transparent;
   color: rgba(255, 255, 255, 0.4);
@@ -65,14 +65,14 @@
   outline: none;
 }
 
-.title {
+.nav-bar-title {
   font-size: 20px;
   font-weight: lighter;
   font-stretch: condensed;
   z-index: 3;
 }
 
-.signup {
+.nav-bar-signup {
   top: -35px;
   padding-bottom: 250px;
   display: inline;
@@ -83,7 +83,7 @@
   z-index: 1;
   font-weight: lighter;
 }
-.login {
+.nav-bar-login {
   top: 0px;
   padding-top: 23.5%;
   margin-bottom: 30px;
@@ -97,7 +97,7 @@
   font-weight: lighter;
 }
 
-.userenter {
+.nav-bar-userenter {
   font-size: 20px;
   background-color: transparent;
   outline: none;
@@ -107,7 +107,7 @@
   margin-right: 10px;
 }
 
-.ticker {
+.nav-bar-ticker {
   color: rgba(211,211,211, 0.4);
   margin-left:-33%;
   margin-top:1.6%;
