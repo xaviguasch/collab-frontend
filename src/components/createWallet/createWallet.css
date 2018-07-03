@@ -22,7 +22,7 @@
   border: none;
   border-radius: 7px;
   margin-top: 30%;
-  width: 20vw;
+  /* width: 20vw; */
 
 }
 
@@ -54,6 +54,8 @@
   border: none;
   color: white;
   font-weight: lighter;
+  min-width: 100px;
+  max-height: 25px;
 }
 
 .user-and-remove {

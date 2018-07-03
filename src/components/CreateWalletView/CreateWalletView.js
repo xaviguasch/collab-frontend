@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CreateWallet from '../createWallet/createWallet';
 import PropTypes from 'prop-types';
+import './CreateWalletView.css'
 
 
 class CreateWalletView extends Component {
@@ -9,7 +10,7 @@ class CreateWalletView extends Component {
       <div className="CreateWalletView">
         {this.props.form
           ? <CreateWallet />
-          : <button onClick={this.props.handleOnClick}>Create Wallet</button>}
+          : <button className='create-wallet-button' onClick={this.props.handleOnClick}>Create Wallet</button>}
       </div>
     );
   }
