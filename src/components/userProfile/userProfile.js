@@ -4,7 +4,7 @@ import './userProfile.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SelectedWallet from '../../containers/selectedWallet';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Spin } from 'antd';
 import {API} from '../../store/middlewares/apiService';
 import CreateWallet from '../createWallet';
 import CreateWalletView from '../CreateWalletView';
@@ -56,6 +56,8 @@ class UserProfile extends Component {
           </Menu.Item>
         );
       });
+    } else {
+      return <Spin />;
     }
   }
 
