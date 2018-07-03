@@ -1,29 +1,72 @@
-.userprofile-father {
+.up-userprofile-father {
   width: 100%;
   top:120px;
   background-color: grey;
   position: relative;
   border-top: 2px solid #2a3843;
+  z-index: 4;
 
 }
-.ant-layout-sider-children {
+.up-ant-layout-sider-children {
   border-right: 2px solid #2a3843;
+  z-index: 4;
 }
-.ant-layout.ant-layout-has-sider{
+.up-ant-layout.ant-layout-has-sider{
   background-color: rgb(5,21,41);
-  height:100%;
-  width:100%;
+
 }
 
-.userprofile-menuitem {
+.up-createWalletParent{
+  display: flex;
+  height: 100vw;
+  z-index: 3;
+  position: relative;
+  background-color: rgb(5,21,41);
+}
+
+.CreateWalletView {
+  display: flex;
+  /* height: 100vw; */
+  z-index: 5;
+  margin-top: 15vw;
+}
+
+.up-createWalletComponent {
+  z-index: 5;
+  margin: auto;
+  margin-bottom: 90%
+}
+
+.up-mainpage {
+  z-index: 4;
+}
+.up-sidewallets {
+  z-index: 4;
+}
+
+.up-video {
+  width: inherit;
+  z-index: 2;
+}
+.videoContainer {
+  width: inherit;
+  z-index: 0;
+}
+
+.up-earth-video {
+  z-index: 1;
+}
+
+.up-userprofile-menuitem {
   max-height:100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  z-index: 4;
 }
 
-.addwallet {
+.up-addwallet {
   margin-right: 50%;
   margin-left: 2.7vw;
   text-align: center;
@@ -33,10 +76,9 @@
   border: none;
   color: white;
   font-size: 15px;
-  /* padding-top: 10px; */
   padding: 20px;
   border-radius: 7px;
-
+  z-index: 4;
 }
 
 .OperationHistory-operation-bottom {

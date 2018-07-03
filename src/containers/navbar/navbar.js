@@ -34,15 +34,16 @@ class NavBar extends Component {
 
   handleLogout = () => {
     this.props.logout();
+    this.props.resetWallets();
   }
 
   renderLogin = () => {
     if (this.props.userLogged.username) return (
-      <div cLassName= 'loggedIn-container' >
-        <Link className='loggedIn' to='/user'>
+      <div cLassName= 'nav-bar-loggedIn-container' >
+        <Link className='nav-bar-loggedIn' to='/user'>
           MY WALLETS
         </Link>
-        <button className='logOut' onClick={() => this.handleLogout()}>LOG OUT</button>
+        <button className='nav-bar-logOut' onClick={() => this.handleLogout()}>LOG OUT</button>
       </div>
     );
     return (<div className="nav-bar-links">
@@ -57,8 +58,8 @@ class NavBar extends Component {
             : {'color': 'rgba(255, 255, 255, 0.4)'}
         }
         onClick={() => this.handleClickSignup()}
-        className="userenter"
-        value="signup">
+        className="nav-bar-userenter"
+        value="nav-bar-signup">
         SIGN UP
       </button>
       <button
@@ -72,12 +73,12 @@ class NavBar extends Component {
             : {'color': 'rgba(255, 255, 255, 0.4)'}
         }
         onClick={() => this.handleClickLogin()}
-        className="userenter"
-        value="login">
+        className="nav-bar-userenter"
+        value="nav-bar-login">
         LOG IN
       </button>
       <div
-        className="signup"
+        className="nav-bar-signup"
         style={
           this.state.signUpDrawer
             ? {left: '80%'}
@@ -86,12 +87,12 @@ class NavBar extends Component {
         <NewUserView />
       </div>
       <div
-        className="login"
+        className="nav-bar-login"
         style={
           this.state.logInDrawer
             ? {
               left: '80%',
-              }
+            }
             : {left: '100vw'}
         }>
         <LogIn />
@@ -103,14 +104,14 @@ class NavBar extends Component {
       <div className={(window.location.href.includes('user')) ? 'navbar-container2':'navbar-container'}>
         <Link className="navbar-title" to="/">
           <img src={icon} className="logo" />
-          <p className='title'>
+          <p className='nav-bar-title'>
             COLLAB
           </p>
         </Link>
-        <div className='ticker'>
+        <div className='nav-bar-ticker'>
           <BTCTicker/>
         </div>
-          {this.renderLogin()}
+        {this.renderLogin()}
       </div>
     );
   }
@@ -118,7 +119,8 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
   userLogged: PropTypes.object.isRequired,
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired,
+  resetWallets: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -128,6 +130,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch ({
     type: 'USER_LOGOUT'
+  }),
+  resetWallets: () => dispatch ({
+    type: 'RESET_WALLETS'
   })
 });
 

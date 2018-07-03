@@ -101,7 +101,7 @@ class SelectedWallet extends Component {
           </div>
         </header>
         <div className='selectedWallet-body'>
-          {/* <UserVotePage operations={this.props.operations}/> */}
+          <UserVotePage wallet={this.props.wallet} />
           <div className='selectedWallet-graph-usersList'>
             <div className='selectedWallet-graph'>
               <Graph wallet={this.props.wallet}></Graph>
@@ -110,6 +110,7 @@ class SelectedWallet extends Component {
               <UsersList addUser={this.addUser} users={this.props.wallet.users}
                 publickey={this.props.wallet.publickey} alias={this.props.wallet.alias}></UsersList>
             </div>
+            <ProposeOperation wallet={this.props.wallet} proposeOperation={this.proposeOperation}/>
           </div>
 
           <div className='selectedWallet-icons'>
@@ -185,7 +186,6 @@ class SelectedWallet extends Component {
   }
 }
 
-
 SelectedWallet.propTypes = {
   userLogged: PropTypes.object.isRequired,
   renderTransactions: PropTypes.array.isRequired,
@@ -194,7 +194,7 @@ SelectedWallet.propTypes = {
   users: PropTypes.object.isRequired,
   fetchProposeOperation: PropTypes.func.isRequired,
   wallet: PropTypes.object.isRequired,
-
+  operations: PropTypes.array.isRequired
 };
 
 //exports
@@ -209,7 +209,7 @@ const mapDispatchToProps = (dispatch) => ({
     [API]: {
       path: '/operations',
       method: 'POST',
-      data
+      body: data
     }
   }),
   fetchAddUser: (data) => dispatch({
