@@ -1,4 +1,4 @@
-.create-button {
+.createwallet-create-button {
     text-align: center;
     width: 120px;
     justify-content: center;
@@ -13,7 +13,8 @@
     justify-content: center;
 }
 
-.createWallet {
+
+.createwallet-createWallet {
   display: flex;
   flex-direction: column;
   background-color: rgba(255,255,255,0.4);
@@ -26,18 +27,18 @@
 
 }
 
-.addUserDiv {
+.createwallet-addUserDiv {
   display: flex;
   width: 103%;
   justify-content: center;
 }
 
-.createWallet_form {
+.createwallet-createWallet_form {
   align-items: center;
   width: 100%;
 }
 
-.create_wallet_input {
+.createwallet-create_wallet_input {
   border: none;
   margin: 5px;
   width: 100%;
@@ -47,7 +48,7 @@
   color: black;
 }
 
-.addUser {
+.createwallet-addUser {
   width: 8vw;
   margin: 4.5px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -58,27 +59,27 @@
   max-height: 25px;
 }
 
-.user-and-remove {
+.createwallet-user-and-remove {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.remove {
+.createwallet-remove {
   background-color: transparent;
   border: none;
 }
 
-.users {
+.createwallet-users {
   list-style-type : none;
 }
 
-.user {
+.createwallet-user {
   font-weight: bold;
   font-size: 15px;
 }
 
-.aliasName {
+.createwallet-aliasName {
   padding-top: 10px;
   margin: 2px;
   align-self: center;
@@ -88,18 +89,18 @@
   justify-content: center;
 }
 
-.wallet {
+.createwallet-wallet {
   font-style: lighter;
   display: flex;
 }
 
-.alias {
+.createwallet-alias {
   font-weight: bold;
   text-transform: uppercase;
   margin-left: 3px;
   display: flex;
 }
 
-.result {
+.createwallet-result {
 
 }

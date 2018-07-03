@@ -1,7 +1,5 @@
 
-
-
-.page-container {
+.ev-page-container {
   display: flex;
   flex-flow: row;
   height: 100%; 
@@ -9,40 +7,41 @@
 
 
 
-.inner-page {
+.ev-inner-page {
   height: 100%;
   width: 100%;
   background-color: white
 }
 
-.message-container {
+.ev-message-container {
   align-items: center;
   padding-right: 10vh;
   padding-left: 10vh;
 }
 
 
-.second-mainscreen-component {
+.ev-second-mainscreen-component {
   text-align: center;
   padding-top: 30vh;
   align-content: center;
-  width: 60%;
+  padding-left: 30vh;
+  padding-right: 30vh;
   
   padding-bottom: 2vh;
   background-color: white;
   justify-content: center;
 }
 
-.title-validation-component {
+.ev-title-validation-component {
   color: grey;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   align-items: center;
   text-align: center;
   letter-spacing: .33em;
   font-weight: 300;
 }
 
-.message-validation {
+.ev-message-validation {
   padding-top: 2vh;
   padding-bottom: 6vh;
   background-color: #fff;
@@ -52,9 +51,9 @@
 }
 
 
-.text-validation {
+.ev-text-validation {
   color: #3e4444;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 200;
   text-align: center;
   line-height: 1.8;
@@ -64,7 +63,7 @@
 
 }
 
-.icon-div {
+.ev-icon-div {
   text-align: center;
   margin: auto;
   font-size: 80px
@@ -72,7 +71,7 @@
 }
 
 
-.icon-one {
+.ev-icon-one {
   height: 60px;
   width: auto;
   overflow: hidden

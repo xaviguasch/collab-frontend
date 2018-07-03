@@ -19,22 +19,22 @@ class ThanksMessageVote extends Component {
 
 
     return (
-      <div className="page-container">
+      <div className="thanks-page-container">
 
-        <div className="inner-page">
-          <div className="message-container">
-            <div className="second-mainscreen-component">
-              <p className="title-validation-component">THANKS FOR VOTING</p>
+        <div className="thanks-inner-page">
+          <div className="thanks-message-container">
+            <div className="thanks-second-mainscreen-component">
+              <p className="thanks-title-validation-component">THANKS FOR VOTING</p>
             </div>
           </div>
 
-          <div className="message-validation">
-            <h1 className="text-validation">We got your vote</h1>
+          <div className="thanks-message-validation">
+            <h1 className="thanks-text-validation">We got your vote</h1>
           </div>
 
-          <div className="icon-div">
-            <div className="icon-div-image">
-              <img className='icon-one' src={src} />
+          <div className="thanks-icon-div">
+            <div className="thanks-icon-div-image">
+              <img className="thanks-icon-one" src={src} />
             </div>
           </div>
         </div>
