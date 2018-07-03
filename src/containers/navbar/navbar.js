@@ -43,7 +43,7 @@ class NavBar extends Component {
         <Link className='nav-bar-loggedIn' to='/user'>
           MY WALLETS
         </Link>
-        <button className='nav-barlogOut' onClick={() => this.handleLogout()}>LOG OUT</button>
+        <button className='nav-bar-logOut' onClick={() => this.handleLogout()}>LOG OUT</button>
       </div>
     );
     return (<div className="nav-bar-links">
