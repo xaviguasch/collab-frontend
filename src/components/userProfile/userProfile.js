@@ -18,6 +18,7 @@ class UserProfile extends Component {
   constructor (props) {
     super(props);
     this.getWallets();
+    this.props.fetchPendingOperations();
     this.state = {
       view: 'addWalletView',
       form: false,
@@ -109,13 +110,15 @@ UserProfile.propTypes = {
   renderWallets: PropTypes.object.isRequired,
   getWallets: PropTypes.object.isRequired,
   fetchGetWallets: PropTypes.func.isRequired,
+  fetchPendingOperations: PropTypes.func.isRequired
 };
 
 
 
 const mapStateToProps = state => ({
   userLogged: state.userLogged,
-  renderWallets: state.getWallets
+  renderWallets: state.getWallets,
+  operations: state.operations
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -123,6 +126,12 @@ const mapDispatchToProps = (dispatch) => ({
     type: 'FETCH_GET_WALLETS',
     [API]: {
       path: '/wallet'
+    }
+  }),
+  fetchPendingOperations: () => dispatch({
+    type: 'FETCH_ALL_PENDING_OPERATIONS',
+    [API]: {
+      path: '/operations/pending'
     }
   })
 });

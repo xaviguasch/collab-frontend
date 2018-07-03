@@ -71,7 +71,7 @@ class ProposeOperation extends Component {
               onChange={this.captureInput}>
               {this.props.wallet && this.props.wallet.users.map(user => {
                 return <option
-                  key={user.publicAddress}
+                  key={user.username + user.publicAddress}
                   value={user.publicAddress}
                   name="target_publicAddress"
                 >{user.username}</option>;
