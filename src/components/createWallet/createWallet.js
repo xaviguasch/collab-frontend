@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {API} from '../../store/middlewares/apiService';
 import PropTypes from 'prop-types';
+import './createWallet.css'
 
 
 class CreateWallet extends Component {
@@ -55,34 +56,43 @@ class CreateWallet extends Component {
           <input
             name="alias"
             type="text"
-            className="createWallet_form_wallet-name"
+            className="create_wallet_input"
             placeholder="Name of the wallet to create"
             size="30"
             onChange={this.captureInput}
             required
           />
+          <div className='addUserDiv'>
           <input
-            type='submit'
-            value='Create Wallet'
+            name="users"
+            type="text"
+            className="create_wallet_input"
+            placeholder="Add username to the wallet"
+            onChange={this.captureUser}
           />
-        </form>
-        <button onClick={this.pushUser}>Add User</button>
+          <button className='addUser' onClick={this.pushUser}>Add User</button>
+          </div>
+        <div className='result'>
+          <div className='aliasName'>
+            <p className='wallet'>WALLET |</p>
+            <p className='alias'>{this.state.alias}</p>
+          </div>
+          <ul className='users'>
+            {this.state.users.length > 0
+              ? this.state.users.map(user => {
+                return <div className='user-and-remove' key={user}>
+                  <li className='user'>{user}</li>
+                  <button className='remove' onClick={() => this.deleteUser(user)}>❌</button>
+                </div>;})
+                : null}
+              </ul>
+        </div>
         <input
-          name="users"
-          type="text"
-          placeholder="Add username to the wallet"
-          onChange={this.captureUser}
-        >
-        </input>
-        <ul>
-          {this.state.users.length > 0
-            ? this.state.users.map(user => {
-              return <div key={user}>
-                <button onClick={() => this.deleteUser(user)}>❌</button>
-                <li>{user}</li>
-              </div>;})
-            : null}
-        </ul>
+          type='submit'
+          value='Create Wallet'
+          className='create-button'
+        />
+      </form>
       </div>
     );
   }

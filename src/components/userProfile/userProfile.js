@@ -9,7 +9,7 @@ import {API} from '../../store/middlewares/apiService';
 import CreateWallet from '../createWallet';
 import CreateWalletView from '../CreateWalletView';
 import { Redirect } from 'react-router';
-
+import earth from '../../assets/earth.mp4'
 const { Sider } = Layout;
 
 
@@ -63,8 +63,17 @@ class UserProfile extends Component {
 
   renderMainWallet = () => {
     if(this.state.view==='addWalletView') return (
-      <CreateWalletView handleOnClick={this.handleAddWallet}
-        form={this.state.form} />);
+    <div class="createWalletParent">
+      <div className='video'>
+        <video autoPlay loop className="videoContainer">
+          <source src={earth} type="video/mp4" className='earth-video'/>
+        </video>
+      </div>
+      <div className='createWalletComponent'>
+        <CreateWalletView handleOnClick={this.handleAddWallet}
+          form={this.state.form} />
+      </div>
+    </div>)
     return <SelectedWallet wallet={this.state.view}></SelectedWallet>;
   }
 
@@ -73,21 +82,19 @@ class UserProfile extends Component {
     return <CreateWallet/>;
   }
 
-
-
   render() {
     if (!this.props.userLogged.username) return <Redirect to='/' />;
     return (
       <div className ='userprofile-father'>
         <Layout>
-          <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
+          <Sider className='sidewallets' style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
               {this.renderSideWallets()}
               <button onClick={() => this.handleAddWallet()} primary
                 className='addwallet' theme="dark">Add Wallet</button>
             </Menu>
           </Sider>
-          <Layout style={{ marginLeft: 200 }}>
+          <Layout className='mainwpage' style={{ marginLeft: 200 }}>
             {this.renderMainWallet()}
           </Layout>
         </Layout>
