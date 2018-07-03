@@ -4,13 +4,52 @@
   background-color: grey;
   position: relative;
   border-top: 2px solid #2a3843;
+  z-index: 4;
 
 }
 .ant-layout-sider-children {
   border-right: 2px solid #2a3843;
+  z-index: 4;
 }
-.ant-layout-sider-ant.layout-sider-dark{
+.ant-layout.ant-layout-has-sider{
+  background-color: rgb(5,21,41);
+  z-index: 4;
+}
 
+.createWalletParent{
+  display: flex;
+  height: 100vw;
+  z-index: 4;
+  position: relative;
+  background-color: rgb(5,21,41);
+}
+
+.createWalletView {
+  display: flex;
+  height: 100vw;
+  z-index: 4;
+}
+
+.createWalletComponent {
+  z-index: 4;
+  margin: auto;
+  margin-bottom: 90%
+}
+
+.mainpage {
+  z-index: 4;
+}
+.sidewallets {
+  z-index: 4;
+}
+
+.video {
+  width: inherit;
+  z-index: 3;
+}
+
+.earth-video {
+  z-index: 2;
 }
 
 .userprofile-menuitem {
@@ -19,6 +58,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  z-index: 4;
 }
 
 .addwallet {
@@ -31,8 +71,7 @@
   border: none;
   color: white;
   font-size: 15px;
-  /* padding-top: 10px; */
   padding: 20px;
   border-radius: 7px;
-
+  z-index: 4;
 }

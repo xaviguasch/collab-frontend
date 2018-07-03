@@ -1,0 +1,103 @@
+.create-button {
+    text-align: center;
+    width: 120px;
+    justify-content: center;
+    background-color: rgb(0, 94, 255);
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 7px;
+    display: block;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.createWallet {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255,255,255,0.4);
+  padding: 20px;
+  align-items: center;
+  border: none;
+  border-radius: 7px;
+  margin-top: 30%;
+  width: 20vw;
+
+}
+
+.addUserDiv {
+  display: flex;
+  width: 103%;
+  justify-content: center;
+}
+
+.createWallet_form {
+  align-items: center;
+  width: 100%;
+}
+
+.create_wallet_input {
+  border: none;
+  margin: 5px;
+  width: 100%;
+  justify-content: center;
+  align-self: center;
+  background-color: rgba(255,255,255,0.7);
+  color: black;
+}
+
+.addUser {
+  width: 8vw;
+  margin: 4.5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-weight: lighter;
+}
+
+.user-and-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove {
+  background-color: transparent;
+  border: none;
+}
+
+.users {
+  list-style-type : none;
+}
+
+.user {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.aliasName {
+  padding-top: 10px;
+  margin: 2px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.wallet {
+  font-style: lighter;
+  display: flex;
+}
+
+.alias {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 3px;
+  display: flex;
+}
+
+.result {
+
+}
