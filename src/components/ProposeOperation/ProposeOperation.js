@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './ProposeOperation.css';
 
 class ProposeOperation extends Component {
   constructor(props){
@@ -42,31 +43,34 @@ class ProposeOperation extends Component {
     return (
       <div className="ProposeOperation">
         <form className="ProposeOperation_form" onSubmit={this.handleOnSubmit}>
-          <label htmlFor="Description">
-            <input
-              name="message"
-              type="text"
-              placeholder="Description"
-              size="50"
-              onChange={this.captureInput}
-              required
-            />
-          </label>
-          <label htmlFor="Amount of BTC to send">
-            <input
-              name="amount"
-              type="number"
-              min="0"
-              max={this.props.wallet.balance/100000000}
-              step="any"
-              placeholder="Amount"
-              onChange={this.captureInput}
-              required
-            />
-          </label>
+          <div className='ProposeOperation-form-message-amount'>
+            <label htmlFor="Description" id='first-element'>
+
+              <input
+                name="message"
+                type="text"
+                placeholder="Description"
+                size="50"
+                onChange={this.captureInput}
+                required
+              />
+            </label>
+            <label htmlFor="Amount of BTC to send" >
+              <input
+                name="amount"
+                type="number"
+                min="0"
+                max={this.props.wallet.balance/100000000}
+                step="any"
+                placeholder="Amount"
+                onChange={this.captureInput}
+                required
+              />
+            </label>
+          </div>
 
           {/* This doesn't work yet for some reason */}
-          <label htmlFor="Receiver from this wallet">
+          {/* <label htmlFor="Receiver from this wallet">
             <select
               onChange={this.captureInput}>
               {this.props.wallet && this.props.wallet.users.map(user => {
@@ -77,19 +81,19 @@ class ProposeOperation extends Component {
                 >{user.username}</option>;
               })}
             </select>
-          </label>
+          </label> */}
 
-          <div>
-            <label htmlFor="Receiver by public address">
+          <div className='ProposeOperation-form-address-input'>
+            <label htmlFor="Receiver by public address" id='first-element'>
+              <input
+                name="target_publicAddress"
+                type="text"
+                placeholder="Receiver by public address"
+                onChange={this.captureInput}
+              />
             </label>
-            <input
-              name="target_publicAddress"
-              type="text"
-              placeholder="Receiver by public address"
-              onChange={this.captureInput}
-            />
+            <input type="submit" id='submit-button' />
           </div>
-          <input type="submit" />
         </form>
       </div>
     );

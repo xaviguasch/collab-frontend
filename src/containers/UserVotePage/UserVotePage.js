@@ -52,7 +52,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPendingOperations: () => dispatch ({
     type: 'FETCH_PENDING_OPERATIONS',
     [API]: {
-      path: '/vote',
+      path: '/operations/pending',
       method: 'GET'
     }
   }),

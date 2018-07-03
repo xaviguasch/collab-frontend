@@ -100,7 +100,7 @@ class NavBar extends Component {
   }
   render() {
     return (
-      <div className="navbar-container">
+      <div className={(window.location.href.includes('user')) ? 'navbar-container2':'navbar-container'}>
         <Link className="navbar-title" to="/">
           <img src={icon} className="logo" />
           <p className='title'>

@@ -36,11 +36,11 @@ class UsersList extends Component {
         <form onSubmit={this.submitUser}>
           <input onChange={this.onChange} name='userInput'
             className='usersList-addUser-input'
-            value={this.state.userInput} type='text' placeholder='username' ></input>
+            value={this.state.userInput} type='text' placeholder='Username' ></input>
           <br/>
           <input onChange={this.onChange} name='message'
             className='usersList-addUser-input'
-            value={this.state.message} type='text' placeholder='who is this person?'></input>
+            value={this.state.message} type='text' placeholder='Description'></input>
         </form>
       </div>
     );

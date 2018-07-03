@@ -72,7 +72,7 @@
 .selectedWallet-body {
   display: flex;
   flex-direction: column;
-
+  margin-bottom: 10%;
 }
 
 
@@ -105,12 +105,17 @@
 .selectedWallet-icons {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   width:100%;
   margin-top:5%;
-  /*margin-right: 5%;*/
-
+  margin-left: 8%;
+}
+.selectedWallet-icons > div {
+  width:22%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .selectedWallet-icons-user {
@@ -118,6 +123,7 @@
   padding:1.1em;
   border:solid rgb(234,142,5);
 }
+
 
 .selectedWallet-icons-bitcoin {
   border-radius:50%;
@@ -130,6 +136,11 @@
   border-radius:50%;
   padding:1.1em;
 }
+.selectedWallet-icons-operation {
+  border: solid #ff7979;
+  border-radius:50%;
+  padding:1.1em;
+}
 
 .selectedWallet-icons-approved img {
   margin-left:8px;
@@ -139,11 +150,137 @@
   margin-top: -2px;
 }
 
-.selectedWallet-icons p {
+
+.addTransactionButton {
+  width:30%;
+  align-self: center;
+  background-color: rgb(5,21,41);
   color:rgb(211,211,211);
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-right: 7%;
-  margin-left: -5%;
-  margin-top: 2%;
+  border:1px solid rgb(211,211,211);
+  border-radius:20px;
+
 }
+
+.addTransactionButton:hover {
+  border-width: 3px;
+}
+
+.ProposeOperation-button {
+  /*margin-top: 5%;*/
+  margin-top:5%;
+  margin-bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.selectedWallet-icon-each-info {
+  color:rgb(211,211,211);
+  margin-top: 2%;
+  margin-left:3%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.selectedWallet-icon-each-info p {
+  font-size: 2rem;
+  margin-bottom: 0px;
+  align-self: center;
+}
+
+
+
+.selectedWallet-icon-each-info-hover {
+  display:none;
+  color:rgb(211,211,211);
+  margin-top: 2%;
+  margin-left:3%;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.selectedWallet-icon-each-info-hover p{
+  font-size: 2rem;
+  margin-bottom: 0px;
+  align-self: center;
+}
+
+.selectedWallet-icons-bitcoin-father:hover .selectedWallet-icon-each-info{
+  display: none;
+}
+.selectedWallet-icons-bitcoin-father:hover .selectedWallet-icon-each-info-hover{
+  display: block;
+}
+
+.selectedWallet-icons-user-father:hover .selectedWallet-icon-each-info{
+  display: none;
+}
+.selectedWallet-icons-user-father:hover .selectedWallet-icon-each-info-hover{
+  display: block;
+}
+
+.selectedWallet-icons-approved-father:hover .selectedWallet-icon-each-info{
+  display: none;
+}
+.selectedWallet-icons-approved-father:hover .selectedWallet-icon-each-info-hover{
+  display: block;
+}
+.selectedWallet-icons-operation-father:hover .selectedWallet-icon-each-info{
+  display: none;
+}
+.selectedWallet-icons-operation-father:hover .selectedWallet-icon-each-info-hover{
+  display: block;
+}
+
+
+
+.selectedWallet-icons-bitcoin-father:hover .selectedWallet-icons-bitcoin {
+  border-width: 5px;
+}
+.selectedWallet-icons-user-father:hover .selectedWallet-icons-user {
+  border-width: 5px;
+}
+.selectedWallet-icons-approved-father:hover .selectedWallet-icons-approved {
+  border-width: 5px;
+}
+.selectedWallet-icons-operation-father:hover .selectedWallet-icons-operation {
+  border-width: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.container:hover p#a {
+	display: block;
+}
+
+.container:hover p#b {
+	display: none;
+}
+
+p#a {
+	display: none;
+}
+
+</style>
+
+<div class="container">
+	<p id="a"> bleep </p>
+    <p id="b"> bloop </p>
+</div>*/
