@@ -56,6 +56,8 @@ const getWallets = (state = userWallets, action) => {
     return state;
   case 'FETCH_PROPOSE_OPERATION_SUCCESS':
     return state;
+  case 'RESET_WALLETS':
+    return [];
   default:
     return state;
 

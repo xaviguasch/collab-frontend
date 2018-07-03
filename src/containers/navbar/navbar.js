@@ -34,6 +34,7 @@ class NavBar extends Component {
 
   handleLogout = () => {
     this.props.logout();
+    this.props.resetWallets();
   }
 
   renderLogin = () => {
@@ -91,7 +92,7 @@ class NavBar extends Component {
           this.state.logInDrawer
             ? {
               left: '80%',
-              }
+            }
             : {left: '100vw'}
         }>
         <LogIn />
@@ -110,7 +111,7 @@ class NavBar extends Component {
         <div className='ticker'>
           <BTCTicker/>
         </div>
-          {this.renderLogin()}
+        {this.renderLogin()}
       </div>
     );
   }
@@ -118,7 +119,8 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
   userLogged: PropTypes.object.isRequired,
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired,
+  resetWallets: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -128,6 +130,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch ({
     type: 'USER_LOGOUT'
+  }),
+  resetWallets: () => dispatch ({
+    type: 'RESET_WALLETS'
   })
 });
 
