@@ -1,0 +1,82 @@
+
+
+
+.page-container {
+  display: flex;
+  flex-flow: row;
+  height: 100%; 
+}
+
+
+
+.inner-page {
+  height: 100%;
+  width: 100%;
+  background-color: white
+}
+
+.message-container {
+  align-items: center;
+  padding-right: 10vh;
+  padding-left: 10vh;
+}
+
+
+.second-mainscreen-component {
+  text-align: center;
+  padding-top: 30vh;
+  align-content: center;
+  width: 60%;
+  
+  padding-bottom: 2vh;
+  background-color: white;
+  justify-content: center;
+}
+
+.title-validation-component {
+  color: grey;
+  font-size: 2.4rem;
+  align-items: center;
+  text-align: center;
+  letter-spacing: .33em;
+  font-weight: 300;
+}
+
+.message-validation {
+  padding-top: 2vh;
+  padding-bottom: 6vh;
+  background-color: #fff;
+  justify-content: center;
+
+
+}
+
+
+.text-validation {
+  color: #3e4444;
+  font-size: 1.3rem;
+  font-weight: 200;
+  text-align: center;
+  line-height: 1.8;
+  letter-spacing: 0.4px;
+  padding-left: 10vh;
+  padding-right: 10vh;
+
+}
+
+.icon-div {
+  text-align: center;
+  margin: auto;
+  font-size: 80px
+
+}
+
+
+.icon-one {
+  height: 60px;
+  width: auto;
+  overflow: hidden
+}
+
+
+
