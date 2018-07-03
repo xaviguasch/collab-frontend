@@ -7,7 +7,7 @@ import './CreateWalletView.css';
 class CreateWalletView extends Component {
   render () {
     return (
-      <div className="cwv-CreateWalletView">
+      <div className="CreateWalletView">
         {this.props.form
           ? <CreateWallet />
           : <button className='cwv-create-wallet-button' onClick={this.props.handleOnClick}>Create Wallet</button>}

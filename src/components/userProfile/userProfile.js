@@ -42,6 +42,7 @@ class UserProfile extends Component {
   }
 
   renderSideWallets = () => {
+    console.log(this.props)
     if(this.props.renderWallets.wallets && this.props.renderWallets.wallets.length) {
       return this.props.renderWallets.wallets.map(e => {
         return (
@@ -50,7 +51,6 @@ class UserProfile extends Component {
               <div className='up-userprofile-menuitem'>
                 <p >{e.alias}</p>
                 <p>{e.balance/1000000000}</p>
-                {/* <p>{(e.balance/1000000000) * this.state.rate}</p> */}
               </div>
             </a>
           </Menu.Item>
@@ -64,8 +64,8 @@ class UserProfile extends Component {
   renderMainWallet = () => {
     if(this.state.view==='addWalletView') return (
       <div className="up-createWalletParent">
-        <div className='video'>
-          <video autoPlay loop className="up-videoContainer">
+        <div className='up-video'>
+          <video autoPlay loop className="videoContainer">
             <source src={earth} type="video/mp4" className='up-earth-video'/>
           </video>
         </div>

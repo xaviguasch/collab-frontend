@@ -2,11 +2,11 @@
     text-align: center;
     width: 120px;
     justify-content: center;
-    background-color: rgb(0, 94, 255);
+    background-color: rgba(0, 94, 255, 0.8);
     border: none;
     color: white;
     font-size: 15px;
-    border-radius: 7px;
+    border-radius: 5px;
     display: block;
     margin-top: 15px;
     align-items: center;
@@ -22,7 +22,7 @@
   align-items: center;
   border: none;
   border-radius: 7px;
-  margin-top: 30%;
+  z-index: 5;
   /* width: 20vw; */
 
 }
@@ -44,7 +44,7 @@
   width: 100%;
   justify-content: center;
   align-self: center;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.5);
   color: black;
 }
 

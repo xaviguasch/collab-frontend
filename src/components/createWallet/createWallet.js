@@ -56,9 +56,10 @@ class CreateWallet extends Component {
           <input
             name="alias"
             type="text"
-            className="create_wallet_input"
+            className="createwallet-create_wallet_input"
             placeholder="Name of the wallet to create"
             size="30"
+            value={this.state.alias}
             onChange={this.captureInput}
             required
           />
