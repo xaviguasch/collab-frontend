@@ -1,32 +1,19 @@
 .login-component {
-  height: 18;
-  width: auto;
-  padding-bottom: 10px;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  justify-content: center;
   display: flex;
-  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-content: center;
-  align-self: center;
-  float: center;
-
+  background-color:white;
 }
 
 .login-component-item {
-  width: 70%;
+
   background-color: rgb(255,255,255,0.75);
   display: block;
   border: none;
-  padding: 8px 16px;
+
   margin: 10px;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  border-bottom: 1px solid grey;
 }
 
 .login-button {
@@ -34,17 +21,16 @@
   background-color: rgb(0, 23, 138, 0.6);
   border: none;
   color: white;
-  padding: 16px 32px;
+  padding: 8px 14px;
   text-decoration: none;
-  margin: 30px;
+  margin: 20px;
   cursor: pointer;
-  font-size: 16px
+  font-size: 16px;
+  border-radius: 25px;
 
 }
 
-.login-form {
 
-}
 
 .formfield {
   display: block;

@@ -25,6 +25,7 @@ class NavBar extends Component {
       logInDrawer: false
     });
   }
+
   handleClickLogin = () => {
     this.setState({
       logInDrawer: !this.state.logInDrawer,
@@ -46,69 +47,63 @@ class NavBar extends Component {
         <button className='nav-bar-logOut' onClick={() => this.handleLogout()}>LOG OUT</button>
       </div>
     );
-    return (<div className="nav-bar-links">
-      <button
-        style={{
-          backgroundColor: 'transparent',
-          'borderStyle': 'none',
-        }}
-        style={
-          this.state.signUpDrawer
-            ? {'color': 'rgba(0, 94, 255, 0.4)'}
-            : {'color': 'rgba(255, 255, 255, 0.4)'}
-        }
-        onClick={() => this.handleClickSignup()}
-        className="nav-bar-userenter"
-        value="nav-bar-signup">
-        SIGN UP
-      </button>
-      <button
-        style={{
-          'backgroundColor': 'transparent',
-          'borderStyle': 'none',
-        }}
-        style={
-          this.state.logInDrawer
-            ? {'color': 'rgba(0, 94, 255, 0.4)'}
-            : {'color': 'rgba(255, 255, 255, 0.4)'}
-        }
-        onClick={() => this.handleClickLogin()}
-        className="nav-bar-userenter"
-        value="nav-bar-login">
-        LOG IN
-      </button>
-      <div
-        className="nav-bar-signup"
-        style={
-          this.state.signUpDrawer
-            ? {left: '80%'}
-            : {left: '100vw'}
-        }>
-        <NewUserView />
+    return (
+      <div className="nav-bar-links">
+        <button
+          style={
+            this.state.signUpDrawer
+              ? {'color': '#0892D0'}
+              : {'color': 'white'}
+          }
+          onClick={() => this.handleClickSignup()}
+          className="nav-bar-userenter"
+          value="nav-bar-signup">
+          SIGN UP
+        </button>
+        <div
+          className="nav-bar-signup"
+          style={
+            this.state.signUpDrawer
+              ? {display: 'block'}
+              : {display: 'none'}
+          }>
+          <NewUserView />
+        </div>
+        <button
+          style={
+            this.state.logInDrawer
+              ? {'color': '#0892D0'}
+              : {'color': 'white'}
+          }
+          onClick={() => this.handleClickLogin()}
+          className="nav-bar-userenter"
+          value="nav-bar-login">
+          LOG IN
+        </button>
+        <div
+          className="nav-bar-login"
+          style={
+            this.state.logInDrawer ? null: {display: 'none'}
+          }>
+          <LogIn />
+        </div>
       </div>
-      <div
-        className="nav-bar-login"
-        style={
-          this.state.logInDrawer
-            ? {
-              left: '80%',
-            }
-            : {left: '100vw'}
-        }>
-        <LogIn />
-      </div>
-    </div>);
+    );
   }
+
+
   render() {
+    console.log(this.state);
+    // console.log(window.location.href.includes('user'));
     return (
       <div className={(window.location.href.includes('user')) ? 'navbar-container2':'navbar-container'}>
         <Link className="navbar-title" to="/">
           <img src={icon} className="logo" />
-          <p className='nav-bar-title'>
+          <p className='navbar-title'>
             COLLAB
           </p>
         </Link>
-        <div className='nav-bar-ticker'>
+        <div className='navbar-ticker'>
           <BTCTicker/>
         </div>
         {this.renderLogin()}

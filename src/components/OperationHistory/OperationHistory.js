@@ -14,6 +14,8 @@ class OperationHistory extends Component {
       // return '❌';
     case 'pending':
       return 'Pending';
+    case 'Failed':
+      return 'Failed';
       // return '⌛️';
     default:
       return 'Pending';

@@ -6,12 +6,12 @@
 }
 
 .btc-price {
-  color:rgba(255, 255, 255, 0.4);
+  color:rgb(255, 255, 255);
 }
 
 .btc-movement {
   padding-left: 1vw;
-  color:rgba(255, 255, 255, 0.4);
+  color:rgb(255, 255, 255);
 }
 
 .btc-arrow {
