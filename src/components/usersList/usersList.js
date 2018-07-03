@@ -69,9 +69,8 @@ class UsersList extends Component {
         </div>
         {this.addUser()}
         <button className='addUser-button' onClick={this.handleOnClick}>Add User</button>
-        {this.getUsers()}
         <ul className='usersList-list'>
-          {this.getUsers}
+          {this.getUsers()}
         </ul>
       </div>
     );

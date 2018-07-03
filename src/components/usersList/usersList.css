@@ -1,49 +1,35 @@
 .usersList-father {
-  width:25%;
-  height:60%;
   display:flex;
   flex-direction:column;
-  height: 100%;
   width:100%;
+  align-items: center;
 }
 
 .usersList-title {
-  width:100%;
-  height:10%;
   background-color: rgb(5,21,41);
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 14px;
   font-size: 1.1rem;
   font-weight: 600;
   color:rgb(211,211,211);
-  /*border-left: 2px solid #2a3843;
-  border-right: 2px solid #2a3843;
-  border-top:2px solid #2a3843;*/
-  /*border-bottom: 2px solid #2a3843;*/
 }
 
 .addUser-button {
   width:40%;
-  /*height:5%;*/
-  align-self: center;
   border-radius:20px;
   margin-top: 4%;
 }
 
-.usersList-list {
-  display: flex;
-  style:none;
 
+ul.usersList-list {
+  overflow: scroll;
+  height: 80px;
+  margin: 5px 0 0 0;
+  padding: 0;
 }
 
 .usersList-user {
  border-bottom: 2px solid #2a3843;
- display:flex;
- justify-content: center;
- align-items: center;
-
+ margin: 0;
+ padding: 0 25px;
 }
 
 .usersList-user p {
@@ -52,9 +38,6 @@
 }
 
 .usersList-addUser {
-  display:flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .usersList-addUser input {
