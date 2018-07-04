@@ -28,11 +28,7 @@
   border-radius: 30px;
 
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color:black;
-    opacity: 1;
-    font-size: 14px/* Firefox */
-}
+
 .form-name {
   font-size: 15px;
   font-weight: bolder;

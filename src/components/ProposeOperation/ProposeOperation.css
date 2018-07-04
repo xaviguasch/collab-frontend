@@ -1,16 +1,17 @@
 .ProposeOperation {
   /*margin: 5%;*/
-  width: 35%;
+  width: 45%;
   align-self: center;
   margin-bottom: 2%;
+
 }
 /*.ProposeOperation_form {
 }*/
-.ProposeOperation_form * > input {
+.ProposeOperation_form * input {
   margin-top: 10px;
   color:rgb(211,211,211);
   border:none;
-  background-color: rgb(5,21,41);
+  background-color: rgba(5,21,41);
   border-bottom: 2px solid #2a3843;
 }
 
