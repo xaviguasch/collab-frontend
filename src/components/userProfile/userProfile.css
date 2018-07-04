@@ -36,11 +36,43 @@
   /* padding-top: 10px; */
   padding: 20px;
   border-radius: 7px;
+}
 
+.up-video {
+  z-index: 3;
+  position: absolute;
+}
+
+.up-videoContainer {
+  z-index: 2;
+}
+
+.up-earth-video {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+}
+
+.up-createWalletComponent {
+  z-index: 5;
+  background-color: transparent;
+  justify-content: center;
+  margin-top: 10;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  
 }
 
 .OperationHistory-operation-bottom {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.up-createWalletParent {
+  display: flex;
+  z-index: 3;
+  background-color: transparent;
+  /* justify-content: center; */
 }

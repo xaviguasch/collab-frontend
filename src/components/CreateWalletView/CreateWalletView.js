@@ -9,7 +9,7 @@ class CreateWalletView extends Component {
       <div className="CreateWalletView">
         {this.props.form
           ? <CreateWallet />
-          : <button onClick={this.props.handleOnClick}>Create Wallet</button>}
+          : <button className='cw-create-wallet-button' onClick={this.props.handleOnClick}>Create Wallet</button>}
       </div>
     );
   }
