@@ -1,6 +1,5 @@
 .inputfield {
   width: 70%;
-  background-color: rgb(255,255,255,0.75);
   display: block;
   border: none;
   padding: 8px 16px;
@@ -8,14 +7,13 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  border-bottom: 1px solid black
+
 
 
 }
 
-.inputfield[placeholder] {
-  color: #262626;
-  font-style: 'Actor'; font-size: 12px
-}
+
 
 .submitbutton {
   width: 50%;
@@ -26,17 +24,32 @@
   text-decoration: none;
   margin: 30px;
   cursor: pointer;
-  font-size: 16px
+  font-size: 16px;
+  border-radius: 30px;
 
 }
-
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1;
+    font-size: 14px/* Firefox */
+}
 .form-name {
   font-size: 15px;
   font-weight: bolder;
   justify-content: center;
   text-align: center;
+  color:black;
+}
+.inputfield{
+background-color: inherit;
 }
 
+.inputfield{
+background-color: inherit;
+}
+.inputfield:focus {
+  outline:none;
+}
 .form {
   display: flex;
   padding-top: 120px;
@@ -45,7 +58,7 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  align-self: center;s
+  align-self: center;
   float: center;
 }
 

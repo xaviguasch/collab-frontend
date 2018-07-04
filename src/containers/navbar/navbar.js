@@ -47,14 +47,11 @@ class NavBar extends Component {
     );
     return (<div className="nav-bar-links">
       <button
-        style={{
-          backgroundColor: 'transparent',
-          'borderStyle': 'none',
-        }}
+
         style={
           this.state.signUpDrawer
-            ? {'color': 'rgba(0, 94, 255, 0.4)'}
-            : {'color': 'rgba(255, 255, 255, 0.4)'}
+            ? {'color': 'rgba(0, 94, 255)'}
+            : {'color': 'rgba(255, 255, 255)'}
         }
         onClick={() => this.handleClickSignup()}
         className="userenter"
@@ -62,14 +59,11 @@ class NavBar extends Component {
         SIGN UP
       </button>
       <button
-        style={{
-          'backgroundColor': 'transparent',
-          'borderStyle': 'none',
-        }}
+
         style={
           this.state.logInDrawer
-            ? {'color': 'rgba(0, 94, 255, 0.4)'}
-            : {'color': 'rgba(255, 255, 255, 0.4)'}
+            ? {'color': 'rgba(0, 94, 255)'}
+            : {'color': 'rgba(255, 255, 255)'}
         }
         onClick={() => this.handleClickLogin()}
         className="userenter"
@@ -81,7 +75,7 @@ class NavBar extends Component {
         style={
           this.state.signUpDrawer
             ? {left: '80%'}
-            : {left: '100vw'}
+            : {display:'none'}
         }>
         <NewUserView />
       </div>
@@ -91,8 +85,8 @@ class NavBar extends Component {
           this.state.logInDrawer
             ? {
               left: '80%',
-              }
-            : {left: '100vw'}
+            }
+            : {display:'none'}
         }>
         <LogIn />
       </div>

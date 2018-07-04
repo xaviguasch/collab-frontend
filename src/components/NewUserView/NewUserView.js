@@ -45,7 +45,7 @@ class NewUserView extends Component {
     if (this.state.redirectToUserView) return <Redirect to='/user' />;
     return (
       <form className="form" onSubmit={this.handleSubmit}>
-        <label className="formfield" id="firstname">
+        <label className="formfield" >
           <p className="form-name">FIRST NAME</p>
           <input
             className="inputfield"
@@ -53,11 +53,10 @@ class NewUserView extends Component {
             onChange={this.handleChange}
             type="text"
             name="firstname"
-            id="firstname-input"
             required
           />
         </label>
-        <label className="formfield" id="lastname">
+        <label className="formfield" >
           <p className="form-name">LAST NAME</p>
           <input
             className="inputfield"
@@ -65,11 +64,10 @@ class NewUserView extends Component {
             onChange={this.handleChange}
             type="text"
             name="lastname"
-            id="lastname-input"
             required
           />
         </label>
-        <label className="formfield" id="username">
+        <label className="formfield" >
           <p className="form-name">USERNAME</p>
           <input
             className="inputfield"
@@ -77,11 +75,10 @@ class NewUserView extends Component {
             onChange={this.handleChange}
             type="text"
             name="username"
-            id="username-input"
             required
           />
         </label>
-        <label className="formfield" id="pubkey">
+        <label className="formfield" >
           <p className="form-name">PUBLIC KEY</p>
           <input
             className="inputfield"
@@ -89,11 +86,10 @@ class NewUserView extends Component {
             onChange={this.handleChange}
             type="text"
             name="pubkey"
-            id="pubkey-input"
             required
           />
         </label>
-        <label className="formfield" id="password">
+        <label className="formfield" >
           <p className="form-name">PASSWORD</p>
           <input
             className="inputfield"
@@ -101,11 +97,10 @@ class NewUserView extends Component {
             onChange={this.handleChange}
             type="password"
             name="password"
-            id="password-input"
             required
           />
         </label>
-        <label className="formfield" id="confirmpassword">
+        <label className="formfield" >
           <p className="form-name">CONFIRM PASSWORD</p>
           <input
             className="inputfield"
@@ -113,11 +108,10 @@ class NewUserView extends Component {
             onChange={this.handleChange}
             type="password"
             name="confirmedpassword"
-            id="confirmpassword-input"
             required
           />
         </label>
-        <label className="formfield" id="email">
+        <label className="formfield" >
           <p className="form-name">E-MAIL</p>
           <input
             className="inputfield"
@@ -125,7 +119,6 @@ class NewUserView extends Component {
             onChange={this.handleChange}
             type="email"
             name="email"
-            id="email-input"
             required
           />
         </label>
