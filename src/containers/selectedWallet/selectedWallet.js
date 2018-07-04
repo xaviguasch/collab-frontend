@@ -131,7 +131,7 @@ class SelectedWallet extends Component {
           <UserVotePage wallet={this.props.wallet}
             operations={this.filterOperations()}
             className='selectedWallet-header-operations'
-          showOperations={this.state.showOperations}/>
+            showOperations={this.state.showOperations}/>
           <div className='selectedWallet-graph-usersList'>
             <div className='selectedWallet-graph'>
               <Graph wallet={this.props.wallet}></Graph>
@@ -245,7 +245,7 @@ const mapDispatchToProps = (dispatch) => ({
     [API]: {
       path: '/operations',
       method: 'POST',
-      data
+      body: data
     }
   }),
   fetchAddUser: (data) => dispatch({
