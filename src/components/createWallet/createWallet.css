@@ -1,0 +1,92 @@
+.createWallet {
+  display: flex;
+  flex-direction: column;
+}
+
+.createWallet_form{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 10px;
+  width: 17vw;
+}
+
+.createWallet_form_input-name {
+  border: none;
+  background-color: rgba(255,255,255,0.8);
+  margin-bottom: 7px;
+  height: 25px;
+}
+
+.createWallet_form_input-user {
+  border: none;
+  background-color: rgba(255,255,255,0.8);
+  display: inline-block;
+  width: 75%;
+  height: 25px;
+}
+
+.createWallet_form_input-button-addUser {
+  border: none;
+  min-width: 75px;
+  height: 25px;
+  margin-left: 5px;
+  background-color: rgba(0, 12, 51, 0.6);
+  color: white;
+  font-weight: lighter;
+}
+
+.createWallet_form_wallet-addUser {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 7px;
+}
+
+.createWallet_form_wallet-createwalletbutton {
+  border: none;
+  background-color: rgb(0, 94, 255);
+  color: white;
+  font-weight: lighter;
+  width: 50%;
+  margin-top: 10px;
+  align-self: center;
+  border-radius: 5px;
+}
+
+.createwallet-users {
+  margin-top: 15px;
+  border: none;
+  display: flex;
+  justify-content: center;
+
+}
+
+.createWallet_form_wallet-walletname {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+.createwallet-users-ul {
+  list-style-type: none;
+  padding: 0px;
+
+}
+
+.cw_form_walletname{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.createwallet-users-name {
+  font-weight: bold;
+}
+
+.createwallet-users-delete {
+  border: none;
+  background-color: transparent;
+}
