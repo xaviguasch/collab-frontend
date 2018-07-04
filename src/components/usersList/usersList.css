@@ -16,7 +16,16 @@
   width:40%;
   border-radius:20px;
   margin-top: 4%;
+  background-color: rgb(5,21,41);
+  color:rgb(211,211,211);
+  border:1px solid rgb(211,211,211)
+
 }
+.addUser-button:hover {
+  border-width: 3px;
+
+}
+
 
 
 .usersList-list {
@@ -46,7 +55,6 @@
   border:none;
   background-color: rgb(5,21,41);
   border-bottom: 2px solid #2a3843;
-
 }
 
 .usersList-addUser input:focus {

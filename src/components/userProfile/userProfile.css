@@ -13,7 +13,8 @@
 }
 .up-ant-layout.ant-layout-has-sider{
   background-color: rgb(5,21,41);
-  z-index: 4;
+  height:100%;
+  width:100%;
 }
 
 .up-createWalletParent{
@@ -79,4 +80,10 @@
   padding: 20px;
   border-radius: 7px;
   z-index: 4;
+}
+
+.OperationHistory-operation-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

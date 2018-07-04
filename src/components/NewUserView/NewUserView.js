@@ -44,32 +44,34 @@ class NewUserView extends Component {
   render() {
     if (this.state.redirectToUserView) return <Redirect to='/user' />;
     return (
-      <form className="nuv-form" onSubmit={this.handleSubmit}>
-        <label className="nuv-formfield" id="firstname">
-          <p className="nuv-form-name">FIRST NAME</p>
+      <form className="form" onSubmit={this.handleSubmit}>
+        <label className="formfield" >
+          <p className="form-name">FIRST NAME</p>
           <input
             className="nuv-inputfield"
             placeholder="enter your name..."
             onChange={this.handleChange}
             type="text"
             name="firstname"
-            id="firstname-input"
             required
           />
         </label>
-        <label className="nuv-formfield" id="lastname">
-          <p className="nuv-form-name">LAST NAME</p>
+
+        <label className="formfield" >
+          <p className="form-name">LAST NAME</p>
+
           <input
             className="nuv-inputfield"
             placeholder="enter your lastname..."
             onChange={this.handleChange}
             type="text"
             name="lastname"
-            id="lastname-input"
             required
           />
         </label>
-        <label className="nuv-formfield" id="username">
+
+        <label className="formfield" >
+
           <p className="form-name">USERNAME</p>
           <input
             className="nuv-inputfield"
@@ -77,55 +79,57 @@ class NewUserView extends Component {
             onChange={this.handleChange}
             type="text"
             name="username"
-            id="username-input"
             required
           />
         </label>
-        <label className="nuv-formfield" id="pubkey">
-          <p className="nuv-form-name">PUBLIC KEY</p>
+
+        <label className="formfield" >
+          <p className="form-name">PUBLIC KEY</p>
+
           <input
             className="nuv-inputfield"
             placeholder="enter your public key..."
             onChange={this.handleChange}
             type="text"
             name="pubkey"
-            id="pubkey-input"
             required
           />
         </label>
-        <label className="nuv-formfield" id="password">
-          <p className="nuv-form-name">PASSWORD</p>
+
+        <label className="formfield" >
+          <p className="form-name">PASSWORD</p>
           <input
             className="nuv-inputfield"
             placeholder="choose your password..."
             onChange={this.handleChange}
             type="password"
             name="password"
-            id="password-input"
             required
           />
         </label>
-        <label className="nuv-formfield" id="confirmpassword">
-          <p className="nuv-form-name">CONFIRM PASSWORD</p>
+
+        <label className="formfield" >
+          <p className="form-name">CONFIRM PASSWORD</p>
+
           <input
             className="nuv-inputfield"
             placeholder="confirm your password..."
             onChange={this.handleChange}
             type="password"
             name="confirmedpassword"
-            id="confirmpassword-input"
             required
           />
         </label>
-        <label className="nuv-formfield" id="email">
-          <p className="nuv-form-name">E-MAIL</p>
+
+        <label className="formfield" >
+          <p className="form-name">E-MAIL</p>
+
           <input
             className="nuv-inputfield"
             placeholder="enter your e-mail..."
             onChange={this.handleChange}
             type="email"
             name="email"
-            id="email-input"
             required
           />
         </label>

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './CreateWalletView.css';
 
 
+
 class CreateWalletView extends Component {
   render () {
     return (

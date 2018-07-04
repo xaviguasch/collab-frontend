@@ -14,8 +14,13 @@ import PropTypes from 'prop-types';
 class MainScreen extends Component {
 
 
-  scrollWscroll() {
+  playVideo = () => {
+    return  (<video width="100%" autoPlay loop className="videoContainer">
+      <source src={video} type="video/mp4" />
+    </video>);
+  }
 
+  scrollWscroll() {
     window.scroll({
       top: window.innerHeight,
       behavior: 'smooth'
@@ -25,16 +30,14 @@ class MainScreen extends Component {
   render() {
     if (this.props.userLogged.username) return <Redirect to='/user' />;
     return (
-      <div className="ms-mainscreen-component">
-        <div className="ms-first-mainscreen-component">
-          <video width="100%" autoPlay loop className="ms-videoContainer">
-            <source src={video} type="video/mp4" />
-          </video>
-          <div className="ms-second-mainscreen-component">
-            <p className="ms-title-mainscreen">THE FIRST DEMOCRATIC BLOCKCHAIN SHARED WALLET APP</p>
-            <p className="ms-title-mainscreen-text">A transparency based solution to group expenses</p>
 
-            <img className='ms-scroll' src={scroll} onClick={() => this.scrollWscroll()}/>
+      <div className="mainscreen-component">
+        <div className="first-mainscreen-component">
+          {this.playVideo()}
+          <div className="second-mainscreen-component">
+            <p className="title-mainscreen">THE FIRST DEMOCRATIC BLOCKCHAIN SHARED WALLET APP</p>
+
+            <img className='scroll' size='1' src={scroll} onClick={() => this.scrollWscroll()}/>
           </div>
         </div>
 

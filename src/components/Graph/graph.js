@@ -74,6 +74,9 @@ class Graph extends Component {
       type: 'line',
       data,
       options: {
+        scaleGridLineColor : "rgba(255,255,255,1)",
+        scaleFontColor : "rgba(255,255,255,0.7)",
+
         legend: {
           display: false
         },

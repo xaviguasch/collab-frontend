@@ -6,7 +6,21 @@
   align-items: center;
   justify-content: space-between;
   z-index: 2;
-  background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0) )
+}
+.navbar-container * {
+  color:white;
+}
+.navbar-container2 {
+  position: fixed;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  background-color: rgb(5,21,41);
+  border-bottom: 2px solid #2a3843;
+
 }
 
 .nav-bar-links {
@@ -16,7 +30,7 @@
   justify-content: space-between;
   color: white;
   text-decoration: none;
-  z-index: 4;
+
 }
 
 .nav-bar-links-items {
@@ -67,7 +81,6 @@
 
 .nav-bar-title {
   font-size: 20px;
-  font-weight: lighter;
   font-stretch: condensed;
   z-index: 3;
 }
@@ -78,7 +91,7 @@
   display: inline;
   position: fixed;
   width: 20%;
-  background-color:rgba(255, 255, 255, 0.4);
+  background-color:rgba(255, 255, 255, 0.6);
   transition: all ease 1.5s;
   z-index: 1;
   font-weight: lighter;
@@ -102,13 +115,15 @@
   background-color: transparent;
   outline: none;
   border-style: none;
-  color: rgb(211, 211, 211, 1);
+  color: white;
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.nav-bar-ticker {
-  color: rgba(211,211,211, 0.4);
+
+.ticker {
+  color: white;
+
   margin-left:-33%;
   margin-top:1.6%;
 }

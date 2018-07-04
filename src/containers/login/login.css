@@ -19,14 +19,18 @@
 
 .login-component-item {
   width: 70%;
-  background-color: rgb(255,255,255,0.75);
+  background-color: inherit;
   display: block;
   border: none;
   padding: 8px 16px;
   margin: 10px;
   justify-content: center;
   margin-left: auto;
+  border-bottom:1px solid black;
   margin-right: auto;
+}
+.login-component-item:focus {
+  outline:none;
 }
 
 .login-button {
@@ -38,7 +42,8 @@
   text-decoration: none;
   margin: 30px;
   cursor: pointer;
-  font-size: 16px
+  font-size: 16px;
+  border-radius:30px;
 
 }
 
