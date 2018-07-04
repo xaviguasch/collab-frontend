@@ -1,0 +1,10 @@
+.vote {
+
+}
+
+.uservotepage-renderoperations {
+  display: table;
+  width:100%;
+  /*grid-template-columns: auto auto auto;*/
+  padding:10px;
+}

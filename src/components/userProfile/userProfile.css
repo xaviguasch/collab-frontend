@@ -44,3 +44,8 @@
   flex-direction: row;
   justify-content: space-around;
 }
+.userprofile-spinner {
+  margin-left: 45%;
+  margin-top: 50%;
+  padding-bottom: 50%;
+}

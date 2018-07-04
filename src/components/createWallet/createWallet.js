@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {API} from '../../store/middlewares/apiService';
 import PropTypes from 'prop-types';
+import './createWallet.css'
 
 
 class CreateWallet extends Component {
@@ -55,34 +56,60 @@ class CreateWallet extends Component {
           <input
             name="alias"
             type="text"
-            className="createWallet_form_wallet-name"
+            value={this.state.alias}
+            className="createWallet_form_input-name"
             placeholder="Name of the wallet to create"
             size="30"
             onChange={this.captureInput}
             required
           />
+          <div className="createWallet_form_wallet-addUser">
+            <input
+              name="users"
+              type="text"
+              placeholder="Add username to the wallet"
+              className="createWallet_form_input-user"
+              onChange={this.captureUser}
+            />
+            <button
+              className="createWallet_form_input-button-addUser"
+              onClick={this.pushUser}>
+              Add User
+            </button>
+          </div>
           <input
             type='submit'
             value='Create Wallet'
+            className="createWallet_form_wallet-createwalletbutton"
           />
+          {this.state.alias
+            ? <div className="createWallet_form_wallet-walletname">
+              <p className='cw_form_walletname'>{`WALLET NAME  | ${this.state.alias}`}</p>
+            </div>
+            : null
+          }
+          <div>
+            <ul
+              className='createwallet-users-ul'
+            >
+              {this.state.users.length > 0
+                ? this.state.users.map(user => {
+                  return <div className='createwallet-users'key={user}>
+                    <li
+                      className='createwallet-users-name'>
+                      {user}
+                    </li>
+                    <button
+                      onClick={() => this.deleteUser(user)}
+                      className='createwallet-users-delete'>
+                      ❌
+                    </button>
+                  </div>;})
+                : null
+              }
+            </ul>
+          </div>
         </form>
-        <button onClick={this.pushUser}>Add User</button>
-        <input
-          name="users"
-          type="text"
-          placeholder="Add username to the wallet"
-          onChange={this.captureUser}
-        >
-        </input>
-        <ul>
-          {this.state.users.length > 0
-            ? this.state.users.map(user => {
-              return <div key={user}>
-                <button onClick={() => this.deleteUser(user)}>❌</button>
-                <li>{user}</li>
-              </div>;})
-            : null}
-        </ul>
       </div>
     );
   }

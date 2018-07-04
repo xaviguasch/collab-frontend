@@ -18,21 +18,14 @@ class UserVoteCard extends Component {
   render() {
     return this.props.operation
       ? <div className="voteCard" key={this.props.operation.operation_id}>
-        <h1>OPERATION</h1>
-        <div className="info">
-          <p className ="wallet">Wallet: {this.props.operation.publicKey}</p>
-          <p className ="amount">Amount: {this.props.operation.amount}</p>
-          <p className ="message">{this.props.operation.message}</p>
-        </div>
+        {(this.props.operation.amount) ? <h3>WITHDRAWAL</h3>:<h3>ADD COLLABORATOR</h3>}
+        {(this.props.operation.amount) ? <p className ="amount">Amount: {this.props.operation.amount}</p>:<p>New User: {this.props.operation.user_to_act}</p>}
+        <p className ="message">{this.props.operation.message}</p>
         {this.state.voted
           ? <h3>Vote registered!</h3>
           : <div>
-            <div>
-              <button onClick={() => this.handleClick(1)}className="vote">👍</button>
-            </div>
-            <div>
-              <button onClick={() => this.handleClick(2)}className="vote">👎</button>
-            </div>
+            <button onClick={() => this.handleClick(1)} className="vote1">Accept</button>
+            <button onClick={() => this.handleClick(2)} className="vote2">Decline</button>
           </div>
         }
       </div>

@@ -1,0 +1,128 @@
+.createWallet {
+  display: flex;
+  flex-direction: column;
+}
+
+.createWallet_form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  width: 27vw;
+  height:70vh;
+}
+
+.createWallet_form_input-name {
+  margin-bottom: 7px;
+  border:none;
+  width: 100%;
+  color: white;
+  background-color: rgb(5,21,41);
+  height: 25px;
+  border-bottom:1px solid rgb(211,211,211);
+}
+.createWallet_form_input-name:focus {
+  outline:none;
+}
+
+.createWallet_form_input-user {
+  border:none;
+  color:white;
+  background-color: rgb(5,21,41);
+  height: 25px;
+  border-bottom:1px solid rgb(211,211,211);
+
+  display: inline-block;
+  width: 75%;
+  height: 25px;
+}
+.createWallet_form_input-user:focus {
+  outline:none;
+}
+
+.createWallet_form_input-button-addUser {
+  border: none;
+  min-width: 75px;
+  height: 25px;
+  margin-left: 5px;
+  background-color: rgb(5,21,41);
+  border: 1px solid rgb(211,211,211);
+  font-weight: lighter;
+  margin-left: 5px;
+}
+
+.createWallet_form_wallet-addUser {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 7px;
+  color:white;
+}
+
+.createWallet_form_wallet-createwalletbutton {
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-weight: lighter;
+  border: 1px solid rgb(211,211,211);
+  width: 13vw;
+  height: 5vh;
+  margin-top: 10px;
+  align-self: center;
+  border-radius: 5px;
+}
+
+.createWallet_form_wallet-createwalletbutton:hover {
+  letter-spacing: 1px;
+  color: rgb(5,21,41);
+  background-color: rgb(211,211,211);
+
+}
+
+
+.createwallet-users {
+  margin-top: 15px;
+  border: none;
+  display: flex;
+  justify-content: center;
+
+}
+
+.createWallet_form_wallet-walletname {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 15px;
+  color:white;
+}
+
+.createwallet-users-ul {
+  list-style-type: none;
+  padding: 0px;
+  color:white;
+
+}
+
+.cw_form_walletname{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.createwallet-users-name {
+  font-weight: bold;
+}
+
+.createwallet-users-delete {
+  border: none;
+  background-color: transparent;
+}
+
+.createWallet-title{
+  font-size: 30px;
+  color:rgb(211,211,211)
+}

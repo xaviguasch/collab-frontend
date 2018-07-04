@@ -24,7 +24,8 @@ class SelectedWallet extends Component {
     this.state = {
       showPK:false,
       showAddTrans: false,
-      price:null
+      price:null,
+      showOperations: false
     };
     this.fetchBTC();
   }
@@ -87,14 +88,35 @@ class SelectedWallet extends Component {
     this.props.fetchGetWallets();
   }
 
+  filterOperations = () => {
+    const ops = [];
+    //console.log('=======',this.props.operations);
+    if (this.props.operations.length < 1) return ops;
+    this.props.operations.forEach(op => {
+      if (op.publicKey === this.props.wallet.publickey
+      && op.votingState == 0) ops.push(op);
+    });
+    return ops;
+  }
+
+
+  renderOperationsNotification = () => {
+    const ops = this.filterOperations();
+    return ops.length > 0
+      ? <button id='jons-button' onClick={() => this.setState({showOperations: !this.state.showOperations})}>
+        {`Pending Operations: ${this.filterOperations().length}`}
+      </button>
+      : <p id='no-pending-ops'>No pending operations</p>;
+  }
+
   render() {
-    console.log(this.addTransactions());
     return (
       <div className='selectedWallet-father' >
         <header className='selectedWallet-header'>
           <div className='selectedWallet-header-alias'>
             {this.props.wallet.alias}
           </div>
+          {this.renderOperationsNotification()}
           <div className='selectedWallet-header-publickey-button'>
             {!this.state.showPK && <button className='selectedWallet-header-button' onClick={this.showPublicKey}>Show Public Key</button>}
             {this.state.showPK &&
@@ -106,7 +128,10 @@ class SelectedWallet extends Component {
           </div>
         </header>
         <div className='selectedWallet-body'>
-          <UserVotePage wallet={this.props.wallet}/>
+          <UserVotePage wallet={this.props.wallet}
+            operations={this.filterOperations()}
+            className='selectedWallet-header-operations'
+          showOperations={this.state.showOperations}/>
           <div className='selectedWallet-graph-usersList'>
             <div className='selectedWallet-graph'>
               <Graph wallet={this.props.wallet}></Graph>
@@ -203,14 +228,15 @@ SelectedWallet.propTypes = {
   fetchProposeOperation: PropTypes.func.isRequired,
   wallet: PropTypes.object.isRequired,
   fetchPendingOperations: PropTypes.func.isRequired,
-  fetchGetWallets: PropTypes.func.isRequired
-
+  fetchGetWallets: PropTypes.func.isRequired,
+  operations: PropTypes.array.isRequired
 };
 
 //exports
 const mapStateToProps = state => ({
   userLogged: state.userLogged,
-  renderWallets: state.getWallets
+  renderWallets: state.getWallets,
+  operations: state.operations
 });
 
 const mapDispatchToProps = (dispatch) => ({

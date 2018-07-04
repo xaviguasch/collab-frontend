@@ -13,9 +13,10 @@ class UserVotePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      operations: []
+      operations: [],
+      showOperations: false
     };
-    this.filterOperations();
+
   }
 
   handleVoteOperation = (operation_id, publicKey, vote) => {
@@ -27,28 +28,26 @@ class UserVotePage extends Component {
     this.props.fetchVoteOperation(data);
   }
 
-  filterOperations = () => {
-    const ops = [];
-    //console.log('=======',this.props.operations);
-    this.props.operations.forEach(op => {
-      if (op.publicKey === this.props.wallet.publickey
-      && op.votingState == 0) ops.push(op);
-    });
-    return ops;
-  }
-
   renderOperations = () => {
-    return this.props.operations.length > 0
-      ? this.filterOperations().map(el => {
+    return (this.props.operations.length > 0)
+      ? this.props.operations.map(el => {
         return <UserVoteCard key={el.operation_id} operation={el} handleVoteOperation={this.handleVoteOperation} />;})
-      : <h3>There are no pending operations</h3>;
+      : null;
   }
 
   render() {
     return (
       <div className="vote">
-        <h2>Pending Operations</h2>;
-        {this.renderOperations()}
+        <div className='uservotepage-click-title' onClick={()=>this.setState({
+          showOperations:!this.state.showOperations
+        })}>
+          {/* <h2>{`Pending Operations: ${this.filterOperations().length}`}</h2>; */}
+        </div>
+        {this.props.showOperations
+          ? <div className='uservotepage-renderoperations'>
+            {this.renderOperations()}
+          </div>
+          : null}
       </div>
     );
   }
@@ -57,12 +56,9 @@ class UserVotePage extends Component {
 UserVotePage.propTypes = {
   operations: PropTypes.array.isRequired,
   wallet: PropTypes.object.isRequired,
-  fetchVoteOperation: PropTypes.func.isRequired
+  fetchVoteOperation: PropTypes.func.isRequired,
+  showOperations: PropTypes.bool.isRequired
 };
-
-const mapStateToProps = (state) => ({
-  operations: state.operations
-});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchVoteOperation: (data) => dispatch ({
@@ -75,4 +71,4 @@ const mapDispatchToProps = (dispatch) => ({
   })
 });
 
-export default connect(mapStateToProps ,mapDispatchToProps)(UserVotePage);
+export default connect(null ,mapDispatchToProps)(UserVotePage);

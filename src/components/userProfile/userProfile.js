@@ -51,14 +51,13 @@ class UserProfile extends Component {
               <div className='userprofile-menuitem'>
                 <p >{e.alias}</p>
                 <p>{(e.balance/100000000).toFixed(4)}</p>
-                {/* <p>{(e.balance/100000000) * this.state.rate}</p> */}
               </div>
             </a>
           </Menu.Item>
         );
       });
     } else {
-      return <Spin />;
+      return <Spin  className='userprofile-spinner'/>;
     }
   }
 

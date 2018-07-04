@@ -64,7 +64,6 @@
     align-items: center;
     width: 22px;
     height: 32px;
-    transition: transform .25s ease-in-out;
     color:black;
     border-radius: 1000px;
   }
@@ -75,7 +74,15 @@
   margin-bottom: 10%;
 }
 
-
+#jons-button {
+  color:black;
+  margin-right: 50px;
+  border-radius: 15px;
+  background-color: rgb(211,211,211);
+}
+#jons-button:focus {
+  outline:none;
+}
 
 .selectedWallet-graph-usersList {
   display: flex;
@@ -250,37 +257,10 @@
   border-width: 5px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.container:hover p#a {
-	display: block;
+.selectedWallet-header-operations {
 }
 
-.container:hover p#b {
-	display: none;
+#no-pending-ops{
+  font-size: 16px;
+  color: rgb(211,211,211)
 }
-
-p#a {
-	display: none;
-}
-
-</style>
-
-<div class="container">
-	<p id="a"> bleep </p>
-    <p id="b"> bloop </p>
-</div>*/
