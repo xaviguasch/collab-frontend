@@ -104,7 +104,7 @@ class NavBar extends Component {
         <div className='ticker'>
           <BTCTicker/>
         </div>
-          {this.renderLogin()}
+        {this.renderLogin()}
       </div>
     );
   }

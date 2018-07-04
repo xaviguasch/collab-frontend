@@ -18,7 +18,7 @@ class ProposeOperation extends Component {
     const data = {
       publicKey : this.props.wallet.publickey,
       message: this.state.message,
-      amount: this.state.amount,
+      amount: this.state.amount * 100000000, //send satoshis, not bitcoins
       target_publicAdress: this.state.target_publicAddress
     };
     this.resetInputs();
@@ -75,7 +75,7 @@ class ProposeOperation extends Component {
               onChange={this.captureInput}>
               {this.props.wallet && this.props.wallet.users.map(user => {
                 return <option
-                  key={user.publicAddress}
+                  key={user.username + user.publicAddress}
                   value={user.publicAddress}
                   name="target_publicAddress"
                 >{user.username}</option>;

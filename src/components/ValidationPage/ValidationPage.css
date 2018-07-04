@@ -1,0 +1,72 @@
+
+
+
+.validation-page-container {
+  display: flex;
+  flex-flow: row;
+  height: 100%; 
+}
+
+
+.validation-inner-page {
+  height: 100%;
+  width: 100%;
+  background-color: white
+}
+
+.validation-second-mainscreen-component {
+  text-align: center;
+  align-content: center;
+  width: 100%;
+  padding-top: 30vh;
+  padding-bottom: 2vh;
+  padding-left: 30vh;
+  padding-right: 30vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.validation-title-validation-component {
+  color: grey;
+  font-size: 2.2rem;
+  letter-spacing: .33em;
+  font-weight: 300;
+}
+
+.validation-message-validation {
+  padding-top: 2vh;
+  padding-bottom: 6vh;
+  background-color: #fff;
+  justify-content: center;
+
+
+}
+
+
+.validation-text-validation {
+  color: #3e4444;
+  font-size: 1.2rem;
+  font-weight: 200;
+  text-align: center;
+  line-height: 1.8;
+  letter-spacing: 0.4px;
+  padding-left: 10vh;
+  padding-right: 10vh;
+
+}
+
+.validation-icon-div {
+  text-align: center;
+  margin: auto;
+  font-size: 80px
+
+}
+
+
+.validation-icon-one {
+  height: 90px;
+  width: auto;
+  overflow: hidden
+}
+
