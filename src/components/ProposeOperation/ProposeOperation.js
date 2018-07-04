@@ -23,6 +23,8 @@ class ProposeOperation extends Component {
     };
     this.resetInputs();
     this.props.proposeOperation(data);
+    this.props.fetchPendingOperations();
+    this.props.fetchGetWallets();
   }
 
   resetInputs = () => {
@@ -102,7 +104,9 @@ class ProposeOperation extends Component {
 
 ProposeOperation.propTypes = {
   wallet: PropTypes.object.isRequired,
-  proposeOperation: PropTypes.func.isRequired
+  proposeOperation: PropTypes.func.isRequired,
+  fetchPendingOperations: PropTypes.func.isRequired,
+  fetchGetWallets: PropTypes.func.isRequired
 };
 
 export default ProposeOperation;

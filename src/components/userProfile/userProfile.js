@@ -4,7 +4,7 @@ import './userProfile.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SelectedWallet from '../../containers/selectedWallet';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Spin } from 'antd';
 import {API} from '../../store/middlewares/apiService';
 import CreateWallet from '../createWallet';
 import CreateWalletView from '../CreateWalletView';
@@ -17,6 +17,7 @@ const { Sider } = Layout;
 class UserProfile extends Component {
   constructor (props) {
     super(props);
+    this.props.fetchPendingOperations();
     this.getWallets();
     this.state = {
       view: 'addWalletView',
@@ -49,13 +50,15 @@ class UserProfile extends Component {
             <a onClick={() => this.handleOnClick(e)}>
               <div className='userprofile-menuitem'>
                 <p >{e.alias}</p>
-                <p>{(e.balance/1000000000).toFixed(4)}</p>
-                {/* <p>{(e.balance/1000000000) * this.state.rate}</p> */}
+                <p>{(e.balance/100000000).toFixed(4)}</p>
+                {/* <p>{(e.balance/100000000) * this.state.rate}</p> */}
               </div>
             </a>
           </Menu.Item>
         );
       });
+    } else {
+      return <Spin />;
     }
   }
 
@@ -100,13 +103,15 @@ UserProfile.propTypes = {
   renderWallets: PropTypes.object.isRequired,
   getWallets: PropTypes.object.isRequired,
   fetchGetWallets: PropTypes.func.isRequired,
+  fetchPendingOperations:PropTypes.func.isRequired
 };
 
 
 
 const mapStateToProps = state => ({
   userLogged: state.userLogged,
-  renderWallets: state.getWallets
+  renderWallets: state.getWallets,
+  operations:state.operations
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -114,6 +119,12 @@ const mapDispatchToProps = (dispatch) => ({
     type: 'FETCH_GET_WALLETS',
     [API]: {
       path: '/wallet'
+    }
+  }),
+  fetchPendingOperations: () => dispatch({
+    type: 'FETCH_ALL_PENDING_OPERATIONS',
+    [API]: {
+      path: '/operations/pending'
     }
   })
 });

@@ -15,7 +15,8 @@ class NavBar extends Component {
     super(props);
     this.state = {
       signUpDrawer: false,
-      logInDrawer: false
+      logInDrawer: false,
+      triggerRender: false
     };
   }
 
@@ -33,7 +34,13 @@ class NavBar extends Component {
   }
 
   handleLogout = () => {
+    this.setState({triggerRender: false});
     this.props.logout();
+    this.props.resetWallets();
+    this.setState({
+      signUpDrawer: false,
+      logInDrawer: false
+    })
   }
 
   renderLogin = () => {
@@ -93,8 +100,9 @@ class NavBar extends Component {
     </div>);
   }
   render() {
+
     return (
-      <div className={(window.location.href.includes('user')) ? 'navbar-container2':'navbar-container'}>
+      <div className={this.props.userLogged.username ? 'navbar-container2' : 'navbar-container'}>
         <Link className="navbar-title" to="/">
           <img src={icon} className="logo" />
           <p className='title'>
@@ -112,7 +120,8 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
   userLogged: PropTypes.object.isRequired,
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired,
+  resetWallets: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -122,6 +131,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch ({
     type: 'USER_LOGOUT'
+  }),
+
+  resetWallets: () => dispatch ({
+    type: 'RESET_WALLETS'
   })
 });
 

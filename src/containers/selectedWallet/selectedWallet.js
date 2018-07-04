@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'; // ES6
 import bitcoin from '../../assets/bitcoin-logo.png';
 import usericon from '../../assets/user-silhouette.png';
 import approved from '../../assets/verified-text-paper.png';
-import { Layout } from 'antd';
 import UsersList from '../../components/usersList/usersList';
 import {API} from '../../store/middlewares/apiService';
 import ProposeOperation from '../../components/ProposeOperation';
@@ -16,8 +15,6 @@ import TransactionList from '../../components/TransactionList';
 import OperationHistory from '../../components/OperationHistory';
 
 
-
-const { Header, Content, Footer, Sider } = Layout;
 
 
 //user logged component, small div on right side of the navbar that onclick redirects you user profile
@@ -46,9 +43,9 @@ class SelectedWallet extends Component {
     let totalTransactions = 0;
     this.props.wallet.transactions.forEach(e => {
       if (e.type==='outbound') {
-        totalTransactions = totalTransactions - (e.amount/1000000000);
+        totalTransactions = totalTransactions - (e.amount/100000000);
       } else {
-        totalTransactions = totalTransactions + (e.amount/1000000000);
+        totalTransactions = totalTransactions + (e.amount/100000000);
       }
     }
     );
@@ -82,6 +79,14 @@ class SelectedWallet extends Component {
     this.setState({showPK:!this.state.showPK});
   }
 
+  fetchPendingOperations = () => {
+    this.props.fetchPendingOperations();
+  }
+
+  fetchGetWallets = () => {
+    this.props.fetchGetWallets();
+  }
+
   render() {
     console.log(this.addTransactions());
     return (
@@ -101,7 +106,7 @@ class SelectedWallet extends Component {
           </div>
         </header>
         <div className='selectedWallet-body'>
-          {/* <UserVotePage operations={this.props.operations}/> */}
+          <UserVotePage wallet={this.props.wallet}/>
           <div className='selectedWallet-graph-usersList'>
             <div className='selectedWallet-graph'>
               <Graph wallet={this.props.wallet}></Graph>
@@ -119,11 +124,11 @@ class SelectedWallet extends Component {
                 <img src={bitcoin} />
               </div>
               <div className='selectedWallet-icon-each-info'>
-                <p>{(this.props.wallet.balance/1000000000).toFixed(4)}</p>
+                <p>{(this.props.wallet.balance/100000000).toFixed(4)}</p>
                 <h8>BTC</h8>
               </div>
               <div className='selectedWallet-icon-each-info-hover'>
-                <p>{((this.props.wallet.balance/1000000000)*Number(this.state.price)).toFixed(2)}</p>
+                <p>{((this.props.wallet.balance/100000000)*Number(this.state.price)).toFixed(2)}</p>
                 <h8>EUR/BTC</h8>
               </div>
             </div>
@@ -174,7 +179,10 @@ class SelectedWallet extends Component {
 
           <TransactionList wallet={this.props.wallet}/>
           <div className='ProposeOperation-button'>
-            {this.state.showAddTrans && <ProposeOperation wallet={this.props.wallet} proposeOperation={this.proposeOperation}/> }
+            {this.state.showAddTrans && <ProposeOperation wallet={this.props.wallet}
+              proposeOperation={this.proposeOperation}
+              fetchPendingOperations={this.fetchPendingOperations}
+              fetchGetWallets={this.fetchGetWallets}/> }
             <button onClick={this.addTransactionButton} className='addTransactionButton'>Create Transaction</button>
           </div>
           <OperationHistory operations={this.props.wallet.operations}/>
@@ -194,6 +202,8 @@ SelectedWallet.propTypes = {
   users: PropTypes.object.isRequired,
   fetchProposeOperation: PropTypes.func.isRequired,
   wallet: PropTypes.object.isRequired,
+  fetchPendingOperations: PropTypes.func.isRequired,
+  fetchGetWallets: PropTypes.func.isRequired
 
 };
 
@@ -218,6 +228,18 @@ const mapDispatchToProps = (dispatch) => ({
       method: 'POST',
       path: '/wallet/add_user',
       body: data
+    }
+  }),
+  fetchPendingOperations: () => dispatch({
+    type: 'FETCH_ALL_PENDING_OPERATIONS',
+    [API]: {
+      path: '/operations/pending'
+    }
+  }),
+  fetchGetWallets: () => dispatch({
+    type: 'FETCH_GET_WALLETS',
+    [API]: {
+      path: '/wallet'
     }
   })
 });

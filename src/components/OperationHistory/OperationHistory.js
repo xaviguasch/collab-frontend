@@ -15,9 +15,22 @@ class OperationHistory extends Component {
     case 'pending':
       return 'Pending';
       // return '⌛️';
+    case 'Failed':
+    return 'Failed Operation';
     default:
       return 'Pending';
       // return '⌛️';
+    }
+  }
+
+  renderOperationType = (type) => {
+    switch (type) {
+    case 'adduser':
+      return 'Add Collaborator';
+    case 'transfer':
+      return 'Transaction';
+    default:
+      return 'Undefined type';
     }
   }
 
@@ -32,8 +45,8 @@ class OperationHistory extends Component {
           {this.props.operations.map(operation => {
             return <div key={operation.operation_id + operation.closed_at}
               className={(operation.result==='Approved') ? 'OperationHistory_operation3':(operation.result==='Rejected') ? 'OperationHistory_operation1':'OperationHistory_operation2'}>
-              <h3>{`${operation.type || 'Transaction'}`}</h3>
-              <p>{`Amount: ${operation.amount / 1000000000}BTC`}</p>
+              <h3>{`Type: ${this.renderOperationType(operation.type)}`}</h3>
+              <p>{`Amount: ${operation.amount / 100000000}BTC`}</p>
               <p>{`Description: '${operation.message}'`}</p>
               <div className='OperationHistory-operation-bottom'>
                 <p>{(operation.closed_at) ? `Date: ${operation.closed_at.slice(0,10)}`: 'To be determined'}</p>

@@ -13,7 +13,6 @@ import PropTypes from 'prop-types';
 //main screen, import component add title
 class MainScreen extends Component {
 
-
   playVideo = () => {
     return  (<video width="100%" autoPlay loop className="videoContainer">
       <source src={video} type="video/mp4" />
