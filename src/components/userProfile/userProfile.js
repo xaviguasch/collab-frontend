@@ -9,7 +9,7 @@ import {API} from '../../store/middlewares/apiService';
 import CreateWallet from '../createWallet';
 import CreateWalletView from '../CreateWalletView';
 import { Redirect } from 'react-router';
-
+import earth from '../../assets/earth.mp4';
 const { Sider } = Layout;
 
 
@@ -50,7 +50,6 @@ class UserProfile extends Component {
               <div className='userprofile-menuitem'>
                 <p >{e.alias}</p>
                 <p>{(e.balance/1000000000).toFixed(4)}</p>
-                {/* <p>{(e.balance/1000000000) * this.state.rate}</p> */}
               </div>
             </a>
           </Menu.Item>
@@ -61,8 +60,17 @@ class UserProfile extends Component {
 
   renderMainWallet = () => {
     if(this.state.view==='addWalletView') return (
-      <CreateWalletView handleOnClick={this.handleAddWallet}
-        form={this.state.form} />);
+      <div className="up-createWalletParent">
+        <div className='up-video'>
+          <video autoPlay loop className="up-videoContainer">
+            <source src={earth} type="video/mp4" className='up-earth-video'/>
+          </video>
+        </div>
+        <div className='up-createWalletComponent'>
+          <CreateWalletView handleOnClick={this.handleAddWallet}
+            form={this.state.form} />
+        </div>
+      </div>);
     return <SelectedWallet wallet={this.state.view}></SelectedWallet>;
   }
 
