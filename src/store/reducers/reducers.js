@@ -43,18 +43,10 @@ const getWallets = (state = userWallets, action) => {
     return state;
   case 'FETCH_GET_WALLETS_SUCCESS':
     return action.data;
-  case 'FETCH_ADD_USER':
-    return state;
-  case 'FETCH_ADD_USER_SUCCESS':
-    return state;
   case 'FETCH_CREATE_WALLET':
     return state;
   case 'FETCH_CREATE_WALLET_SUCCESS':
     return {...state, ...action.data};
-  case 'FETCH_PROPOSE_OPERATION':
-    return state;
-  case 'FETCH_PROPOSE_OPERATION_SUCCESS':
-    return state;
   case 'RESET_WALLETS':
     return [];
   default:

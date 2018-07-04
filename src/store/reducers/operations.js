@@ -31,6 +31,14 @@ export default (state = [], action) => {
     return state;
   case 'FETCH_VOTE_OPERATION_SUCCESS':
     return filterVoted(state, action.data);
+  case 'FETCH_PROPOSE_OPERATION':
+    return state;
+  case 'FETCH_PROPOSE_OPERATION_SUCCESS':
+    return [...state, action.data];
+  case 'FETCH_ADD_USER':
+    return state;
+  case 'FETCH_ADD_USER_SUCCESS':
+    return [...state, action.data];
   default:
     return state;
   }

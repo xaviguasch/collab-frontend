@@ -39,6 +39,14 @@ class SelectedWallet extends Component {
     this.props.fetchProposeOperation(data);
   }
 
+  fetchPendingOperations = () => {
+    this.props.fetchPendingOperations();
+  }
+
+  fetchGetWallets = () => {
+    this.props.fetchGetWallets();
+  }
+
   showPublicKey = () =>{
     this.setState({showPK:!this.state.showPK});
   }
@@ -70,14 +78,17 @@ class SelectedWallet extends Component {
               <UsersList addUser={this.addUser} users={this.props.wallet.users}
                 publickey={this.props.wallet.publickey} alias={this.props.wallet.alias}></UsersList>
             </div>
-            <ProposeOperation wallet={this.props.wallet} proposeOperation={this.proposeOperation}/>
+            <ProposeOperation wallet={this.props.wallet}
+              proposeOperation={this.proposeOperation}
+              fetchPendingOperations={this.fetchPendingOperations}
+              fetchGetWallets={this.fetchGetWallets}/>
           </div>
           <div className='selectedWallet-icons'>
             <div className='selectedWallet-icons-bitcoin'>
               <img src={bitcoin} />
 
             </div>
-            <p>{this.props.wallet.balance/1000000000} BTC</p>
+            <p>{this.props.wallet.balance/100000000} BTC</p>
             <div className='selectedWallet-icons-user'>
               <img src={usericon} />
             </div>
@@ -130,6 +141,8 @@ SelectedWallet.propTypes = {
   fetchAddUser: PropTypes.func.isRequired,
   users: PropTypes.object.isRequired,
   fetchProposeOperation: PropTypes.func.isRequired,
+  fetchPendingOperations: PropTypes.func.isRequired,
+  fetchGetWallets: PropTypes.func.isRequired,
   wallet: PropTypes.object.isRequired,
   operations: PropTypes.array.isRequired
 };
@@ -155,6 +168,18 @@ const mapDispatchToProps = (dispatch) => ({
       method: 'POST',
       path: '/wallet/add_user',
       body: data
+    }
+  }),
+  fetchPendingOperations: () => dispatch({
+    type: 'FETCH_ALL_PENDING_OPERATIONS',
+    [API]: {
+      path: '/operations/pending'
+    }
+  }),
+  fetchGetWallets: () => dispatch({
+    type: 'FETCH_GET_WALLETS',
+    [API]: {
+      path: '/wallet'
     }
   })
 });

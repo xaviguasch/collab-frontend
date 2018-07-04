@@ -17,11 +17,13 @@ class ProposeOperation extends Component {
     const data = {
       publicKey : this.props.wallet.publickey,
       message: this.state.message,
-      amount: this.state.amount,
+      amount: this.state.amount * 100000000,
       target_publicAdress: this.state.target_publicAddress
     };
     this.resetInputs();
     this.props.proposeOperation(data);
+    this.props.fetchPendingOperations();
+    this.props.fetchGetWallets();
   }
 
   resetInputs = () => {
@@ -98,7 +100,9 @@ class ProposeOperation extends Component {
 
 ProposeOperation.propTypes = {
   wallet: PropTypes.object.isRequired,
-  proposeOperation: PropTypes.func.isRequired
+  proposeOperation: PropTypes.func.isRequired,
+  fetchPendingOperations: PropTypes.func.isRequired,
+  fetchGetWallets: PropTypes.func.isRequired
 };
 
 export default ProposeOperation;

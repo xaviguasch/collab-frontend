@@ -13,7 +13,7 @@ class TransactionList extends Component {
             <div className='transaction' key={transaction.transaction_str+Math.random()}> {/*change this*/}
               <h1>transaction</h1>
               <p>
-                <span>{transaction.amount/1000000000} BTC</span>
+                <span>{transaction.amount/100000000} BTC</span>
                 <span>{transaction.date.slice(0,10)}</span>
                 <span>ID: {transaction.transaction_str}</span>
                 <span>{transaction.type}</span>

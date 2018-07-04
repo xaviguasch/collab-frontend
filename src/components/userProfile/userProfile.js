@@ -50,8 +50,8 @@ class UserProfile extends Component {
             <a onClick={() => this.handleOnClick(e)}>
               <div className='up-userprofile-menuitem'>
                 <p >{e.alias}</p>
-                <p>{e.balance/1000000000}</p>
-                {/* <p>{(e.balance/1000000000) * this.state.rate}</p> */}
+                <p>{e.balance/100000000}</p>
+                {/* <p>{(e.balance/100000000) * this.state.rate}</p> */}
               </div>
             </a>
           </Menu.Item>
