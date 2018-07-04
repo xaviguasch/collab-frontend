@@ -68,10 +68,9 @@ class UsersList extends Component {
           <p>{this.props.alias} Collaborators</p>
         </div>
         {this.addUser()}
-        <button className='addUser-button' onClick={this.handleOnClick}>Add User</button>
-        {this.getUsers()}
+        <button className='userList-addUser-button' onClick={this.handleOnClick}>Add User</button>
         <ul className='usersList-list'>
-          {this.getUsers}
+          {this.getUsers()}
         </ul>
       </div>
     );

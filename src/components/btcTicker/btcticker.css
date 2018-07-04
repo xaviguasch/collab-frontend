@@ -1,20 +1,22 @@
-.ticker {
+.btc-ticker {
   display: flex;
   align-items: baseline;
   font-size: 16px;
   font-weight: lighter;
 }
 
+
 .price {
   color:rgba(255, 255, 255);
+
 }
 
-.movement {
+.btc-movement {
   padding-left: 1vw;
   color:rgba(255, 255, 255);
 }
 
-.arrow {
+.btc-arrow {
   margin-left: 0.3vw;
   height: 1vw;
   width: 1vw;

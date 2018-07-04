@@ -1,7 +1,7 @@
 // Inspired by https://dribbble.com/shots/1821178-Sales-Report/
 import React, { Component } from 'react';
-import './graph.css'
-import Chart from 'chart.js'
+import './graph.css';
+import Chart from 'chart.js';
 
 class Graph extends Component {
 
@@ -39,11 +39,11 @@ class Graph extends Component {
         }
       }
       return arr;
-    }
+    };
 
-    let months = calculateGraph()
-    let currentBalance = balance
-    currentBalance = currentBalance / 100000 // convert Satoshis to mBTC
+    let months = calculateGraph();
+    let currentBalance = balance;
+    currentBalance = currentBalance / 100000; // convert Satoshis to mBTC
     let data = {
       labels: [
         months[3],
@@ -58,18 +58,18 @@ class Graph extends Component {
             17,
             22,
             currentBalance
-            ],
+          ],
           showLabel: false,
-          backgroundColor: "rgba(255, 0, 178, 0.2)",
-          borderColor: "rgb(255, 0, 178)",
+          backgroundColor: 'rgba(255, 0, 178, 0.2)',
+          borderColor: 'rgb(255, 0, 178)',
           borderWidth: 2,
-          pointBackgroundColor: "rgb(255, 0, 178)",
+          pointBackgroundColor: 'rgb(255, 0, 178)',
           pointRadius: 3
         },
       ]
-    }
+    };
 
-    let ctx = document.getElementById("c1")
+    let ctx = document.getElementById('c1');
     let chart1 = new Chart(ctx, {
       type: 'line',
       data,
@@ -83,7 +83,7 @@ class Graph extends Component {
         responsive: true,
         title: {
           display: true,
-          text: `Balance`,
+          text: 'Balance',
           fontStyle: 'lighter',
           fontSize: 30,
         },
@@ -94,26 +94,26 @@ class Graph extends Component {
             }
           }],
         }
-       }
-    })
-    return chart1
+      }
+    });
+    return chart1;
   }
 
   componentDidMount() {
-    this.showGraph(this.props.wallet.balance)
+    this.showGraph(this.props.wallet.balance);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.showGraph(nextProps.wallet.balance)
+    this.showGraph(nextProps.wallet.balance);
   }
 
   render() {
     return (
-      <div className="chart">
+      <div className="graph-chart">
         <canvas id="c1" width="900" height="300"></canvas>
       </div>
     );
   }
 }
 
-export default Graph
+export default Graph;

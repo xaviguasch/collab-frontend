@@ -1,7 +1,7 @@
 
 
 
-.mainscreen-component {
+.ms-mainscreen-component {
   height: 100%;
   width: 100%;
   /* background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)); */
@@ -9,14 +9,14 @@
   z-index: 1;
 }
 
-.first-mainscreen-component {
+.ms-first-mainscreen-component {
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
 
-.second-mainscreen-component {
+.ms-second-mainscreen-component {
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 3;
   min-height: 100%;
@@ -44,7 +44,7 @@
   z-index: 0;
 }
 
-.title-mainscreen {
+.ms-title-mainscreen {
   font-size: 50px;
   font-weight: lighter;
   color: rgba(255, 255, 255, 2);
@@ -59,7 +59,7 @@
 }
 
 
-.title-mainscreen-text {
+.ms-title-mainscreen-text {
   font-size: 35px;
   font-weight: lighter;
   color: rgba(255, 255, 255, 2);
@@ -73,13 +73,13 @@
   z-index: 7;
 }
 
-.about {
+.ms-about {
   min-width: 100%;
   min-height: 100%;
   background-image: url('./newpic.png');
 }
 
-.scroll {
+.ms-scroll {
   height: auto;
   width: 150px;
   justify-content: center;
@@ -90,7 +90,7 @@
   z-index: 7;
 }
 
-.container {
+.ms-container {
   padding-top: 10vh;
   padding-bottom: 12vh;
   background-color: #fff;
@@ -104,7 +104,7 @@
 
 }
 
-h1 {
+.ms-h1 {
   color: white;
   font-size: 3.5rem;
   letter-spacing: 10px;
@@ -114,14 +114,14 @@ h1 {
 
 }
 
-.header {
+.ms-header {
   padding-top: 12vh;
   padding-bottom: 13vh;
   text-align: center;
   background-image: url('./newpic.png');
 }
 
-.big-title {
+.ms-big-title {
   font-size: 50px;
   font-weight: 150;
   color: rgba(255, 255, 255, 2);
@@ -131,7 +131,7 @@ h1 {
   z-index: 7;
 }
 
-.first-title {
+.ms-first-title {
   color: grey;
   font-size: 1.75rem;
   letter-spacing: 1px;
@@ -140,7 +140,7 @@ h1 {
 }
 
 
-.inner-text {
+.ms-inner-text {
   color: #3e4444;
   font-size: 1rem;
   font-weight: 200;
@@ -154,7 +154,7 @@ h1 {
 
 
 
-.padding-space {
+.ms-padding-space {
   padding-top: 5vh;
   padding-bottom: 5vh
 }
@@ -162,7 +162,7 @@ h1 {
 
 
 
-.center-bit {
+.ms-center-bit {
   padding-top: 10vh;
   padding-bottom: 12vh;
   background-color: #fff;
@@ -170,10 +170,7 @@ h1 {
   justify-content: center;
 }
 
-.center-inner {
+.ms-center-inner {
   text-align: center;
   width: 60%;
 }
-
-
-

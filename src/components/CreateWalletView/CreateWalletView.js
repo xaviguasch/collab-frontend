@@ -3,13 +3,15 @@ import CreateWallet from '../createWallet/createWallet';
 import PropTypes from 'prop-types';
 import './CreateWalletView.css';
 
+
+
 class CreateWalletView extends Component {
   render () {
     return (
       <div className="CreateWalletView">
         {this.props.form
           ? <CreateWallet />
-          : <button onClick={this.props.handleOnClick}>Create Wallet</button>}
+          : <button className='cwv-create-wallet-button' onClick={this.props.handleOnClick}>Create Wallet</button>}
       </div>
     );
   }

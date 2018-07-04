@@ -48,7 +48,7 @@ class NewUserView extends Component {
         <label className="formfield" >
           <p className="form-name">FIRST NAME</p>
           <input
-            className="inputfield"
+            className="nuv-inputfield"
             placeholder="enter your name..."
             onChange={this.handleChange}
             type="text"
@@ -56,10 +56,12 @@ class NewUserView extends Component {
             required
           />
         </label>
+
         <label className="formfield" >
           <p className="form-name">LAST NAME</p>
+
           <input
-            className="inputfield"
+            className="nuv-inputfield"
             placeholder="enter your lastname..."
             onChange={this.handleChange}
             type="text"
@@ -67,10 +69,12 @@ class NewUserView extends Component {
             required
           />
         </label>
+
         <label className="formfield" >
+
           <p className="form-name">USERNAME</p>
           <input
-            className="inputfield"
+            className="nuv-inputfield"
             placeholder="choose a username..."
             onChange={this.handleChange}
             type="text"
@@ -78,10 +82,12 @@ class NewUserView extends Component {
             required
           />
         </label>
+
         <label className="formfield" >
           <p className="form-name">PUBLIC KEY</p>
+
           <input
-            className="inputfield"
+            className="nuv-inputfield"
             placeholder="enter your public key..."
             onChange={this.handleChange}
             type="text"
@@ -89,10 +95,11 @@ class NewUserView extends Component {
             required
           />
         </label>
+
         <label className="formfield" >
           <p className="form-name">PASSWORD</p>
           <input
-            className="inputfield"
+            className="nuv-inputfield"
             placeholder="choose your password..."
             onChange={this.handleChange}
             type="password"
@@ -100,10 +107,12 @@ class NewUserView extends Component {
             required
           />
         </label>
+
         <label className="formfield" >
           <p className="form-name">CONFIRM PASSWORD</p>
+
           <input
-            className="inputfield"
+            className="nuv-inputfield"
             placeholder="confirm your password..."
             onChange={this.handleChange}
             type="password"
@@ -111,10 +120,12 @@ class NewUserView extends Component {
             required
           />
         </label>
+
         <label className="formfield" >
           <p className="form-name">E-MAIL</p>
+
           <input
-            className="inputfield"
+            className="nuv-inputfield"
             placeholder="enter your e-mail..."
             onChange={this.handleChange}
             type="email"
@@ -122,7 +133,7 @@ class NewUserView extends Component {
             required
           />
         </label>
-        <input className="submitbutton" type="submit" value="Submit" />
+        <input className="nuv-submitbutton" type="submit" value="Submit" />
       </form>
     );
   }

@@ -185,7 +185,6 @@ class SelectedWallet extends Component {
   }
 }
 
-
 SelectedWallet.propTypes = {
   userLogged: PropTypes.object.isRequired,
   renderTransactions: PropTypes.array.isRequired,
@@ -194,7 +193,7 @@ SelectedWallet.propTypes = {
   users: PropTypes.object.isRequired,
   fetchProposeOperation: PropTypes.func.isRequired,
   wallet: PropTypes.object.isRequired,
-
+  operations: PropTypes.array.isRequired
 };
 
 //exports
@@ -209,7 +208,7 @@ const mapDispatchToProps = (dispatch) => ({
     [API]: {
       path: '/operations',
       method: 'POST',
-      data
+      body: data
     }
   }),
   fetchAddUser: (data) => dispatch({

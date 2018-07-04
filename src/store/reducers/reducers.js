@@ -1,7 +1,7 @@
 //imports
 import { combineReducers } from 'redux';
-import operations from './operations';
 import transactions from './transactions';
+import operations from './operations';
 //initial states
 
 let userLoggedIn = {};
@@ -39,7 +39,6 @@ const userLogged = (state = userLoggedIn, action) => {
 
 const getWallets = (state = userWallets, action) => {
   switch (action.type) {
-
   case 'FETCH_GET_WALLETS':
     return state;
   case 'FETCH_GET_WALLETS_SUCCESS':
@@ -56,13 +55,13 @@ const getWallets = (state = userWallets, action) => {
     return state;
   case 'FETCH_PROPOSE_OPERATION_SUCCESS':
     return state;
+  case 'RESET_WALLETS':
+    return [];
   default:
     return state;
 
   }
 };
-
-
 
 //export reducers
 export const reducers = combineReducers({
