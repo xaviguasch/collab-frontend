@@ -60,7 +60,7 @@ class SelectedWallet extends Component {
   percentageOperation = () => {
     let approved = 0;
     let rejected = 0;
-    if (this.props.operations.length < 1) return 0;
+    if (this.props.wallet.operations.length < 1) return 0;
     this.props.wallet.operations.forEach(e=>{
       if(e.result==='Approved') approved++;
       if(e.result==='Rejected') rejected++;
