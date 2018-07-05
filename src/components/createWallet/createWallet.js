@@ -25,7 +25,7 @@ class CreateWallet extends Component {
     };
     this.props.fetchCreateWallet(data);
     this.setState({created:true});
-    setTimeout(()=> window.location.reload(), 500);
+    setTimeout(()=> window.location.reload(), 1200);
   }
 
   captureUser = e => {
@@ -55,7 +55,8 @@ class CreateWallet extends Component {
   render () {
     return (
       <div className="createWallet">
-        {this.state.created ? <h1>Wallet Created</h1>
+        {this.state.created
+          ? <h1>Wallet Created</h1>
           : <form className="createWallet_form" onSubmit={this.handleOnSubmit}>
             <input
               name="alias"
@@ -77,6 +78,7 @@ class CreateWallet extends Component {
               />
               <button
                 className="createWallet_form_input-button-addUser"
+                type="button"
                 onClick={this.pushUser}>
               Add User
               </button>
