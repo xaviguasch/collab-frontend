@@ -42,6 +42,12 @@ class UserProfile extends Component {
     });
   }
 
+  renderSideWalletAlias = (alias) => {
+    return alias.length > 15
+      ? alias.slice(0,15) + '...'
+      : alias;
+  }
+
   renderSideWallets = () => {
     if(this.props.renderWallets.wallets && this.props.renderWallets.wallets.length) {
       return this.props.renderWallets.wallets.map(e => {
@@ -49,7 +55,7 @@ class UserProfile extends Component {
           <Menu.Item key={e.publickey} >
             <a onClick={() => this.handleOnClick(e)}>
               <div className='userprofile-menuitem'>
-                <p >{e.alias}</p>
+                <p >{this.renderSideWalletAlias(e.alias)}</p>
                 <p>{(e.balance/100000000).toFixed(4)}</p>
               </div>
             </a>
