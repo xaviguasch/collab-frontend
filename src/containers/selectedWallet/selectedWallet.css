@@ -129,6 +129,7 @@
   border-radius: 50%;
   padding:1.1em;
   border:solid rgb(234,142,5);
+  transition: 0.3s ease;
 }
 
 
@@ -136,17 +137,20 @@
   border-radius:50%;
   border:solid skyblue;
   padding:1.1em;
+  transition: 0.3s ease;
 }
 
 .selectedWallet-icons-approved {
   border: solid rgb(56,175,91);
   border-radius:50%;
   padding:1.1em;
+  transition: 0.3s ease;
 }
 .selectedWallet-icons-operation {
   border: solid #ff7979;
   border-radius:50%;
   padding:1.1em;
+  transition: 0.3s ease;
 }
 
 .selectedWallet-icons-approved img {
@@ -165,7 +169,7 @@
   color:rgb(211,211,211);
   border:1px solid rgb(211,211,211);
   border-radius:20px;
-
+  transition: 0.3s ease;
 }
 
 .addTransactionButton:hover {

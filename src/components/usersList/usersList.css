@@ -32,8 +32,8 @@
   margin-top: 4%;
   background-color: rgb(5,21,41);
   color:rgb(211,211,211);
-  border:1px solid rgb(211,211,211)
-
+  border:1px solid rgb(211,211,211);
+  transition: 0.3s ease;
 }
 .addUser-button:hover {
   border-width: 3px;
