@@ -21,19 +21,16 @@ class OperationHistory extends Component {
       stateCopy = Object.assign({}, this.state);
       stateCopy.filter.Approved = !this.state.filter.Approved;
       this.setState(stateCopy);
-      console.log(this.state.filter);
     break;
     case 'Pending':
       stateCopy = Object.assign({}, this.state);
       stateCopy.filter.Pending = !this.state.filter.Pending;
       this.setState(stateCopy);
-      console.log(this.state.filter);
     break;
     case 'Rejected':
       stateCopy = Object.assign({}, this.state);
       stateCopy.filter.Rejected = !this.state.filter.Rejected;
       this.setState(stateCopy);
-      console.log(this.state.filter);
     break;
     }
   }
@@ -83,7 +80,6 @@ class OperationHistory extends Component {
   }
 
   render () {
-    console.log(this.state.filter);
     if (this.props.operations.length < 1) return <h3 id='no-operations'>No operations yet</h3>;
     return (
       <div className="OperationHistory">
