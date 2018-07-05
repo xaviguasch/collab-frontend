@@ -102,12 +102,12 @@ class NavBar extends Component {
 
   componentDidMount () {
     window.onscroll = () => {
-       this.setState({currentScrollHeight: window.scrollY})
+      this.setState({currentScrollHeight: window.scrollY})
     }
   }
 
   render() {
-    const opacity = Math.min(((this.state.currentScrollHeight) / 600) -1 , 0.8)
+    const opacity = Math.min(((this.state.currentScrollHeight) / 600) -1 , 0.8);
     return (
       <div
         className={this.props.userLogged.username
@@ -115,11 +115,8 @@ class NavBar extends Component {
           : 'navbar-container'
         }
         style={!this.props.userLogged.username
-              ? {'background-color': `rgba(5,21,41,${opacity})`}
-              // ? {'background': 'rgb(0,0,0)'}
-              : {'background': 'transparent'}
-            }
-        >
+          ? {'background-color': `rgba(5,21,41,${opacity})`}
+          : null}>
         <Link
           className="navbar-title"
           to="/">
