@@ -43,7 +43,8 @@ class Graph extends Component {
 
     let months = calculateGraph()
     let currentBalance = balance
-    currentBalance = currentBalance / 100000 // convert Satoshis to mBTC
+    currentBalance = currentBalance / 100000000
+    let one =  currentBalance * 1.2
     let data = {
       labels: [
         months[3],
@@ -54,9 +55,9 @@ class Graph extends Component {
       datasets: [
         {
           data: [
-            20,
-            17,
-            22,
+            one,
+            0.864,
+            0.223,
             currentBalance
             ],
           showLabel: false,
