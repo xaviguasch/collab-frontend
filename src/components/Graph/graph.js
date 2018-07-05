@@ -75,18 +75,20 @@ class Graph extends Component {
       type: 'line',
       data,
       options: {
-        scaleGridLineColor : "rgba(255,255,255,1)",
-        scaleFontColor : "rgba(255,255,255,0.7)",
-
+        scales: {
+            scaleGridLineColor : "rgba(255,255,255,1)",
+            scaleFontColor : "rgba(255,255,255,0.7)",
+        },
         legend: {
           display: false
         },
         responsive: true,
         title: {
           display: true,
-          text: `Balance`,
+          text: `Balance History`,
           fontStyle: 'lighter',
           fontSize: 30,
+          fontColor:'rgb(255,255,255)'
         },
         scales: {
           yAxes: [{

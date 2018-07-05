@@ -209,7 +209,7 @@ class SelectedWallet extends Component {
               proposeOperation={this.proposeOperation}
               fetchPendingOperations={this.fetchPendingOperations}
               fetchGetWallets={this.fetchGetWallets}/> }
-            <button onClick={this.addTransactionButton} className='addTransactionButton'>Create Transaction</button>
+            <button onClick={this.addTransactionButton} className={(!this.state.showAddTrans) ? 'addTransactionButton':'NOaddTransactionButton'}>Create Transaction</button>
           </div>
           <OperationHistory operations={this.props.wallet.operations}/>
         </div>

@@ -30,7 +30,7 @@ class LogIn extends Component {
 
   render() {
     return (
-      <form className="login-component" onSubmit={this.getUser}>
+      <form autoComplete='off' className="login-component" onSubmit={this.getUser}>
         <input
           name="username"
           type="text"

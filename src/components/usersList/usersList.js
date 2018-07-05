@@ -33,7 +33,7 @@ class UsersList extends Component {
   addUser = () => {
     if(this.state.addUser) return (
       <div className='usersList-addUser'>
-        <form onSubmit={this.submitUser}>
+        <form autoComplete='off' onSubmit={this.submitUser}>
           <input onChange={this.onChange} name='userInput'
             className='usersList-addUser-input'
             value={this.state.userInput} type='text' placeholder='Username' ></input>

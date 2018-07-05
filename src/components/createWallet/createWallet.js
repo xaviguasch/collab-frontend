@@ -57,7 +57,7 @@ class CreateWallet extends Component {
       <div className="createWallet">
         {this.state.created
           ? <h1>Wallet Created</h1>
-          : <form className="createWallet_form" onSubmit={this.handleOnSubmit}>
+          : <form  autoComplete= 'off' className="createWallet_form" onSubmit={this.handleOnSubmit}>
             <input
               name="alias"
               type="text"

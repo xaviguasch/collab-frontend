@@ -44,7 +44,7 @@ class NewUserView extends Component {
   render() {
     if (this.state.redirectToUserView) return <Redirect to='/user' />;
     return (
-      <form className="form" onSubmit={this.handleSubmit}>
+      <form autoComplete='off' className="form" onSubmit={this.handleSubmit}>
         <label className="formfield" >
           <p className="form-name">FIRST NAME</p>
           <input
