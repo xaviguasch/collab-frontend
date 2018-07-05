@@ -13,10 +13,27 @@ import PropTypes from 'prop-types';
 //main screen, import component add title
 class MainScreen extends Component {
 
+  constructor (props) {
+    super(props);
+    this.state = {
+      playVideo:true
+    };
+  }
+
+  componentDidMount() {
+    // setTimeout(()=>{
+    //   this.setState({
+    //     playVideo: true
+    //   })
+    // },3000)
+  }
+
   playVideo = () => {
-    return  (<video width="100%" autoPlay loop className="videoContainer">
-      <source src={video} type="video/mp4" />
-    </video>);
+    if (this.state.playVideo) return (
+      <video width="100%" autoPlay muted loop className="videoContainer">
+        <source src={video} type="video/mp4" />
+      </video>
+    );
   }
 
   scrollWscroll() {
@@ -31,11 +48,11 @@ class MainScreen extends Component {
     return (
       <div className="mainscreen-component">
         <div className="first-mainscreen-component">
-          {this.playVideo()}
+          {this.state.playVideo ? this.playVideo() : null}
           <div className="second-mainscreen-component">
             <p className="title-mainscreen">THE FIRST DEMOCRATIC BLOCKCHAIN SHARED WALLET APP</p>
 
-            <img className='scroll' size='1' src={scroll} onClick={() => this.scrollWscroll()}/>
+            {/* <img className='scroll' size='1' src={scroll} onClick={() => this.scrollWscroll()}/> */}
           </div>
         </div>
 
