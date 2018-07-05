@@ -7,18 +7,18 @@ class OperationHistory extends Component {
   renderOperationResultIcon = (result) => {
     switch (result) {
     case 'Approved':
-      return 'Approved';
+      return '. Approved';
       // return '✅';
     case 'Rejected':
-      return 'Rejected';
+      return '. Rejected';
       // return '❌';
     case 'pending':
-      return 'Pending';
+      return '. Pending';
       // return '⌛️';
     case 'Failed':
-    return 'Failed Operation';
+      return '. Failed Operation';
     default:
-      return 'Pending';
+      return '. Pending';
       // return '⌛️';
     }
   }
@@ -34,6 +34,12 @@ class OperationHistory extends Component {
     }
   }
 
+  renderOperationAmount = (op) => {
+    return op.type === 'transfer'
+      ? `Amount: ${op.amount / 100000000}BTC`
+      : `User to add: ${op.user_to_act}`;
+  }
+
   render () {
     if (this.props.operations.length < 1) return <h3 id='no-operations'>No operations yet</h3>;
     return (
@@ -46,7 +52,7 @@ class OperationHistory extends Component {
             return <div key={operation.operation_id + operation.closed_at}
               className={(operation.result==='Approved') ? 'OperationHistory_operation3':(operation.result==='Rejected') ? 'OperationHistory_operation1':'OperationHistory_operation2'}>
               <h3>{`Type: ${this.renderOperationType(operation.type)}`}</h3>
-              <p>{`Amount: ${operation.amount / 100000000}BTC`}</p>
+              <p>{this.renderOperationAmount(operation)}</p>
               <p>{`Description: '${operation.message}'`}</p>
               <div className='OperationHistory-operation-bottom'>
                 <p>{(operation.closed_at) ? `Date: ${operation.closed_at.slice(0,10)}`: 'To be determined'}</p>
