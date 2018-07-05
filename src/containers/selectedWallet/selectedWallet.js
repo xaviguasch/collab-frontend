@@ -40,17 +40,27 @@ class SelectedWallet extends Component {
       }));
   }
 
-  addTransactions = () => {
-    let totalTransactions = 0;
-    this.props.wallet.transactions.forEach(e => {
-      if (e.type==='outbound') {
-        totalTransactions = totalTransactions - (e.amount/100000000);
-      } else {
-        totalTransactions = totalTransactions + (e.amount/100000000);
-      }
-    }
+  calcProportionInbOutbTransactions = () => {
+    if (this.props.wallet.transactions.length < 1) return (
+      <div className='in-out'>
+        <p>0% | 0%</p>
+        <h8>inbound | outbound </h8>
+      </div>
     );
-    return (totalTransactions*Number(this.state.price)).toFixed(2);
+    let totalTx = this.props.wallet.transactions.length;
+    let outboundTx = 0;
+    let inboundTx = 0;
+    this.props.wallet.transactions.forEach(e => {
+      if (e.type==='outbound') outboundTx++;
+      if (e.type==='inbound') inboundTx++;
+    });
+
+    return (
+      <div className='in-out'>
+        <p>{`${((inboundTx / totalTx) * 100).toFixed()}% | ${((outboundTx / totalTx) * 100).toFixed()}%`}</p>
+        <h8>inbound | outbound </h8>
+      </div>
+    );
   }
 
   addTransactionButton = () => {
@@ -183,8 +193,7 @@ class SelectedWallet extends Component {
                 <h8>Transactions</h8>
               </div>
               <div className='selectedWallet-icon-each-info-hover'>
-                <p>{(this.addTransactions()>=0) ? `+${this.addTransactions()}`:`-${this.addTransactions()}`}</p>
-                <h8>Total EUR</h8>
+                {this.calcProportionInbOutbTransactions()}
               </div>
             </div>
 
