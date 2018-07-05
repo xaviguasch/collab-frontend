@@ -8,6 +8,7 @@
 // };
 
 const filterVoted = (base, operation) => {
+  if (!operation) return base;
   const filteredOperations = [];
   Array.isArray(base) ? null : base = Array.from(base);
   base.forEach(el => {
@@ -22,11 +23,12 @@ export default (state = [], action) => {
   case 'FETCH_ALL_PENDING_OPERATIONS':
     return state;
   case 'FETCH_ALL_PENDING_OPERATIONS_SUCCESS':
-    return Object.values(action.data)[0];
-  // case 'FETCH_WALLET_PENDING_OPERATIONS':
-  //   return state;
-  // case 'FETCH_WALLET_PENDING_OPERATIONS_SUCCESS':
-  //   return action.data;
+    try {
+      const data = Object.values(action.data)[0];
+      return data;
+    } catch (e) {
+      return state;
+    }
   case 'FETCH_VOTE_OPERATION':
     return state;
   case 'FETCH_VOTE_OPERATION_SUCCESS':
@@ -34,11 +36,11 @@ export default (state = [], action) => {
   case 'FETCH_PROPOSE_OPERATION':
     return state;
   case 'FETCH_PROPOSE_OPERATION_SUCCESS':
-    return [...state, action.data];
+    return [...state, action.data] || state;
   case 'FETCH_ADD_USER':
     return state;
   case 'FETCH_ADD_USER_SUCCESS':
-    return [...state, action.data];
+    return [...state, action.data] || state;
   default:
     return state;
   }
