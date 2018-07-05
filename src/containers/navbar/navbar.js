@@ -99,11 +99,30 @@ class NavBar extends Component {
       </div>
     </div>);
   }
-  render() {
 
+  componentDidMount () {
+    window.onscroll = () => {
+       this.setState({currentScrollHeight: window.scrollY})
+    }
+  }
+
+  render() {
+    const opacity = Math.min(((this.state.currentScrollHeight) / 600) -1 , 0.8)
     return (
-      <div className={this.props.userLogged.username ? 'navbar-container2' : 'navbar-container'}>
-        <Link className="navbar-title" to="/">
+      <div
+        className={this.props.userLogged.username
+          ? 'navbar-container2'
+          : 'navbar-container'
+        }
+        style={!this.props.userLogged.username
+              ? {'background-color': `rgba(5,21,41,${opacity})`}
+              // ? {'background': 'rgb(0,0,0)'}
+              : {'background': 'transparent'}
+            }
+        >
+        <Link
+          className="navbar-title"
+          to="/">
           <img src={icon} className="logo" />
           <p className='title'>
             COLLAB

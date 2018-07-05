@@ -44,7 +44,7 @@ class ProposeOperation extends Component {
   render () {
     return (
       <div className="ProposeOperation">
-        <form className="ProposeOperation_form" onSubmit={this.handleOnSubmit}>
+        <form autoComplete='off' className="ProposeOperation_form" onSubmit={this.handleOnSubmit}>
           <div className='ProposeOperation-form-message-amount'>
             <label htmlFor="Description" id='first-element'>
 
@@ -70,20 +70,6 @@ class ProposeOperation extends Component {
               />
             </label>
           </div>
-
-          {/* This doesn't work yet for some reason */}
-          {/* <label htmlFor="Receiver from this wallet">
-            <select
-              onChange={this.captureInput}>
-              {this.props.wallet && this.props.wallet.users.map(user => {
-                return <option
-                  key={user.username + user.publicAddress}
-                  value={user.publicAddress}
-                  name="target_publicAddress"
-                >{user.username}</option>;
-              })}
-            </select>
-          </label> */}
 
           <div className='ProposeOperation-form-address-input'>
             <label htmlFor="Receiver by public address" id='first-element'>

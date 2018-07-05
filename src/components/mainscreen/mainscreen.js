@@ -20,14 +20,6 @@ class MainScreen extends Component {
     };
   }
 
-  componentDidMount() {
-    // setTimeout(()=>{
-    //   this.setState({
-    //     playVideo: true
-    //   })
-    // },3000)
-  }
-
   playVideo = () => {
     if (this.state.playVideo) return (
       <video width="100%" autoPlay muted loop className="videoContainer">
