@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://image.ibb.co/fcLZWd/collab_wallet_logo.png" width="700px" />
+  <img src="https://image.ibb.co/fcLZWd/collab_wallet_logo.png" width="500px" />
 </p>
 
 > A Bitcoin shared wallet app, designed to rapidly agree and execute group expenses through unanimous voting.
