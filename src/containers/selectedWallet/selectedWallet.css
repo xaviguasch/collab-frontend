@@ -1,0 +1,280 @@
+
+.selectedWallet-father {
+  display:flex;
+  flex-direction: column;
+  /* background-color: grey; */
+  height:100%;
+  width:100%;
+  background-color: rgb(5,21,41);
+
+
+}
+
+.selectedWallet-header {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  /*font-size: 1.2rem;*/
+  border-bottom: 2px solid #2a3843;
+  margin-top:20px;
+  margin-bottom:20px;
+  padding:20px;
+  margin-left: 30px;
+  margin-right: 30px;
+
+}
+
+.selectedWallet-header-alias {
+  margin-left: 20px;
+  color:rgb(211,211,211);
+  font-size: 1.7rem;
+  font-weight: 600;
+  float: left;
+}
+
+.selectedWallet-header-publickey-button {
+  margin-right: 50px;
+
+
+}
+
+.selectedWallet-header-publickey {
+  color:rgb(211,211,211);
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.selectedWallet-header-button {
+  color:black;
+  margin-right: 50px;
+  border-radius: 15px;
+  background-color: rgb(211,211,211);
+}
+
+
+.x {
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 32px;
+    color:black;
+    border-radius: 1000px;
+  }
+
+.selectedWallet-body {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10%;
+}
+
+#jons-button {
+  color:black;
+  margin-right: 50px;
+  border-radius: 15px;
+  background-color: rgb(211,211,211);
+}
+#jons-button:focus {
+  outline:none;
+}
+
+.selectedWallet-graph-usersList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:30%;
+  margin: 2% 3% 3% 3%;
+
+}
+
+.selectedWallet-graph {
+  width:65%;
+  height:auto;
+}
+
+
+.selectedWallet-usersList {
+  width:30%;
+  height:100%;
+  background-color: rgb(5,21,41);
+  display: flex;
+
+}
+
+/*ICONS*/
+
+.selectedWallet-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width:100%;
+  margin-top:1%;
+  margin-left: 8%;
+}
+.selectedWallet-icons > div {
+  width:22%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.selectedWallet-icons-user {
+  border-radius: 50%;
+  padding:1.1em;
+  border:solid rgb(234,142,5);
+  transition: 0.3s ease;
+}
+
+
+.selectedWallet-icons-bitcoin {
+  border-radius:50%;
+  border:solid skyblue;
+  padding:1.1em;
+  transition: 0.3s ease;
+}
+
+.selectedWallet-icons-approved {
+  border: solid rgb(56,175,91);
+  border-radius:50%;
+  padding:1.1em;
+  transition: 0.3s ease;
+}
+.selectedWallet-icons-operation {
+  border: solid #ff7979;
+  border-radius:50%;
+  padding:1.1em;
+  transition: 0.3s ease;
+}
+
+.selectedWallet-icons-approved img {
+  margin-left:8px;
+}
+.selectedWallet-icons-user img {
+  margin-bottom:4px;
+  margin-top: -2px;
+}
+
+
+.addTransactionButton {
+  width:30%;
+  align-self: center;
+  background-color: rgb(5,21,41);
+  color:rgb(211,211,211);
+  border:1px solid rgb(211,211,211);
+  border-radius:20px;
+  transition: 0.3s ease;
+}
+.NOaddTransactionButton {
+  display:none;
+}
+
+.addTransactionButton:hover {
+  border-width: 3px;
+}
+
+.ProposeOperation-button {
+  /*margin-top: 5%;*/
+  margin-top:5%;
+  margin-bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.selectedWallet-icon-each-info {
+  color:rgb(211,211,211);
+  margin-top: 2%;
+  margin-left:3%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.selectedWallet-icon-each-info p {
+  font-size: 2rem;
+  margin-bottom: 0px;
+  align-self: center;
+}
+
+.in-out{
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.selectedWallet-icon-each-info-hover {
+  display:none;
+  color:rgb(211,211,211);
+  margin-top: 2%;
+  margin-left:3%;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.selectedWallet-icon-each-info-hover p{
+  font-size: 2rem;
+  margin-bottom: 0px;
+  align-self: center;
+}
+
+.selectedWallet-icons-bitcoin-father:hover .selectedWallet-icon-each-info{
+  display: none;
+}
+.selectedWallet-icons-bitcoin-father:hover .selectedWallet-icon-each-info-hover{
+  display: block;
+}
+
+.selectedWallet-icons-user-father:hover .selectedWallet-icon-each-info{
+  display: none;
+}
+.selectedWallet-icons-user-father:hover .selectedWallet-icon-each-info-hover{
+  display: block;
+}
+
+.selectedWallet-icons-approved-father:hover .selectedWallet-icon-each-info{
+  display: none;
+}
+.selectedWallet-icons-approved-father:hover .selectedWallet-icon-each-info-hover{
+  display: block;
+}
+.selectedWallet-icons-operation-father:hover .selectedWallet-icon-each-info{
+  display: none;
+}
+.selectedWallet-icons-operation-father:hover .selectedWallet-icon-each-info-hover{
+  display: block;
+}
+
+
+
+.selectedWallet-icons-bitcoin-father:hover .selectedWallet-icons-bitcoin {
+  border-width: 5px;
+}
+.selectedWallet-icons-user-father:hover .selectedWallet-icons-user {
+  border-width: 5px;
+}
+.selectedWallet-icons-approved-father:hover .selectedWallet-icons-approved {
+  border-width: 5px;
+}
+.selectedWallet-icons-operation-father:hover .selectedWallet-icons-operation {
+  border-width: 5px;
+}
+
+.selectedWallet-header-operations {
+}
+
+#no-pending-ops{
+  font-size: 16px;
+  color: rgb(211,211,211)
+}

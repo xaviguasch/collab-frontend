@@ -1,0 +1,106 @@
+.OperationHistory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+.OperationHistory h2 {
+  color:rgb(211,211,211);
+
+
+}
+
+.OperationHistory-grid {
+  color:rgb(211,211,211);
+  display:grid;
+  grid-template-columns: auto auto auto;
+  background-color: rgb(5,21,41);
+  padding:10px;
+}
+.OperationHistory-grid h3{
+  color:rgb(211,211,211)
+}
+
+.OperationHistory_operation1 {
+  margin:5px;
+  padding: 5px;
+  border: 2px solid rgba(236,72,127,0.7);
+}
+
+.OperationHistory_operation2 {
+  margin:5px;
+  border: 2px solid rgba(234,142,57,0.7);
+  padding: 5px;
+}
+
+.OperationHistory_operation3 {
+  margin:5px;
+  border: 2px solid rgba(56,175,91,0.7);
+  padding: 5px;
+}
+
+#no-operations {
+  color:rgb(211,211,211);
+  align-self: center;
+  font-size: 1.5rem;
+}
+
+.OperationHistoryTitle {
+  display: flex;
+  align-items: baseline;
+}
+/*
+.OperationHistory-checkboxes-title {
+  width:80%;
+  margin-left: 5px;
+  align-self: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+} */
+
+.filterButtons {
+  display: flex;
+  margin-left: 20px;
+  padding-bottom: 2px;
+}
+
+.filterButtons button:active {
+  outline: none;
+}
+
+
+
+.operationHistory-filerButton-approved {
+  border-color: rgba(56,175,91,0.4);
+  height: 2vh;
+  width: 2vh;
+  margin-right: 1vh;
+  padding-bottom: 1px;
+  background-color: transparent;
+  outline: none;
+}
+
+
+
+
+.operationHistory-filerButton-pending {
+  border-color: rgba(234,142,5, 0.4);
+  height: 2vh;
+  width: 2vh;
+  margin-right: 1vh;
+  padding-bottom: 1px;
+  background-color: transparent;
+  outline: none;
+}
+
+.operationHistory-filerButton-rejected {
+  border-color: rgba(236,72,127,0.4);
+  height: 2vh;
+  width: 2vh;
+  margin-right: 1vh;
+  padding-bottom: 1px;
+  background-color: transparent;
+  outline: none;
+}

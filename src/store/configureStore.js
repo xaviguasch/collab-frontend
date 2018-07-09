@@ -1,16 +1,17 @@
-import { createStore } from "redux";
-import { reducers } from "../reducers/reducers";
-import logger from "redux-logger";
-import { applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from 'redux';
+import { reducers } from './reducers/reducers';
+import logger from 'redux-logger';
+import apiService from './middlewares/apiService';
+import { BASE_URL } from '../config/api.config';
+import { loadState, saveState } from './localStorageHelper';
 
-import { loadState, saveState } from "./localStorageHelper";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   reducers,
   loadState(),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-
-  // applyMiddleware(logger, socketEvents)
+  composeEnhancers(applyMiddleware( apiService(BASE_URL))),
 );
 
 store.subscribe(() => {

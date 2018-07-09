@@ -1,0 +1,41 @@
+.TransactionList {
+  color: rgba(211, 211, 211);
+  display: block;
+  max-height:600px;
+  margin:5% 5% 0% 5%;
+  margin-top:5%;
+  overflow: scroll;
+}
+
+
+
+.TransactionList > p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-left: 4%;
+  margin-bottom:4%;
+}
+
+.transaction {
+  color:rgb(211,211,211);
+  margin-top: 3vh;
+  border-bottom:1px solid rgb(211,211,211);
+}
+
+.transaction p {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+
+
+
+
+#transactions-no {
+  margin-top: 5%;
+  color:rgb(211,211,211);
+  align-self: center;
+  font-size: 1.5rem;
+}
